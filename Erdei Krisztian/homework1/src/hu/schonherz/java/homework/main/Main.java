@@ -1,11 +1,6 @@
 package hu.schonherz.java.homework.main;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import hu.schonherz.java.homework.IOhandler.IOHandler;
-import hu.schonherz.java.homework.datatypes.Server;
-import hu.schonherz.java.homework.datatypes.Sysadmin;
+import hu.schonherz.java.homework.serverchecker.Serverchecker;
 
 public class Main {
 
@@ -38,14 +33,15 @@ public class Main {
 	*   
 	*   
 	*/
-
-	public static void main(String[] args) {
-
-		List<Server> servers = new ArrayList<>();
-		servers = IOHandler.serverRead();
-
-		List<Sysadmin> sysadmins = new ArrayList<Sysadmin>();
-		sysadmins = IOHandler.sysadminRead();
-
+	private static void checktheservers(){
+		Serverchecker s = new Serverchecker();
+		s.run();
 	}
+	
+	public static void main(String[] args)  {
+	checktheservers();
+	}
+
 }
+	
+

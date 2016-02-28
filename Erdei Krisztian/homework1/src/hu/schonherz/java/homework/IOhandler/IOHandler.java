@@ -40,19 +40,24 @@ public class IOHandler {
 
 	public static List<Sysadmin> sysadminRead() {
 		String[] args;
-		List<Integer> adminOf = new ArrayList<Integer>();
+
 		List<Sysadmin> result = new LinkedList<Sysadmin>();
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("files//sysadmins.txt"));
 			String line;
 
 			while ((line = br.readLine()) != null) {
+				List<Integer> adminOf = new ArrayList<Integer>();
 				args = line.split(",");
 				if (args.length > 2) {
 					for (int i = 2; i < args.length; i++) {
+
 						adminOf.add(Integer.parseInt(args[i]));
+
 					}
+
 					result.add(new Sysadmin(args[0], Integer.parseInt(args[1]), adminOf));
+
 				}
 			}
 			br.close();

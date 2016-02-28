@@ -7,7 +7,6 @@ public class Sysadmin {
 	private String name;
 	private int ID;
 	List<Integer> adminOf = new ArrayList<Integer>();
-
 	public Sysadmin(String name, int iD, List<Integer> adminof) {
 		super();
 		this.name = name;
