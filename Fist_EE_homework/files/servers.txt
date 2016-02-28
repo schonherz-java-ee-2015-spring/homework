@@ -1,0 +1,4 @@
+1,SQL01,Win
+2,WEB01,LinuxWeb
+3,SQLNWEB01,LinuxDBandWEB
+4,WEB02,LinuxWeb
