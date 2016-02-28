@@ -41,7 +41,12 @@ public class Reader {
 	public void readSysAdmins() {
 		sysAdminList = (List<SystemAdministrator>) sysAdminReader
 				.readFromFile(new File(SUBDIRECTORY + File.separator + SYSADMINSFILENAME));
-		System.out.println(sysAdminList);
+//		System.out.println(sysAdminList);
+		System.out.println("SystemAdmins:");
+		for (SystemAdministrator sysadmin : sysAdminList) {
+			System.out.println(sysadmin.toString());
+		}
+		System.out.println("\n");
 	}
 
 	@SuppressWarnings("unchecked")
@@ -49,6 +54,10 @@ public class Reader {
 		serverList = (List<Server>) serverReader
 				.readFromFile(new File(SUBDIRECTORY + File.separator + SERVERSFILENAME));
 		System.out.println(serverList);
+		for (Server server : serverList) {
+			System.out.println(server.toString());
+		}
+		System.out.println("\n");
 
 	}
 
@@ -66,7 +75,7 @@ public class Reader {
 						for (int i = 2; i < array.length; ++i) {
 							serverIds.add(Integer.parseInt(array[i]));
 						}
-						sysAdminList.add(new SystemAdministrator(array[0], Integer.parseInt(array[1]), serverIds));
+						sysAdminList.add(new SystemAdministrator(array[0].trim(), Integer.parseInt(array[1]), serverIds));
 					} catch (IllegalArgumentException ex) {
 						// The data of this line is not valid
 					}
@@ -91,8 +100,8 @@ public class Reader {
 				while ((line = bufferedReader.readLine()) != null) {
 					try {
 						array = line.split(",");
-						status = this.helpForServerReader(array[3]);
-						serverList.add(new Server(Integer.parseInt(array[0]), array[1], array[2], status));
+						status = this.helpForServerReader(array[3].trim());
+						serverList.add(new Server(Integer.parseInt(array[0]), array[1].trim(), array[2].trim(), status));
 					} catch (IllegalArgumentException ex) {
 						// The data of this line is not valid
 					}
