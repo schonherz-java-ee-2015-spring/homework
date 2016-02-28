@@ -12,17 +12,18 @@ import java.util.TreeSet;
 
 import hu.schonherz.java.training.homwork1.server.Server;
 import hu.schonherz.java.training.homwork1.server.Server.Status;
-import hu.schonherz.java.training.homwork1.sysadmin.SystemAdministrator;
+import hu.schonherz.java.training.homwork1.sysadmin.SystemAdmin;
 
 public class Reader {
 
 	private static final Reader reader = new Reader();
 
-	private final String SUBDIRECTORY = "files";
-	private final String SERVERSFILENAME = "servers.txt";
-	private final String SYSADMINSFILENAME = "sysadmins.txt";
+	private final String FOLDER = "files";
+	private final String separator = File.separator;
+	private final String SERVERSFILE = "servers.txt";
+	private final String SYSADMINSFILE = "sysadmins.txt";
 
-	private List<SystemAdministrator> sysAdminList;
+	private List<SystemAdmin> sysAdminList;
 	private List<Server> serverList;
 
 	private Readable sysAdminReader;
@@ -39,11 +40,10 @@ public class Reader {
 
 	@SuppressWarnings("unchecked")
 	public void readSysAdmins() {
-		sysAdminList = (List<SystemAdministrator>) sysAdminReader
-				.readFromFile(new File(SUBDIRECTORY + File.separator + SYSADMINSFILENAME));
-//		System.out.println(sysAdminList);
+		sysAdminList = (List<SystemAdmin>) sysAdminReader.readFromFile(new File(FOLDER + separator + SYSADMINSFILE));
+		// System.out.println(sysAdminList);
 		System.out.println("SystemAdmins:");
-		for (SystemAdministrator sysadmin : sysAdminList) {
+		for (SystemAdmin sysadmin : sysAdminList) {
 			System.out.println(sysadmin.toString());
 		}
 		System.out.println("\n");
@@ -51,8 +51,7 @@ public class Reader {
 
 	@SuppressWarnings("unchecked")
 	public void readServers() {
-		serverList = (List<Server>) serverReader
-				.readFromFile(new File(SUBDIRECTORY + File.separator + SERVERSFILENAME));
+		serverList = (List<Server>) serverReader.readFromFile(new File(FOLDER + File.separator + SERVERSFILE));
 		System.out.println(serverList);
 		for (Server server : serverList) {
 			System.out.println(server.toString());
@@ -62,8 +61,8 @@ public class Reader {
 	}
 
 	private void initSysAdminReader() {
-		this.sysAdminReader = (file) -> {
-			List<SystemAdministrator> sysAdminList = new ArrayList<SystemAdministrator>();
+		sysAdminReader = (file) -> {
+			List<SystemAdmin> sysAdminList = new ArrayList<SystemAdmin>();
 			String line;
 			String[] array;
 			// try-with-resources
@@ -75,7 +74,7 @@ public class Reader {
 						for (int i = 2; i < array.length; ++i) {
 							serverIds.add(Integer.parseInt(array[i]));
 						}
-						sysAdminList.add(new SystemAdministrator(array[0].trim(), Integer.parseInt(array[1]), serverIds));
+						sysAdminList.add(new SystemAdmin(array[0].trim(), Integer.parseInt(array[1]), serverIds));
 					} catch (IllegalArgumentException ex) {
 						// The data of this line is not valid
 					}
@@ -90,7 +89,7 @@ public class Reader {
 	}
 
 	private void initServerReader() {
-		this.serverReader = (file) -> {
+		serverReader = (file) -> {
 			List<Server> serverList = new ArrayList<Server>();
 			String line;
 			String[] array;
@@ -101,7 +100,8 @@ public class Reader {
 					try {
 						array = line.split(",");
 						status = this.helpForServerReader(array[3].trim());
-						serverList.add(new Server(Integer.parseInt(array[0]), array[1].trim(), array[2].trim(), status));
+						serverList
+								.add(new Server(Integer.parseInt(array[0]), array[1].trim(), array[2].trim(), status));
 					} catch (IllegalArgumentException ex) {
 						// The data of this line is not valid
 					}
