@@ -1,12 +1,19 @@
 package hu.schonherz.java.homework.main;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import hu.schonherz.java.homework.IOhandler.IOHandler;
+import hu.schonherz.java.homework.datatypes.Server;
+import hu.schonherz.java.homework.datatypes.Sysadmin;
+
 public class Main {
 
 	/*
 	*  
 	*  1.
 	*  
-	*  Server osztály elkészítése az alábbi adattagokkal:
+	*  Server osztály alábbi adattagokkal:
 	*  	 1) ID of server
 	*    2) Name of server
 	*    3) type
@@ -14,16 +21,16 @@ public class Main {
 	* 
 	*  2.
 	*  
-	*   Sysadmin osztály elkészítése az alábbi adatagokkal
+	*   Sysadmin osztály alábbi adatagokkal
 	* 	
 	*    1) Name 
 	*    2) EmployeeID
 	*    3 (rest): Id of servers for he/she has right. (több is lehet)
 	* 
 	*  3.
-	*   IO handlers elkészítése: 
-	*   Server olvasás 
-	*   Sysadmin olvasás
+	*   IO handler: 
+	*   serverRead()
+	*  	sysadminRead()
 	*   
 	*  4.
 	*  
@@ -33,6 +40,12 @@ public class Main {
 	*/
 
 	public static void main(String[] args) {
-		
+
+		List<Server> servers = new ArrayList<>();
+		servers = IOHandler.serverRead();
+
+		List<Sysadmin> sysadmins = new ArrayList<Sysadmin>();
+		sysadmins = IOHandler.sysadminRead();
+
 	}
 }
