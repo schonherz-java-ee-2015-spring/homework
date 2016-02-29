@@ -1,5 +1,6 @@
 package hu.schonherz.java.training.homwork1.sysadmin;
 
+import java.util.Iterator;
 import java.util.Set;
 
 public class SystemAdmin {
@@ -88,7 +89,21 @@ public class SystemAdmin {
 	}
 
 	public void setServerIds(Set<Integer> serverIds) {
+		this.cleanTheIds(serverIds);
 		this.serverIds = serverIds;
+	}
+	
+	private void cleanTheIds(Set<Integer> serverIds) {
+		Iterator<Integer> iter = serverIds.iterator();
+		Integer value;
+		while (iter.hasNext()) {
+			value = iter.next();
+			if (value > 0) {
+				return;
+			} else {
+				iter.remove();
+			}
+		}
 	}
 
 }

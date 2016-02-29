@@ -23,9 +23,6 @@ public class Reader {
 	private final String SERVERSFILE = "servers.txt";
 	private final String SYSADMINSFILE = "sysadmins.txt";
 
-	private List<SystemAdmin> sysAdminList;
-	private List<Server> serverList;
-
 	private Readable sysAdminReader;
 	private Readable serverReader;
 
@@ -39,24 +36,13 @@ public class Reader {
 	}
 
 	@SuppressWarnings("unchecked")
-	public void readSysAdmins() {
-		sysAdminList = (List<SystemAdmin>) sysAdminReader.readFromFile(new File(FOLDER + separator + SYSADMINSFILE));
-		// System.out.println(sysAdminList);
-		System.out.println("SystemAdmins:");
-		for (SystemAdmin sysadmin : sysAdminList) {
-			System.out.println(sysadmin.toString());
-		}
-		System.out.println("\n");
+	public List<SystemAdmin> readSysAdmins() {
+		return (List<SystemAdmin>) sysAdminReader.readFromFile(new File(FOLDER + separator + SYSADMINSFILE));
 	}
 
 	@SuppressWarnings("unchecked")
-	public void readServers() {
-		serverList = (List<Server>) serverReader.readFromFile(new File(FOLDER + File.separator + SERVERSFILE));
-		System.out.println(serverList);
-		for (Server server : serverList) {
-			System.out.println(server.toString());
-		}
-		System.out.println("\n");
+	public List<Server> readServers() {
+		return (List<Server>) serverReader.readFromFile(new File(FOLDER + File.separator + SERVERSFILE));
 
 	}
 
@@ -70,11 +56,12 @@ public class Reader {
 				while ((line = bufferedReader.readLine()) != null) {
 					try {
 						array = line.split(",");
+						cleanValues(array);
 						Set<Integer> serverIds = new TreeSet<Integer>();
 						for (int i = 2; i < array.length; ++i) {
 							serverIds.add(Integer.parseInt(array[i]));
 						}
-						sysAdminList.add(new SystemAdmin(array[0].trim(), Integer.parseInt(array[1]), serverIds));
+						sysAdminList.add(new SystemAdmin(array[0], Integer.parseInt(array[1]), serverIds));
 					} catch (IllegalArgumentException ex) {
 						// The data of this line is not valid
 					}
@@ -99,9 +86,9 @@ public class Reader {
 				while ((line = bufferedReader.readLine()) != null) {
 					try {
 						array = line.split(",");
-						status = this.helpForServerReader(array[3].trim());
-						serverList
-								.add(new Server(Integer.parseInt(array[0]), array[1].trim(), array[2].trim(), status));
+						cleanValues(array);
+						status = helpForServerReader(array[3]);
+						serverList.add(new Server(Integer.parseInt(array[0]), array[1], array[2], status));
 					} catch (IllegalArgumentException ex) {
 						// The data of this line is not valid
 					}
@@ -123,6 +110,12 @@ public class Reader {
 			return Server.Status.STOPPED;
 		default:
 			return Server.Status.OTHER;
+		}
+	}
+
+	private void cleanValues(String[] array) {
+		for (int i = 0; i < array.length; ++i) {
+			array[i] = array[i].trim();
 		}
 	}
 
