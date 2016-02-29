@@ -3,6 +3,12 @@ package hu.schonherz.java.training.hw1.employee;
 import java.util.ArrayList;
 
 public class Sysadmin extends Employee {
+	
+	public Sysadmin( String name, int id, ArrayList<Integer> servers ){
+		this.setName(name);
+		this.setId(id);
+		setAccessedServers(servers);
+	}
 
 	private ArrayList<Integer> accessedServers;
 

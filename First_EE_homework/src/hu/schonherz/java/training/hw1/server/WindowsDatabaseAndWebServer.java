@@ -1,12 +1,14 @@
 package hu.schonherz.java.training.hw1.server;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import hu.schonherz.java.training.hw1.serverservice.DatabaseServer;
+import hu.schonherz.java.training.hw1.serverservice.WebContainer;
 
-public class LinuxDatabaseServer extends Server implements DatabaseServer {
+public class WindowsDatabaseAndWebServer extends Server implements DatabaseServer, WebContainer {
 
-	public LinuxDatabaseServer(int id, String name, Type type, Status status) {
+	public WindowsDatabaseAndWebServer(int id, String name, Type type, Status status) {
 		super();
 		this.setId(id);
 		this.setName(name);
@@ -15,18 +17,21 @@ public class LinuxDatabaseServer extends Server implements DatabaseServer {
 	}
 	
 	@Override
-	public void startServer() {
-		System.out.println("The LinuxDatabaseServer has been started!");
+	public void configure(String params) {
+		// TODO Auto-generated method stub
+
 	}
-	
+
 	@Override
-	public void stopServer() {
-		System.out.println("The LinuxDatabaseServer has been stopped!");
+	public LinkedList<String> getDeployedApps() {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
+
 	@Override
-	public void restartServer() {
-		System.out.println("The LinuxDatabaseServer has been restarted!");
+	public boolean deploy(String app) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override

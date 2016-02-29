@@ -2,8 +2,12 @@ package hu.schonherz.java.training.hw1.server;
 
 public abstract class Server {
 	
-	enum Status { RUNNING, STOPPED };
+	public enum Status { RUNNING, STOPPED };
+	public enum Type { LINUX, LINUXWEB, LINUXDB, LINUXDBANDWEB, WIN, WINWEB, WINDB, WINDBANDWEB }
 	
+	private Type type;
+	private int id;
+	private String name;
 	private int cpuUsage;
 	private int memoryUsage;
 	private Status status = Status.STOPPED;
@@ -60,6 +64,48 @@ public abstract class Server {
 	 */
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+
+	/**
+	 * @return the type
+	 */
+	public Type getType() {
+		return type;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(Type type) {
+		this.type = type;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }
