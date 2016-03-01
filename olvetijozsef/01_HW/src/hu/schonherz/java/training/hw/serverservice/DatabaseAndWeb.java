@@ -1,7 +1,6 @@
 package hu.schonherz.java.training.hw.serverservice;
 
 public interface DatabaseAndWeb {
-
 	/**
 	 * Start the Database Server and WebContainer
 	 */

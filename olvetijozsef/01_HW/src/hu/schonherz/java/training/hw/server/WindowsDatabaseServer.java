@@ -3,7 +3,6 @@ package hu.schonherz.java.training.hw.server;
 import hu.schonherz.java.training.hw.serverservice.Database;
 
 public class WindowsDatabaseServer extends WindowsServer implements Database {
-
 	private String url;
 
 	public WindowsDatabaseServer(int id, String name, String url, ServerStatus status) {
@@ -33,5 +32,4 @@ public class WindowsDatabaseServer extends WindowsServer implements Database {
 	public String getConnectionURL() {
 		return this.url;
 	}
-
 }

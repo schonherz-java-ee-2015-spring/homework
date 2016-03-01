@@ -1,7 +1,6 @@
 package hu.schonherz.java.training.hw.server;
 
 public class WindowsServer extends Server {
-
 	/**
 	 * Class constructor, create a Windows Server object
 	 * 
@@ -15,5 +14,4 @@ public class WindowsServer extends Server {
 	public WindowsServer(int id, String name, ServerStatus status) {
 		super(id, name, status);
 	}
-
 }

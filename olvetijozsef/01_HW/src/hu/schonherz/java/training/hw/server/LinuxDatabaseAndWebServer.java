@@ -3,7 +3,6 @@ package hu.schonherz.java.training.hw.server;
 import hu.schonherz.java.training.hw.serverservice.DatabaseAndWeb;
 
 public class LinuxDatabaseAndWebServer extends LinuxServer implements DatabaseAndWeb {
-
 	private String url;
 
 	public LinuxDatabaseAndWebServer(int id, String name, String url, ServerStatus status) {

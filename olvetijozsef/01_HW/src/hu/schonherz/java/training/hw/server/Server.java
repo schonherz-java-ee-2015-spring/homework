@@ -5,7 +5,6 @@ public class Server {
 	private String name;
 	private ServerStatus status;
 
-
 	public Server(int id, String name, ServerStatus status) {
 		super();
 		this.id = id;
@@ -41,5 +40,4 @@ public class Server {
 	public String toString() {
 		return this.id + " - " + this.name + " - " + this.getClass().getSimpleName() + " - " + this.status;
 	}
-
 }

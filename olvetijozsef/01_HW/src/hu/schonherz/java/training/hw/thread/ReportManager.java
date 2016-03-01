@@ -10,9 +10,7 @@ import hu.schonherz.java.training.hw.server.ServerReader;
 import hu.schonherz.java.training.hw.server.ServerStatus;
 
 public class ReportManager extends Thread {
-
 	private static final String RUNNING_SERVERS = "Running Servers:";
-	private static final String spacer = "____________________________";
 	private int id;
 
 	public ReportManager(int id) {
@@ -23,23 +21,11 @@ public class ReportManager extends Thread {
 	@Override
 	public void run() {
 		while (true) {
-			List<Administrator> admins = new LinkedList<Administrator>();
-			admins = AdministratorReader.read();
 			List<Server> servers = new LinkedList<Server>();
+			List<Administrator> admins = new LinkedList<Administrator>();
 			servers = ServerReader.read();
-			System.out.println(RUNNING_SERVERS);
-			for (Server server : servers) {
-				if (server.getStatus() == ServerStatus.RUNNING.name()) {
-					System.out.println(server.getId() + " - " + server.getName());
-					for (Administrator admin : admins) {
-						if (admin.getSupportedServers().contains(server.getId())) {
-							System.out.println("\t" + admin.getName().toString());
-						}
-					}
-
-				}
-			}
-			System.out.println(spacer);
+			admins = AdministratorReader.read();
+			printRunningServersWithAdmins(servers, admins);
 			try {
 				Thread.sleep(10000);
 			} catch (InterruptedException e) {
@@ -48,7 +34,22 @@ public class ReportManager extends Thread {
 		}
 	}
 
-	public int myGetId() {
+	private void printRunningServersWithAdmins(List<Server> servers, List<Administrator> admins) {
+		System.out.println(RUNNING_SERVERS);
+		for (Server server : servers) {
+			if (server.getStatus() == ServerStatus.RUNNING.name()) {
+				System.out.println(server.getId() + " - " + server.getName());
+				for (Administrator admin : admins) {
+					if (admin.getSupportedServers().contains(server.getId())) {
+						System.out.println("\t" + admin.getName().toString());
+					}
+				}
+			}
+		}
+		System.out.println("\n");
+	}
+
+	public int getMyId() {
 		return id;
 	}
 }
