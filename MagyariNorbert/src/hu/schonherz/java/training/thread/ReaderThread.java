@@ -9,7 +9,6 @@ public class ReaderThread extends Thread {
   
   @Override
   public void run() {
-<<<<<<< HEAD
 	  while(true){
 		  List <Employee> employees = EmployeeReader.read();  
 		   for (Employee employee : employees) {
@@ -25,21 +24,19 @@ public class ReaderThread extends Thread {
 	  }
     
  
-=======
-    int i = 0;
-    while (i < 3) {
-      i++;
-      List<Employee> employees = EmployeeReader.read();
-      for (Employee employee : employees) {
-        System.out.println(employee.getName() + " - " + employee.getEmployeeID());
-      }
-      try {
-        Thread.sleep(10000);
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
-    }
-  }
->>>>>>> c4bc2faea37cc837a00763b91c277400d53113fd
+//    int i = 0;
+//    while (i < 3) {
+//      i++;
+//      List<Employee> employees = EmployeeReader.read();
+//      for (Employee employee : employees) {
+//        System.out.println(employee.getName() + " - " + employee.getEmployeeID());
+//      }
+//      try {
+//        Thread.sleep(10000);
+//      } catch (InterruptedException e) {
+//        e.printStackTrace();
+//      }
+//    }
+//  }
 
 }

@@ -10,30 +10,28 @@ public class SynchronizationTest extends Thread {
 		this.number = number;
 	}
 
-	@Override
-	public void run() {
-		int i = 0;
-		synchronized (synchronizedObject) { //ha a while előtt szinkronizálunk, nem akadnak össze
+//	@Override
+//	public void run() {
+//		int i = 0;
+//		synchronized (synchronizedObject) { //ha a while előtt szinkronizálunk, nem akadnak össze
+//
+//			while (i < 5) {
+//				i++;
+//				// synchronized(synchronizedObject){
+//				// System.out.println(number + " - " +
+//				// synchronizedObject.getNum());
+//				// }
+//				System.out.println(number + " - " +
+//				synchronizedObject.getNum());
+//			}
+//		}
+//	}
 
-			while (i < 5) {
-				i++;
-				// synchronized(synchronizedObject){
-				// System.out.println(number + " - " +
-				// synchronizedObject.getNum());
-				// }
-				System.out.println(number + " - " +
-				synchronizedObject.getNum());
-			}
-		}
-	}
-
-<<<<<<< HEAD
-	@Override
-	public synchronized void start() {
-		System.out.println(number + ". started");
-		super.start();
-	}
-=======
+//	@Override
+//	public synchronized void start() {
+//		System.out.println(number + ". started");
+//		super.start();
+//	}
   @Override
   public void run() {
     int i = 0;
@@ -54,6 +52,5 @@ public class SynchronizationTest extends Thread {
     System.out.println(number + ". started");
     super.start(); 
   }
->>>>>>> c4bc2faea37cc837a00763b91c277400d53113fd
 
 }

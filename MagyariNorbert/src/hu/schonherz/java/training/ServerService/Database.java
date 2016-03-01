@@ -14,12 +14,9 @@ public interface Database {
    * Tell the URL connection of the Database
    * @return Sting of URL connection to the Database
    */
-<<<<<<< HEAD
-  public abstract String getConnectionURL();
-=======
+//  public abstract String getConnectionURL();
   default String getConnectionURL() {
     return "localhost:98765";
   }
->>>>>>> c4bc2faea37cc837a00763b91c277400d53113fd
   
 }

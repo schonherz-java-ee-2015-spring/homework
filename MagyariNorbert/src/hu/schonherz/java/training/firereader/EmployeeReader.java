@@ -11,7 +11,6 @@ import hu.schonherz.java.training.pojo.Employee;
 
 public class EmployeeReader {
 
-<<<<<<< HEAD
 	private static final String SUBDIRECTORY = "files";
 	private static final String FILENAME = "employees.txt";
 
@@ -46,52 +45,50 @@ public class EmployeeReader {
 		return result;
 	}
 
-=======
-  private static final String SUBDIRECTORY = "files";
-  private static final String FILENAME = "employees.txt";
+//  private static final String SUBDIRECTORY = "files";
+//  private static final String FILENAME = "employees.txt";
+//  
+//  //Will it works under Linux?                         ï¿½ï¿½ï¿½ï¿½
+//  //private static File file = new File(SUBDIRECTORY + "\\" + FILENAME);
+//  private static File file = new File(SUBDIRECTORY + File.separator + FILENAME);
+//  
+//  /**
+//   * @return List of employees which has been found in employees.txt file
+//   */
+//  public static List<Employee> read() {
+//    List<Employee> result = new LinkedList<Employee>();
+//    /*
+//     * Alternative solution
+//    Scanner sc = new Scanner(file);
+//    while(sc.hasNext()) {
+//      
+//    }*/
+//    BufferedReader bufferedReader = null;
+//    try {
+//      bufferedReader = new BufferedReader(new FileReader(file));
+//      String line;
+//      while((line = bufferedReader.readLine()) != null) {
+//        String[] attributes = line.split(",");
+//        if (attributes.length < 2) {
+//          throw new MyException();
+//        }
+//        Employee employee = new Employee(attributes[0], Integer.parseInt(attributes[1]));
+//        result.add(employee);
+//      }
+//    } catch (IOException e) {
+//      System.out.println("File is not found");
+//    } catch (MyException e) {
+//      System.out.println("File is corruptd");
+//    } finally {
+//      if (bufferedReader != null) {
+//        try {
+//          bufferedReader.close();
+//        } catch (IOException e) {
+//          System.out.println("BufferedReader was not closed");
+//        }
+//      }
+//    }
+//    return result;
+//  }
   
-  //Will it works under Linux?                         ¡¡¡¡
-  //private static File file = new File(SUBDIRECTORY + "\\" + FILENAME);
-  private static File file = new File(SUBDIRECTORY + File.separator + FILENAME);
-  
-  /**
-   * @return List of employees which has been found in employees.txt file
-   */
-  public static List<Employee> read() {
-    List<Employee> result = new LinkedList<Employee>();
-    /*
-     * Alternative solution
-    Scanner sc = new Scanner(file);
-    while(sc.hasNext()) {
-      
-    }*/
-    BufferedReader bufferedReader = null;
-    try {
-      bufferedReader = new BufferedReader(new FileReader(file));
-      String line;
-      while((line = bufferedReader.readLine()) != null) {
-        String[] attributes = line.split(",");
-        if (attributes.length < 2) {
-          throw new MyException();
-        }
-        Employee employee = new Employee(attributes[0], Integer.parseInt(attributes[1]));
-        result.add(employee);
-      }
-    } catch (IOException e) {
-      System.out.println("File is not found");
-    } catch (MyException e) {
-      System.out.println("File is corruptd");
-    } finally {
-      if (bufferedReader != null) {
-        try {
-          bufferedReader.close();
-        } catch (IOException e) {
-          System.out.println("BufferedReader was not closed");
-        }
-      }
-    }
-    return result;
-  }
-  
->>>>>>> c4bc2faea37cc837a00763b91c277400d53113fd
 }
