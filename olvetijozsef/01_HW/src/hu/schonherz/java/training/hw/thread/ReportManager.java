@@ -33,7 +33,7 @@ public class ReportManager extends Thread {
 					System.out.println(server.getId() + " - " + server.getName());
 					for (Administrator admin : admins) {
 						if (admin.getSupportedServers().contains(server.getId())) {
-							System.out.println("\t" + admin.toString());
+							System.out.println("\t" + admin.getName().toString());
 						}
 					}
 
