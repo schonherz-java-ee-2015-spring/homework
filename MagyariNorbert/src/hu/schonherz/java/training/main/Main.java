@@ -8,6 +8,8 @@ import hu.schonherz.java.training.firereader.SysAdminReader;
 import hu.schonherz.java.training.pojo.Developer;
 import hu.schonherz.java.training.pojo.Servers;
 import hu.schonherz.java.training.pojo.SystemAdministrator;
+import hu.schonherz.java.training.thread.ReaderThread;
+import hu.schonherz.java.training.thread.ServerReaderThread;
 import hu.schonherz.java.training.thread.SynchronizationTest;
 
 public class Main {
@@ -38,30 +40,24 @@ public class Main {
 		st2.start();
 	}
 
-//	 private static void threading() {
-//	 ReaderThread readerThread = new ReaderThread();
-//	 //System.out.println(readerThread.getState());
-//	 readerThread.start();
-//	 try {
-//	  
-//	 Thread.sleep(1000);
-//	 } catch (InterruptedException e) {
-//	 // TODO Auto-generated catch block
-//	 e.printStackTrace();
-//	 }
-//	 System.out.println(readerThread.getState());
-//	 try {
-//	 readerThread.join();
-//	 } catch (InterruptedException e) {
-//	 // TODO Auto-generated catch block
-//	 e.printStackTrace();
-//	 }
-//	 test();
-//	 }
-//
-//	private static void test() {
-//		System.out.println("kis kacsa");
-//	}
+	private static void threading() {
+		List<SystemAdministrator> sysadminok = SysAdminReader.read();
+		ServerReaderThread serverReaderThread = new ServerReaderThread();
+		// System.out.println(readerThread.getState());
+		serverReaderThread.start();
+		try {
+
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	//
+	// private static void test() {
+	// System.out.println("kis kacsa");
+	// }
 
 	/*
 	 * As a manager of the organization (fontos, hogy kinek lesz a fejlesztés,
@@ -83,34 +79,11 @@ public class Main {
 	 */
 	private static void homework() {
 
-		List<SystemAdministrator> sysadminok = SysAdminReader.read();
+
 		List<Servers> szerverek = ServerReader.read();
+		threading();
 
-		for (Servers servers : szerverek) {
-			if (servers.getStatus().equals("STOPPED")) {
-				int count = 0;
-				for (SystemAdministrator systemAdministrator : sysadminok) {
-					for (int i = 0; i < systemAdministrator.getTasks().size(); i++) {
-						if (servers.getID() == Integer.parseInt(systemAdministrator.getTasks().get(i))) {
-							if (count == 0) {
-								System.out.println(servers.getServerName() + ":");
-								count++;
-							}
-							if (count > 0) {
-								System.out.println(systemAdministrator.getName());
-							}
-						}
-					}
-
-				}
-			}
-		}
-
-
-		
 	}
-	
-
 
 	// public class Main {
 	//
