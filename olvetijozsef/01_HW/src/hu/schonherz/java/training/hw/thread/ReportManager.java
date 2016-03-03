@@ -25,7 +25,7 @@ public class ReportManager extends Thread {
 			List<Administrator> admins = new LinkedList<Administrator>();
 			servers = ServerReader.read();
 			admins = AdministratorReader.read();
-			printRunningServersWithAdmins(servers, admins);
+			printStoppedServersWithAdmins(servers, admins);
 			try {
 				Thread.sleep(10000);
 			} catch (InterruptedException e) {
@@ -34,7 +34,7 @@ public class ReportManager extends Thread {
 		}
 	}
 
-	private void printRunningServersWithAdmins(List<Server> servers, List<Administrator> admins) {
+	private void printStoppedServersWithAdmins(List<Server> servers, List<Administrator> admins) {
 		System.out.println(STOPPED_SERVERS);
 		for (Server server : servers) {
 			if (server.getStatus() == ServerStatus.STOPPED.name()) {
