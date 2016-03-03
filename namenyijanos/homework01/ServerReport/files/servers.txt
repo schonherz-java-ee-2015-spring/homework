@@ -1,0 +1,4 @@
+1,SQL01,Win,Running
+2,WEB01,LinuxWeb,Running
+3,SQLNWEB01,LinuxDBandWEB,stopped
+4,WEB02,LinuxWeb,Stopped
