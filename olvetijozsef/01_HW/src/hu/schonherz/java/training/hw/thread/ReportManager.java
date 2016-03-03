@@ -10,7 +10,7 @@ import hu.schonherz.java.training.hw.server.ServerReader;
 import hu.schonherz.java.training.hw.server.ServerStatus;
 
 public class ReportManager extends Thread {
-	private static final String RUNNING_SERVERS = "Running Servers:";
+	private static final String STOPPED_SERVERS = "Stopped Servers:";
 	private int id;
 
 	public ReportManager(int id) {
@@ -35,9 +35,9 @@ public class ReportManager extends Thread {
 	}
 
 	private void printRunningServersWithAdmins(List<Server> servers, List<Administrator> admins) {
-		System.out.println(RUNNING_SERVERS);
+		System.out.println(STOPPED_SERVERS);
 		for (Server server : servers) {
-			if (server.getStatus() == ServerStatus.RUNNING.name()) {
+			if (server.getStatus() == ServerStatus.STOPPED.name()) {
 				System.out.println(server.getId() + " - " + server.getName());
 				for (Administrator admin : admins) {
 					if (admin.getSupportedServers().contains(server.getId())) {
