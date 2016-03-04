@@ -59,8 +59,13 @@ public class Main {
 			
 			// read every line of the file
 			while ((inputLine = br.readLine()) != null) {
-				// TODO validation, missing attribute problem
 				String[] attributes = inputLine.split(",");
+				if( attributes.length < 3 )
+				{
+					// Not enough parameter
+					System.out.println( "Some parameters are missing from sysadmins.txt");
+					System.exit(-1);
+				}
 				
 				// Collection to store the server IDs
 				ArrayList<Integer> servers = new ArrayList<>();
@@ -79,12 +84,15 @@ public class Main {
 		} catch (FileNotFoundException fnfe ){
 			System.out.println("File not found!!");
 			fnfe.printStackTrace();
+			System.exit(-1);
 		} catch (IOException ioe ) {
 			System.out.println("Something wrong happened while reading lines! (Maybe no lines?)");
 			ioe.printStackTrace();
+			System.exit(-1);
 		} catch (NumberFormatException nfe){
 			System.out.println("Cannot parse integer from string! Wrong format!");
 			nfe.printStackTrace();
+			System.exit(-1);
 		}
 
 		return sysadmins;
@@ -100,8 +108,14 @@ public class Main {
 		try (BufferedReader br = new BufferedReader(new FileReader(serversfile))) {
 			
 			while ((inputLine = br.readLine()) != null) {
-				// TODO validation
 				String[] attributes = inputLine.split(",");
+
+				if( attributes.length != 4 )
+				{
+					// Not enough parameter
+					System.out.println( "Some parameters are missing from servers.txt");
+					System.exit(-1);
+				}
 				
 				// Create a server
 				// lowercase the type of the server and create the appropriate object
@@ -177,12 +191,15 @@ public class Main {
 		} catch (FileNotFoundException fnfe ){
 			System.out.println("File not found!!");
 			fnfe.printStackTrace();
+			System.exit(-1);
 		} catch (IOException ioe ) {
 			System.out.println("Something wrong happened while reading lines! (Maybe no lines?)");
 			ioe.printStackTrace();
+			System.exit(-1);
 		} catch (NumberFormatException nfe){
 			System.out.println("Cannot parse integer from string! Wrong format!");
 			nfe.printStackTrace();
+			System.exit(-1);
 		}
 
 		return servers;
