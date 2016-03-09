@@ -1,7 +1,7 @@
 package hu.schonherz.java.training.hw.builder.part;
 
 /**
- * Implements the expensive engines.
+ * Implements the expensive engine.
  * 
  * @author Ölveti József
  *

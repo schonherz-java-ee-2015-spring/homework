@@ -20,8 +20,7 @@ public class CarBuilderTest {
 
 		CarBuilder cb = new CarBuilder();
 		Car car = cb.createCheapCar();
-
-		assertEquals(String.valueOf(testCar.getCost()), String.valueOf(car.getCost()));
+		assertEquals(testCar.showParts(),car.showParts());
 	}
 
 	@Test
@@ -32,8 +31,7 @@ public class CarBuilderTest {
 
 		CarBuilder cb = new CarBuilder();
 		Car car = cb.createExpensiveCar();
-
-		assertEquals(String.valueOf(testCar.getCost()), String.valueOf(car.getCost()));
+		assertEquals(testCar.showParts(), car.showParts());
 	}
 
 	@Test
@@ -44,7 +42,6 @@ public class CarBuilderTest {
 
 		CarBuilder cb = new CarBuilder();
 		Car car = cb.createCityCar();
-
-		assertEquals(String.valueOf(testCar.getCost()), String.valueOf(car.getCost()));
+		assertEquals(testCar.showParts(), car.showParts());
 	}
 }

@@ -6,9 +6,9 @@ import java.util.List;
 import hu.schonherz.java.training.hw.builder.part.Part;
 
 /**
- * Represents the cars.
+ * Implement the cars.
  * 
- * @author Joc
+ * @author Ölveti József
  *
  */
 public class Car {
@@ -22,9 +22,11 @@ public class Car {
 	 * 
 	 * @param part
 	 *            a Part object
+	 * @return the part index
 	 */
-	public void addPart(Part part) {
+	public int addPart(Part part) {
 		parts.add(part);
+		return parts.size() - 1;
 	}
 
 	/**
@@ -42,13 +44,17 @@ public class Car {
 	}
 
 	/**
-	 * Print the car parts.
+	 * Returns with the car parts String.
+	 * 
+	 * @return the car parts String
 	 */
-	public void showParts() {
+	public String showParts() {
+		StringBuilder sb = new StringBuilder();
 		for (Part part : parts) {
-			System.out.print("Part : " + part.name());
-			System.out.print(", Packing : " + part.material().material());
-			System.out.println(", Price : " + part.price());
+			sb.append("\nPart : " + part.name());
+			sb.append(", Material : " + part.material().material());
+			sb.append(", Price : " + part.price());
 		}
+		return sb.toString();
 	}
 }

@@ -7,7 +7,7 @@ import hu.schonherz.java.training.hw.builder.part.LeatherSeat;
 import hu.schonherz.java.training.hw.builder.part.WoodSeat;
 
 /**
- * This is the car builder machine.
+ * This is the car builder class.
  * 
  * @author Ölveti József
  *
