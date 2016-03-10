@@ -20,7 +20,7 @@ under the License.
 <rss version="0.91">
   <channel>
     <title>hw-structural-pattern - Checkstyle report</title>
-    <link>http://maven.apache.org</link>
+    <link>${project.url}</link>
     <description>hw-structural-pattern - Checkstyle report</description>
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
@@ -30,9 +30,9 @@ under the License.
              Warnings: 0,
              Infos: 0
       </title>
-            <link>http://maven.apache.org/checkstyle.html</link>
+            <link>${project.url}/checkstyle.html</link>
       <description>
-        <p>Click <a href="http://maven.apache.org/checkstyle.html">here</a> for the full Checkstyle report.</p>
+        <p>Click <a href="${project.url}/checkstyle.html">here</a> for the full Checkstyle report.</p>
 
         <table summary="Files" boder="1">
           <thead>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#hu.schonherz.java.training.hw.bridge.Switch.java">hu/schonherz/java/training/hw/bridge/Switch.java</a>
+                  <a href="${project.url}/checkstyle.html#hu.schonherz.java.training.hw.bridge.Switch.java">hu/schonherz/java/training/hw/bridge/Switch.java</a>
                 </td>
                 <td>
                   0
@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#hu.schonherz.java.training.hw.bridge.RemoteControl.java">hu/schonherz/java/training/hw/bridge/RemoteControl.java</a>
+                  <a href="${project.url}/checkstyle.html#hu.schonherz.java.training.hw.bridge.RemoteControl.java">hu/schonherz/java/training/hw/bridge/RemoteControl.java</a>
                 </td>
                 <td>
                   0
@@ -74,7 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#hu.schonherz.java.training.hw.bridge.Main.java">hu/schonherz/java/training/hw/bridge/Main.java</a>
+                  <a href="${project.url}/checkstyle.html#hu.schonherz.java.training.hw.bridge.Main.java">hu/schonherz/java/training/hw/bridge/Main.java</a>
                 </td>
                 <td>
                   0
@@ -88,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#hu.schonherz.java.training.hw.bridge.machine.CoffeeMaker.java">hu/schonherz/java/training/hw/bridge/machine/CoffeeMaker.java</a>
+                  <a href="${project.url}/checkstyle.html#hu.schonherz.java.training.hw.bridge.machine.CoffeeMaker.java">hu/schonherz/java/training/hw/bridge/machine/CoffeeMaker.java</a>
                 </td>
                 <td>
                   0
@@ -102,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#hu.schonherz.java.training.hw.bridge.machine.MachineAPI.java">hu/schonherz/java/training/hw/bridge/machine/MachineAPI.java</a>
+                  <a href="${project.url}/checkstyle.html#hu.schonherz.java.training.hw.bridge.machine.MachineAPI.java">hu/schonherz/java/training/hw/bridge/machine/MachineAPI.java</a>
                 </td>
                 <td>
                   0
@@ -116,7 +116,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#hu.schonherz.java.training.hw.bridge.machine.Television.java">hu/schonherz/java/training/hw/bridge/machine/Television.java</a>
+                  <a href="${project.url}/checkstyle.html#hu.schonherz.java.training.hw.bridge.machine.Television.java">hu/schonherz/java/training/hw/bridge/machine/Television.java</a>
                 </td>
                 <td>
                   0
@@ -130,7 +130,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://maven.apache.org/checkstyle.html#hu.schonherz.java.training.hw.bridge.machine.Hairdryer.java">hu/schonherz/java/training/hw/bridge/machine/Hairdryer.java</a>
+                  <a href="${project.url}/checkstyle.html#hu.schonherz.java.training.hw.bridge.machine.Hairdryer.java">hu/schonherz/java/training/hw/bridge/machine/Hairdryer.java</a>
                 </td>
                 <td>
                   0

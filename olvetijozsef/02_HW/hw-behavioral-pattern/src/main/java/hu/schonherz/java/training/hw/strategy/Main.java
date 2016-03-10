@@ -21,7 +21,6 @@ public class Main {
 
 		context = new Context(new OperationGetLonger());
 		System.out.println(context.executeStrategy("xxx", "xx00"));
-
 	}
 
 }

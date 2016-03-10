@@ -9,6 +9,6 @@ public class WoodTest {
 	@Test
 	public void testClothMaterial() {
 		Material wood = new Wood();
-		assertEquals("Wood", wood.material());
+		assertEquals(Wood.WOOD, wood.material());
 	}
 }

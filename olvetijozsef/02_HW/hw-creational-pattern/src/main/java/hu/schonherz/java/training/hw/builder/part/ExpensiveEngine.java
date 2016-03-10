@@ -7,9 +7,12 @@ package hu.schonherz.java.training.hw.builder.part;
  *
  */
 public class ExpensiveEngine implements Engine {
+
+	public static final String EXPENSIVE_ENGINE = "Expensive Engine";
+
 	@Override
 	public String name() {
-		return "Expensive Engine";
+		return EXPENSIVE_ENGINE;
 	}
 
 	@Override

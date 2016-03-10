@@ -1,21 +1,24 @@
 package hu.schonherz.java.training.hw.bridge.machine;
 
 /**
- * Implements a hairdryer machine.
+ * Implements the hairdryer machine.
  * 
  * @author Ölveti József
  *
  */
 public class Hairdryer implements MachineAPI {
 
+	public static final String HAIRDRYER_OFF = "Hairdryer Switched off!";
+	public static final String HAIRDRYER_ON = "Hairdryer Switched on!";
+
 	@Override
 	public String switchOn() {
-		return "Hairdryer Switched on!";
+		return HAIRDRYER_ON;
 	}
 
 	@Override
 	public String switchOff() {
-		return "Hairdryer Switched off!";
+		return HAIRDRYER_OFF;
 	}
 
 }

@@ -15,7 +15,7 @@ public interface Strategy {
 	 *            first input String
 	 * @param str2
 	 *            second input String
-	 * @return created result String
+	 * @return result String
 	 */
 	String doOperation(String str1, String str2);
 }

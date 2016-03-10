@@ -9,5 +9,4 @@ import hu.schonherz.java.training.hw.builder.part.AllPartTest;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ CarTest.class, CarBuilderTest.class, AllMaterialTest.class, AllPartTest.class })
 public class AllTest {
-
 }

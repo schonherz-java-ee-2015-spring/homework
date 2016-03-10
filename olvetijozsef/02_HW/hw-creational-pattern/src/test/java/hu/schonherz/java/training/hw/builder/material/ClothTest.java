@@ -9,6 +9,6 @@ public class ClothTest {
 	@Test
 	public void testClothMaterial() {
 		Material cloth = new Cloth();
-		assertEquals("Cloth", cloth.material());
+		assertEquals(Cloth.CLOTH, cloth.material());
 	}
 }

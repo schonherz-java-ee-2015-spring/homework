@@ -11,6 +11,8 @@ import hu.schonherz.java.training.hw.builder.material.Material;
  */
 public class LeatherSeat implements Seat {
 
+	public static final String LEATHER_SEAT = "Leather Seat";
+
 	@Override
 	public Material material() {
 		return new Leather();
@@ -18,7 +20,7 @@ public class LeatherSeat implements Seat {
 
 	@Override
 	public String name() {
-		return "Leather Seat";
+		return LEATHER_SEAT;
 	}
 
 	@Override

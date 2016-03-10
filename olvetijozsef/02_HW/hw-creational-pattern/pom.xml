@@ -11,7 +11,6 @@
 	<artifactId>hw-creational-pattern</artifactId>
 	<name>hw-creational-pattern</name>
 	<description>Modul of Creational Pattern</description>
-	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -28,10 +27,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-report-plugin</artifactId>
-				<reportSets>
-					<reportSet>
-					</reportSet>
-				</reportSets>
 			</plugin>
 		</plugins>
 	</reporting>

@@ -11,26 +11,25 @@ import hu.schonherz.java.training.hw.builder.material.Material;
 import hu.schonherz.java.training.hw.builder.material.Metal;
 
 public class ExpensiveEngineTest {
+	private static Part p = new ExpensiveEngine();
 
 	@Test
 	public void testName() {
-		Part p = new ExpensiveEngine();
 		assertThat(p, instanceOf(Part.class));
 		assertThat(p, instanceOf(Engine.class));
-		assertEquals("Expensive Engine", p.name());
+		assertEquals(ExpensiveEngine.EXPENSIVE_ENGINE, p.name());
 	}
 
 	@Test
 	public void testPrice() {
-		Part p = new ExpensiveEngine();
 		assertEquals(String.valueOf(400.0f), String.valueOf(p.price()));
 	}
 
 	@Test
 	public void testMaterial() {
-		Part p = new ExpensiveEngine();
 		assertNotNull(p.material());
 		assertThat(p.material(), instanceOf(Material.class));
 		assertThat(p.material(), instanceOf(Metal.class));
+		assertEquals(Metal.METAL, p.material().material());
 	}
 }

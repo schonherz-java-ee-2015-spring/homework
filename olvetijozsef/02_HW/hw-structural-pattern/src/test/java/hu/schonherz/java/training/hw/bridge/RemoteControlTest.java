@@ -9,53 +9,53 @@ import hu.schonherz.java.training.hw.bridge.machine.Hairdryer;
 import hu.schonherz.java.training.hw.bridge.machine.Television;
 
 public class RemoteControlTest {
+	private static RemoteControl rc;
 
 	@Test
 	public void testTvSwitchOn() {
-		RemoteControl rc = new RemoteControl(new Television());
+		rc = new RemoteControl(new Television());
 		String result = rc.switchOn();
-		String expected = "TV Switched on!";
+		String expected = Television.TV_ON;
 		assertEquals(expected, result);
 	}
 
 	@Test
 	public void testTvSwitchOff() {
-		RemoteControl rc = new RemoteControl(new Television());
+		rc = new RemoteControl(new Television());
 		String result = rc.switchOff();
-		String expected = "TV Switched off!";
+		String expected = Television.TV_OFF;
 		assertEquals(expected, result);
 	}
 
 	@Test
 	public void testDryerSwitchOn() {
-		RemoteControl rc = new RemoteControl(new Hairdryer());
+		rc = new RemoteControl(new Hairdryer());
 		String result = rc.switchOn();
-		String expected = "Hairdryer Switched on!";
+		String expected = Hairdryer.HAIRDRYER_ON;
 		assertEquals(expected, result);
 	}
 
 	@Test
 	public void testDryerSwitchOff() {
-		RemoteControl rc = new RemoteControl(new Hairdryer());
+		rc = new RemoteControl(new Hairdryer());
 		String result = rc.switchOff();
-		String expected = "Hairdryer Switched off!";
+		String expected = Hairdryer.HAIRDRYER_OFF;
 		assertEquals(expected, result);
 	}
 
 	@Test
 	public void testCMakerSwitchOn() {
-		RemoteControl rc = new RemoteControl(new CoffeeMaker());
+		rc = new RemoteControl(new CoffeeMaker());
 		String result = rc.switchOn();
-		String expected = "Coffee Maker Switched on!";
+		String expected = CoffeeMaker.COFFEE_MAKER_ON;
 		assertEquals(expected, result);
 	}
 
 	@Test
 	public void testCMakerSwitchOff() {
-		RemoteControl rc = new RemoteControl(new CoffeeMaker());
+		rc = new RemoteControl(new CoffeeMaker());
 		String result = rc.switchOff();
-		String expected = "Coffee Maker Switched off!";
+		String expected = CoffeeMaker.COFFEE_MAKER_OFF;
 		assertEquals(expected, result);
 	}
-
 }

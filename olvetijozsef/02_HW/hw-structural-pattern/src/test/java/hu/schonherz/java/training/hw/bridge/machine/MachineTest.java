@@ -9,52 +9,53 @@ import hu.schonherz.java.training.hw.bridge.machine.Hairdryer;
 import hu.schonherz.java.training.hw.bridge.machine.Television;
 
 public class MachineTest {
+	private static MachineAPI m;
 
 	@Test
 	public void testTvSwitchOn() {
-		MachineAPI m = new Television();
+		m = new Television();
 		String result = m.switchOn();
-		String expected = "TV Switched on!";
+		String expected = Television.TV_ON;
 		assertEquals(expected, result);
 	}
 
 	@Test
 	public void testTvSwitchOff() {
-		MachineAPI m = new Television();
+		m = new Television();
 		String result = m.switchOff();
-		String expected = "TV Switched off!";
+		String expected = Television.TV_OFF;
 		assertEquals(expected, result);
 	}
 
 	@Test
 	public void testDryerSwitchOn() {
-		MachineAPI m = new Hairdryer();
+		m = new Hairdryer();
 		String result = m.switchOn();
-		String expected = "Hairdryer Switched on!";
+		String expected = Hairdryer.HAIRDRYER_ON;
 		assertEquals(expected, result);
 	}
 
 	@Test
 	public void testDryerSwitchOff() {
-		MachineAPI m = new Hairdryer();
+		m = new Hairdryer();
 		String result = m.switchOff();
-		String expected = "Hairdryer Switched off!";
+		String expected = Hairdryer.HAIRDRYER_OFF;
 		assertEquals(expected, result);
 	}
 
 	@Test
 	public void testCMakerSwitchOn() {
-		MachineAPI m = new CoffeeMaker();
+		m = new CoffeeMaker();
 		String result = m.switchOn();
-		String expected = "Coffee Maker Switched on!";
+		String expected = CoffeeMaker.COFFEE_MAKER_ON;
 		assertEquals(expected, result);
 	}
 
 	@Test
 	public void testCMakerSwitchOff() {
-		MachineAPI m = new CoffeeMaker();
+		m = new CoffeeMaker();
 		String result = m.switchOff();
-		String expected = "Coffee Maker Switched off!";
+		String expected = CoffeeMaker.COFFEE_MAKER_OFF;
 		assertEquals(expected, result);
 	}
 

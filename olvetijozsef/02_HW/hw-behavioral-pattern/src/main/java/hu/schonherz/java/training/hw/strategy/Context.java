@@ -17,13 +17,13 @@ public class Context {
 	}
 
 	/**
-	 * Returns with the Strategy operation result String.
+	 * Returns with the operation result String.
 	 * 
 	 * @param str1
 	 *            first input String
 	 * @param str2
 	 *            second input String
-	 * @return created result String
+	 * @return result String
 	 */
 	public String executeStrategy(String str1, String str2) {
 		return strategy.doOperation(str1, str2);

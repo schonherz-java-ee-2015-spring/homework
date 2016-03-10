@@ -4,31 +4,30 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import hu.schonherz.java.training.hw.strategy.Strategy;
 import hu.schonherz.java.training.hw.strategy.operation.OperationMix;
 
 public class OperationMixTest {
+	private static Strategy om = new OperationMix();
 
 	@Test
 	public void testOperationMix() {
-		OperationMix om = new OperationMix();
-		String expected = "0101";
 		String result = om.doOperation("00", "11");
+		String expected = "0101";
 		assertEquals(expected, result);
 	}
 
 	@Test
 	public void testOperationMixFirst() {
-		OperationMix om = new OperationMix();
-		String expected = "010100";
 		String result = om.doOperation("0000", "11");
+		String expected = "010100";
 		assertEquals(expected, result);
 	}
 
 	@Test
 	public void testOperationMixSecond() {
-		OperationMix om = new OperationMix();
-		String expected = "010111";
 		String result = om.doOperation("00", "1111");
+		String expected = "010111";
 		assertEquals(expected, result);
 	}
 

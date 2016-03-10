@@ -3,7 +3,7 @@ package hu.schonherz.java.training.hw.bridge;
 import hu.schonherz.java.training.hw.bridge.machine.MachineAPI;
 
 /**
- * Implements a remote control.
+ * Implements the remote control.
  * 
  * @author Ölveti József
  *

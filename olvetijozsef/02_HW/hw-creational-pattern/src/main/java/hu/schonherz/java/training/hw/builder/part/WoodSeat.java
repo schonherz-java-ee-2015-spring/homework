@@ -11,9 +11,11 @@ import hu.schonherz.java.training.hw.builder.material.Wood;
  */
 public class WoodSeat implements Seat {
 
+	public static final String WOOD_SEAT = "Wood Seat";
+
 	@Override
 	public String name() {
-		return "Wood Seat";
+		return WOOD_SEAT;
 	}
 
 	@Override
@@ -25,5 +27,4 @@ public class WoodSeat implements Seat {
 	public Material material() {
 		return new Wood();
 	}
-
 }

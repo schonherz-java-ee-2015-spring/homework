@@ -7,5 +7,10 @@ package hu.schonherz.java.training.hw.builder.material;
  *
  */
 public interface Material {
+	/**
+	 * Returns with the material name.
+	 * 
+	 * @return the material name
+	 */
 	String material();
 }

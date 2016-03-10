@@ -6,7 +6,7 @@ import java.util.List;
 import hu.schonherz.java.training.hw.builder.part.Part;
 
 /**
- * Implement the cars.
+ * Implements the cars.
  * 
  * @author Ölveti József
  *
@@ -22,7 +22,7 @@ public class Car {
 	 * 
 	 * @param part
 	 *            a Part object
-	 * @return the part index
+	 * @return the index of part
 	 */
 	public int addPart(Part part) {
 		parts.add(part);
@@ -36,7 +36,6 @@ public class Car {
 	 */
 	public float getCost() {
 		float cost = 0.0f;
-
 		for (Part part : parts) {
 			cost += part.price();
 		}
