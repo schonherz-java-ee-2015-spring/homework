@@ -1,83 +1,121 @@
-/**
- * 
- */
+
 package hu.schonherz.homework.service.api.model;
 
-import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * @author gabichelsea
  *
  */
-public class Note implements Serializable {
+public class Note {
 
-	private static final long serialVersionUID = 4138772377927412709L;
-
+	private String authorName;
 	private String title;
-	private List<String> remarks;
-	private LocalDate date;
+	private String remark;
+	private LocalDateTime dateTime;
+
 	/**
-	 * @param title
-	 * @param remarks
-	 * @param date
+	 * 
 	 */
-	public Note(String title, List<String> remarks, LocalDate date) {
+	public Note() {
 		super();
-		this.title = title;
-		this.remarks = remarks;
-		this.date = date;
+		// TODO Auto-generated constructor stub
 	}
+
+	/**
+	 * @param authorName
+	 * @param title
+	 * @param remark
+	 * @param dateTime
+	 */
+	public Note(String authorName, String title, String remark, LocalDateTime dateTime) {
+		super();
+		this.authorName = authorName;
+		this.title = title;
+		this.remark = remark;
+		this.dateTime = dateTime;
+	}
+
+	/**
+	 * @return the authorName
+	 */
+	public String getAuthorName() {
+		return authorName;
+	}
+
+	/**
+	 * @param authorName
+	 *            the authorName to set
+	 */
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
+
 	/**
 	 * @return the title
 	 */
 	public String getTitle() {
 		return title;
 	}
+
 	/**
-	 * @param title the title to set
+	 * @param title
+	 *            the title to set
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	/**
-	 * @return the remarks
+	 * @return the remark
 	 */
-	public List<String> getRemarks() {
-		return remarks;
+	public String getRemark() {
+		return remark;
 	}
+
 	/**
-	 * @param remarks the remarks to set
+	 * @param remark
+	 *            the remark to set
 	 */
-	public void setRemarks(List<String> remarks) {
-		this.remarks = remarks;
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
+
 	/**
-	 * @return the date
+	 * @return the dateTime
 	 */
-	public LocalDate getDate() {
-		return date;
+	public LocalDateTime getDateTime() {
+		return dateTime;
 	}
+
 	/**
-	 * @param date the date to set
+	 * @param dateTime
+	 *            the dateTime to set
 	 */
-	public void setDate(LocalDate date) {
-		this.date = date;
+	public void setDateTime(LocalDateTime dateTime) {
+		this.dateTime = dateTime;
 	}
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((date == null) ? 0 : date.hashCode());
-		result = prime * result + ((remarks == null) ? 0 : remarks.hashCode());
+		result = prime * result + ((authorName == null) ? 0 : authorName.hashCode());
+		result = prime * result + ((dateTime == null) ? 0 : dateTime.hashCode());
+		result = prime * result + ((remark == null) ? 0 : remark.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -89,15 +127,20 @@ public class Note implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Note other = (Note) obj;
-		if (date == null) {
-			if (other.date != null)
+		if (authorName == null) {
+			if (other.authorName != null)
 				return false;
-		} else if (!date.equals(other.date))
+		} else if (!authorName.equals(other.authorName))
 			return false;
-		if (remarks == null) {
-			if (other.remarks != null)
+		if (dateTime == null) {
+			if (other.dateTime != null)
 				return false;
-		} else if (!remarks.equals(other.remarks))
+		} else if (!dateTime.equals(other.dateTime))
+			return false;
+		if (remark == null) {
+			if (other.remark != null)
+				return false;
+		} else if (!remark.equals(other.remark))
 			return false;
 		if (title == null) {
 			if (other.title != null)
@@ -106,13 +149,16 @@ public class Note implements Serializable {
 			return false;
 		return true;
 	}
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Note [title=" + title + ", remarks=" + remarks + ", date=" + date + "]";
+		return "Note [authorName=" + authorName + ", title=" + title + ", remark=" + remark + ", dateTime="
+				+ dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "]";
 	}
-	
-	
+
 }
