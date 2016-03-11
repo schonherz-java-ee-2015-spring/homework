@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 import org.json.simple.JSONObject;
 
+import hu.schonherz.homework.service.api.model.Note;
+
 /**
  * @author gabichelsea
  *
@@ -18,7 +20,7 @@ public class JSONObjectUtil {
 	private JSONObjectUtil() {
 	}
 	
-	/*
+	/**
 	 * This method create and give back a JSON object as a Note class
 	 * The information is from the console except the dateTime
 	 */
@@ -38,5 +40,22 @@ public class JSONObjectUtil {
 		object.put("Time", dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
 		return object;
+	}
+	
+	
+	/**
+	 * Create Note from JSONObject
+	 * @param jsonObject
+	 * @return
+	 */
+	public static Note convertJSONObjectToNote(JSONObject jsonObject) {
+		Note note = new Note();
+		note.setAuthorName((String) jsonObject.get("Author"));
+		note.setTitle((String) jsonObject.get("Title"));
+		note.setRemark((String) jsonObject.get("Remark"));
+		note.setDateTime(LocalDateTime.parse((String) jsonObject.get("Time"),
+				DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+		
+		return note;
 	}
 }

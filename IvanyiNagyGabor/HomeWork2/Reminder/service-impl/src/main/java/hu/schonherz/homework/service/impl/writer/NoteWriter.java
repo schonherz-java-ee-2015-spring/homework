@@ -3,13 +3,10 @@
  */
 package hu.schonherz.homework.service.impl.writer;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.RandomAccessFile;
 
 import org.json.simple.JSONObject;
 
@@ -23,11 +20,11 @@ public class NoteWriter implements JSONWriter {
 
 	@Override
 	public void write(String targetPath) {
-		beforeWriteObject(targetPath);
+		prepareToWriteObject(targetPath);
 		writeJSONObjectToFile(targetPath);
 	}
 
-	/*
+	/**
 	 * This method ask for a JSON object as Note then write it to file If the
 	 * file is exist then we will append
 	 */
@@ -36,12 +33,17 @@ public class NoteWriter implements JSONWriter {
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(new File(targetPath), true))) {
 			JSONObject object = JSONObjectUtil.createJSONObjectForNote();
 			writer.write(object.toJSONString());
+			writer.newLine();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
-	private void beforeWriteObject(String targetPath) {
+	
+	/**
+	 * The JSON file have to begin by left brace('[') --> JSONArray
+	 * @param targetPath
+	 */
+	private void prepareToWriteObject(String targetPath) {
 		File file = new File(targetPath);
 		if (!file.exists() || file.length() == 0) {
 			try (FileWriter writer = new FileWriter(file)){
@@ -50,12 +52,6 @@ public class NoteWriter implements JSONWriter {
 				e.printStackTrace();
 			}
 		}
-
-//		if (file.length() > 1) {
-//			try (BufferedWriter writer = new BufferedWriter(new FileWriter(file)))) {
-//				
-//			} 
-//		}
 	}
 
 }

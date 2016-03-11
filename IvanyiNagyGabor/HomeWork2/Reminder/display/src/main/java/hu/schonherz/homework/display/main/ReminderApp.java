@@ -1,6 +1,3 @@
-/**
- * 
- */
 package hu.schonherz.homework.display.main;
 
 import java.io.File;
