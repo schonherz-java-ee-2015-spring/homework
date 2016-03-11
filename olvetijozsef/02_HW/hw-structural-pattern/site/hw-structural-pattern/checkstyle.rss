@@ -102,6 +102,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#hu.schonherz.java.training.hw.bridge.machine.HairDryer.java">hu/schonherz/java/training/hw/bridge/machine/HairDryer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#hu.schonherz.java.training.hw.bridge.machine.MachineAPI.java">hu/schonherz/java/training/hw/bridge/machine/MachineAPI.java</a>
                 </td>
                 <td>
@@ -117,20 +131,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#hu.schonherz.java.training.hw.bridge.machine.Television.java">hu/schonherz/java/training/hw/bridge/machine/Television.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#hu.schonherz.java.training.hw.bridge.machine.Hairdryer.java">hu/schonherz/java/training/hw/bridge/machine/Hairdryer.java</a>
                 </td>
                 <td>
                   0

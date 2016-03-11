@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import hu.schonherz.java.training.hw.bridge.machine.CoffeeMaker;
-import hu.schonherz.java.training.hw.bridge.machine.Hairdryer;
+import hu.schonherz.java.training.hw.bridge.machine.HairDryer;
 import hu.schonherz.java.training.hw.bridge.machine.Television;
 
 public class RemoteControlTest {
@@ -29,17 +29,17 @@ public class RemoteControlTest {
 
 	@Test
 	public void testDryerSwitchOn() {
-		rc = new RemoteControl(new Hairdryer());
+		rc = new RemoteControl(new HairDryer());
 		String result = rc.switchOn();
-		String expected = Hairdryer.HAIRDRYER_ON;
+		String expected = HairDryer.HAIRDRYER_ON;
 		assertEquals(expected, result);
 	}
 
 	@Test
 	public void testDryerSwitchOff() {
-		rc = new RemoteControl(new Hairdryer());
+		rc = new RemoteControl(new HairDryer());
 		String result = rc.switchOff();
-		String expected = Hairdryer.HAIRDRYER_OFF;
+		String expected = HairDryer.HAIRDRYER_OFF;
 		assertEquals(expected, result);
 	}
 

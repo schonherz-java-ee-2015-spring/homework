@@ -1,7 +1,7 @@
 package hu.schonherz.java.training.hw.bridge;
 
 import hu.schonherz.java.training.hw.bridge.machine.CoffeeMaker;
-import hu.schonherz.java.training.hw.bridge.machine.Hairdryer;
+import hu.schonherz.java.training.hw.bridge.machine.HairDryer;
 import hu.schonherz.java.training.hw.bridge.machine.Television;
 
 /**
@@ -14,7 +14,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Switch tv = new RemoteControl(new Television());
-		Switch dryer = new RemoteControl(new Hairdryer());
+		Switch dryer = new RemoteControl(new HairDryer());
 		Switch maker = new RemoteControl(new CoffeeMaker());
 
 		System.out.println(tv.switchOn());
