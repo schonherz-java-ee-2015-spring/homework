@@ -11,6 +11,8 @@ import hu.schonherz.java.training.hw.builder.material.Material;
  */
 public class ClothSeat implements Seat {
 
+	public static final String CLOTH_SEAT = "Cloth Seat";
+
 	@Override
 	public Material material() {
 		return new Cloth();
@@ -18,7 +20,7 @@ public class ClothSeat implements Seat {
 
 	@Override
 	public String name() {
-		return "Cloth Seat";
+		return CLOTH_SEAT;
 	}
 
 	@Override

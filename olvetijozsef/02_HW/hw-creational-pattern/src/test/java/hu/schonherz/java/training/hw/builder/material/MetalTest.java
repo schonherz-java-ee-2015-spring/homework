@@ -9,6 +9,6 @@ public class MetalTest {
 	@Test
 	public void testClothMaterial() {
 		Material metal = new Metal();
-		assertEquals("Metal", metal.material());
+		assertEquals(Metal.METAL, metal.material());
 	}
 }

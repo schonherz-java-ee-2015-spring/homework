@@ -1,21 +1,24 @@
 package hu.schonherz.java.training.hw.bridge.machine;
 
 /**
- * Implements a coffee maker machine.
+ * Implements the coffee maker machine.
  * 
  * @author Ölveti József
  *
  */
 public class CoffeeMaker implements MachineAPI {
 
+	public static final String COFFEE_MAKER_OFF = "Coffee Maker Switched off!";
+	public static final String COFFEE_MAKER_ON = "Coffee Maker Switched on!";
+
 	@Override
 	public String switchOn() {
-		return "Coffee Maker Switched on!";
+		return COFFEE_MAKER_ON;
 	}
 
 	@Override
 	public String switchOff() {
-		return "Coffee Maker Switched off!";
+		return COFFEE_MAKER_OFF;
 	}
 
 }

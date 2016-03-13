@@ -7,10 +7,10 @@ package hu.schonherz.java.training.hw.builder.material;
  *
  */
 public class Wood implements Material {
+	public static final String WOOD = "Wood";
 
 	@Override
 	public String material() {
-		return "Wood";
+		return WOOD;
 	}
-
 }

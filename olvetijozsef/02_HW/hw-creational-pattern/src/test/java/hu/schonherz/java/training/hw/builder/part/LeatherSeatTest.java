@@ -7,28 +7,27 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
+import hu.schonherz.java.training.hw.builder.material.Leather;
 import hu.schonherz.java.training.hw.builder.material.Material;
-import hu.schonherz.java.training.hw.builder.material.Wood;
 
 public class LeatherSeatTest {
+	private static Part p = new LeatherSeat();
 
 	@Test
 	public void testName() {
-		Part p = new WoodSeat();
-		assertEquals("Wood Seat", p.name());
+		assertEquals(LeatherSeat.LEATHER_SEAT, p.name());
 	}
 
 	@Test
 	public void testPrice() {
-		Part p = new WoodSeat();
-		assertEquals(String.valueOf(5.0f), String.valueOf(p.price()));
+		assertEquals(String.valueOf(50.0f), String.valueOf(p.price()));
 	}
 
 	@Test
 	public void testMaterial() {
-		Part p = new WoodSeat();
 		assertNotNull(p.material());
 		assertThat(p.material(), instanceOf(Material.class));
-		assertThat(p.material(), instanceOf(Wood.class));
+		assertThat(p.material(), instanceOf(Leather.class));
+		assertEquals(Leather.LEATHER, p.material().material());
 	}
 }

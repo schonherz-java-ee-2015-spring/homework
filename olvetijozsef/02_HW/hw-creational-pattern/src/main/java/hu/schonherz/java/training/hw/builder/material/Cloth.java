@@ -7,10 +7,10 @@ package hu.schonherz.java.training.hw.builder.material;
  *
  */
 public class Cloth implements Material {
+	public static final String CLOTH = "Cloth";
 
 	@Override
 	public String material() {
-		return "Cloth";
+		return CLOTH;
 	}
-
 }

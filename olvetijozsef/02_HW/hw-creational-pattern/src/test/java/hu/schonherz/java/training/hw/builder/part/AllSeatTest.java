@@ -5,6 +5,6 @@ import org.junit.runners.Suite;
 
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ ClothSeatTest.class, LeatherSeatTest.class, WoodSeatTest.class })
+@Suite.SuiteClasses({ ClothSeatTest.class, WoodSeatTest.class, LeatherSeatTest.class })
 public class AllSeatTest {
 }
