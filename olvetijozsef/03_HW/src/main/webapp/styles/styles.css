@@ -1,0 +1,144 @@
+@CHARSET "UTF-8";
+
+body {
+	background-color: #CCCCCC;
+	font-family: Arial;
+}
+
+#bcontainer {
+	width: 100%;
+	text-align: center;
+	margin: auto;
+}
+
+.styledDiv {
+	width: 60%;
+	text-align: center;
+	margin: auto;
+}
+
+.blogs, .blogsBig {
+	margin: auto;
+	-webkit-box-shadow: 0px 0px 16px 0px rgba(50, 50, 50, 0.5);
+	-moz-box-shadow: 0px 0px 16px 0px rgba(50, 50, 50, 0.5);
+	box-shadow: 0px 0px 16px 0px rgba(50, 50, 50, 0.5);
+	margin-bottom: 3px;
+}
+
+.blogs {
+	width: 70%;
+}
+
+.blogsBig {
+	width: 75%;
+}
+
+.bloghead {
+	text-align:left;
+	width: 100%;
+	background-color: #212930;
+	font-size: 18px;
+	padding: 5px 10px 5px 10px;
+	color: #b6c0d1;
+}
+
+.bloghead span{
+	float:right;
+}
+
+.bloghead a {
+	color: #b6c0d1;
+}
+
+.bloghead a:hover {
+	color: #f2f7e6;
+}
+
+.blogbody, .blogbodyBig {
+	text-align: justify;
+	min-height: 80px;
+	background-color: white;
+	padding: 5px 10px 5px 10px;
+	width: 100%;
+}
+
+.blogbody {
+	overflow: hidden;
+	max-height: 300px;
+}
+
+h3 {
+	font-size: 32px;
+}
+
+a {
+	text-decoration: none;
+	color: #000044;
+}
+
+a:hover {
+	color: #2357EC;
+}
+
+input[type=submit] {
+	cursor: pointer !important;
+	margin-left: 5px;
+	marin-right: 5px;
+	background: rgba(255, 255, 255, 0.5);
+	-webkit-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.75);
+	height: 35px;
+	color: white;
+	border: 2px solid #2A3DAC;
+	font-weight: bold;
+	background-color: #2A3DAC;
+	margin-left: 5px;
+}
+
+input[type=submit]:hover {
+	background-color: #3a3a3a;
+	border: 2px solid #636365;
+	color: white;
+}
+
+input[type=text], textarea {
+	text-align: center;
+	border: 3px solid white;
+	-webkit-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.75);
+	padding: 5px;
+	background: rgba(255, 255, 255, 0.5);
+	margin: auto;
+	margin-bottom: 5px;
+	width: 100%;
+	font-size: 16px;
+	border: 3px solid white;
+}
+
+input[type=text] {
+	font-weight: bold;
+}
+
+textarea {
+	resize: none;
+	height: 400px;
+	text-align: justify;
+}
+
+::-webkit-input-placeholder {
+	color: #8cbabd;
+}
+
+::-moz-placeholder {
+	color: #8cbabd;
+}
+
+:-ms-input-placeholder {
+	color: #8cbabd;
+}
+
+:-moz-placeholder {
+	color: #8cbabd;
+}
