@@ -63,21 +63,21 @@ public class DetailsServlet extends HttpServlet {
 						response.sendRedirect(INDEXJSP);
 					} else {
 						// Get the blog details from blogs list. Copy the Blog.
-						Blog blog = blogbean.getBlogs().get(id);
+						Blog blog = blogbean.getBlogs().get((blogbean.getBlogs().size() - 1) - id);
 						// Print HTML content.
 						PrintWriter out = response.getWriter();
 						out.append("<html>");
 						out.append("<head>" + "<link rel='stylesheet' href='styles/styles.css'>" + "</head>");
 						out.append("<body>");
 						out.append("<div id='bcontainer'>");
-						out.append("<div class='blogsBig'>");
-						out.append("<div class='bloghead'>");
+						out.append("<div class='blogbig'>");
+						out.append("<div class='bloghead nolink'>");
 						out.append(blog.getTitle());
 						out.append("<span>");
 						out.append(blog.getDate());
 						out.append("</span>");
 						out.append("</div>");
-						out.append("<div class='blogbodyBig'>");
+						out.append("<div class='blogbodybig'>");
 						out.append(blog.getContent());
 						out.append("</div>");
 						out.append("</div>");

@@ -11,50 +11,58 @@ body {
 	margin: auto;
 }
 
-.styledDiv {
+.styled {
 	width: 60%;
 	text-align: center;
 	margin: auto;
 }
 
-.blogs, .blogsBig {
+.blog, .blogbig {
 	margin: auto;
 	-webkit-box-shadow: 0px 0px 16px 0px rgba(50, 50, 50, 0.5);
 	-moz-box-shadow: 0px 0px 16px 0px rgba(50, 50, 50, 0.5);
 	box-shadow: 0px 0px 16px 0px rgba(50, 50, 50, 0.5);
-	margin-bottom: 3px;
+	
 }
 
-.blogs {
+.blog {
 	width: 70%;
+	margin-bottom: 1px;
 }
 
-.blogsBig {
+.blogbig {
 	width: 75%;
+	margin-bottom: 5px;
 }
 
 .bloghead {
-	text-align:left;
+	text-align: left;
 	width: 100%;
 	background-color: #212930;
 	font-size: 18px;
-	padding: 5px 10px 5px 10px;
 	color: #b6c0d1;
 }
 
-.bloghead span{
-	float:right;
+.nolink {
+	padding: 5px 10px 5px 10px;
+}
+
+.bloghead span {
+	float: right;
 }
 
 .bloghead a {
 	color: #b6c0d1;
+	display: block;
+	padding: 5px 10px 5px 10px;
 }
 
 .bloghead a:hover {
 	color: #f2f7e6;
+	background-color: black;
 }
 
-.blogbody, .blogbodyBig {
+.blogbody, .blogbodybig {
 	text-align: justify;
 	min-height: 80px;
 	background-color: white;
@@ -97,7 +105,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-	background-color: #3a3a3a;
+	background-color: black;
 	border: 2px solid #636365;
 	color: white;
 }
@@ -124,7 +132,7 @@ input[type=text] {
 textarea {
 	resize: none;
 	height: 400px;
-	text-align: justify;
+	text-align: left;
 }
 
 ::-webkit-input-placeholder {

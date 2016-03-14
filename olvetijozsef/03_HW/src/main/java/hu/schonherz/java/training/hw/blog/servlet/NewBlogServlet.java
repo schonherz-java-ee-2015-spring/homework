@@ -54,7 +54,7 @@ public class NewBlogServlet extends HttpServlet {
 		out.append("<html>");
 		out.append("<head>" + "<link rel='stylesheet' href='styles/styles.css'>" + "</head>");
 		out.append("<body>");
-		out.append("<div class='styledDiv'>");
+		out.append("<div class='styled'>");
 		out.append("<form action='newblog' method='POST'>");
 		out.append("<input autofocus placeholder='Blog címe' type='text' name='" + BLOGTITLE + "'></input><br/>");
 		out.append("<textarea placeholder='Ide írd a blog tartalmát!' name='" + BLOGCONTENT + "'></textarea><br/>");
@@ -97,10 +97,12 @@ public class NewBlogServlet extends HttpServlet {
 					if (blogs == null) {
 						blogs = new ArrayList<Blog>();
 					}
-					// Add new blog to the list at the end, id = position.
+					// Add new blog to the list at the first place,
+					// id = the biggest next id.
 					// Store date as a String. It's easier.
 					DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-					blogs.add(new Blog(blogs.size(), StringEscapeUtils.escapeHtml(blogTitle),
+					blogs.add(0,
+							new Blog(blogs.size(), StringEscapeUtils.escapeHtml(blogTitle),
 							StringEscapeUtils.escapeHtml(blogContent),
 							dateFormat.format(new Date(System.currentTimeMillis()))));
 					// Set new blog list to the bean.

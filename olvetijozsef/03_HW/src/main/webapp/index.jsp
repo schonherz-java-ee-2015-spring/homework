@@ -27,17 +27,17 @@
 		<!-- There are available blogs -> print all in <div></div> tags. -->
 		<c:if test="${blogBean.getBlogs() != null}">
 			<c:forEach items="${blogBean.getBlogs()}" var="blog">
-				<div class="blogs">
+				<div class="blog">
 					<div class="bloghead">
-						<a href="details?id=${blog.getId()}">${blog.getTitle()}</a> <span>${blog.getDate()}</span>
+						<a href="details?id=${blog.getId()}">${blog.getTitle()}<span>${blog.getDate()}</span></a>
 					</div>
 				</div>
 			</c:forEach>
 		</c:if>
 		<!-- No blogs -> no blogs. :) -->
 		<c:if test="${blogBean.getBlogs() == null}">
-			<div class="blogs">
-				<div class="bloghead">Nem találhatóak blogok!</div>
+			<div class="blog">
+				<div class="bloghead nolink">Nem találhatóak blogok!</div>
 			</div>
 		</c:if>
 	</div>
