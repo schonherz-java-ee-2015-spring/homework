@@ -94,7 +94,8 @@
 					</reportSet>
 				</reportSets>
 			</plugin>
-			<!-- surefire plugin generates reports about the JUnit tests and their results. -->
+			<!-- surefire plugin generates reports about the JUnit tests and their 
+				results. -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-report-plugin</artifactId>
@@ -127,38 +128,16 @@
 					<aggregate>true</aggregate>
 				</configuration>
 			</plugin>
-			<!-- I WOULD LIKE TO use jacoco instead of cobertura IF IT WOULD HAVE WORKED
-				but for some reason the <executions> tag is not valid.... -->
-			<!-- 
-			<plugin>
-				<groupId>org.jacoco</groupId>
-    			<artifactId>jacoco-maven-plugin</artifactId>
-    			<version>0.7.6.201602180812</version>
-    			<executions>
-        			<execution>
-            			<id>pre-unit-test</id>
-            			<goals>
-                			<goal>prepare-agent</goal>
-            			</goals>
-            			<configuration>
-                			<destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
-                			<propertyName>surefireArgLine</propertyName>
-            			</configuration>
-        			</execution>
-        			<execution>
-            			<id>post-unit-test</id>
-            			<phase>test</phase>
-            			<goals>
-                			<goal>report</goal>
-            			</goals>
-            			<configuration>
-	            			<dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
-			                <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
-            			</configuration>
-        			</execution>
-    			</executions>
-    		</plugin>
-    		 -->
+			<!-- I WOULD LIKE TO use jacoco instead of cobertura IF IT WOULD HAVE 
+				WORKED but for some reason the <executions> tag is not valid.... -->
+			<!-- <plugin> <groupId>org.jacoco</groupId> <artifactId>jacoco-maven-plugin</artifactId> 
+				<version>0.7.6.201602180812</version> <executions> <execution> <id>pre-unit-test</id> 
+				<goals> <goal>prepare-agent</goal> </goals> <configuration> <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile> 
+				<propertyName>surefireArgLine</propertyName> </configuration> </execution> 
+				<execution> <id>post-unit-test</id> <phase>test</phase> <goals> <goal>report</goal> 
+				</goals> <configuration> <dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile> 
+				<outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory> 
+				</configuration> </execution> </executions> </plugin> -->
 		</plugins>
 	</reporting>
 

@@ -1,5 +1,8 @@
 package hu.schonherz.java.training.hw2.behavioralpattern;
 
+/**
+ * Class to describe how to create and have a Spaghetti meal.
+ * */
 public class HaveSpaghetti extends DoDinner {
 
 	private boolean hasEverythingNecessary;
