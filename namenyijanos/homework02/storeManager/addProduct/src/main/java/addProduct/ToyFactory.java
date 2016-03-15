@@ -1,9 +1,9 @@
-package hu.schonherz.homework.addProduct;
+package addProduct;
 
 public class ToyFactory {
 
 	public Toy getToy(String toyType) {
-		
+
 		if (toyType == null) {
 			return null;
 		}
@@ -11,7 +11,7 @@ public class ToyFactory {
 		if (toyType.equalsIgnoreCase("DOLL")) {
 			return new Doll();
 		}
-		
+
 		if (toyType.equalsIgnoreCase("CAR")) {
 			return new Car();
 		}

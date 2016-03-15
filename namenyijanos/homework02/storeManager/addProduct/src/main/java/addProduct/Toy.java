@@ -1,12 +1,10 @@
-package hu.schonherz.homework.addProduct;
+package addProduct;
 
 public abstract class Toy {
 	int barcode;
 	float price;
 	String name;
-	
-	
-	
+
 	public int getBarcode() {
 		return barcode;
 	}

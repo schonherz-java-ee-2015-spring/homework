@@ -1,4 +1,4 @@
-package hu.schonherz.homework.addProduct;
+package addProduct;
 
 public class Doll extends Toy {
 
