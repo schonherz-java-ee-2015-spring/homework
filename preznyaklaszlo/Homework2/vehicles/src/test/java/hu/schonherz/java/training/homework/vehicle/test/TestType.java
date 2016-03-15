@@ -13,21 +13,21 @@ public class TestType {
 	public void testGetTypeCar() {
 		VehicleFactory factory = new VehicleFactory();
 		Vehicle vehicle = factory.getVehicle("car");
-		assertEquals(vehicle.getType(), "Car");
+		assertEquals("Car", vehicle.getType());
 	}
 
 	@Test
 	public void testGetTypeBike() {
 		VehicleFactory factory = new VehicleFactory();
 		Vehicle vehicle = factory.getVehicle("bike");
-		assertEquals(vehicle.getType(), "Bike");
+		assertEquals("Bike", vehicle.getType());
 	}
 
 	@Test
 	public void testGetTypeBus() {
 		VehicleFactory factory = new VehicleFactory();
 		Vehicle vehicle = factory.getVehicle("bus");
-		assertEquals(vehicle.getType(), "Bus");
+		assertEquals("Bus", vehicle.getType());
 	}
 
 }
