@@ -15,6 +15,7 @@ public class CareTakerTest {
 		careTaker.add(condHandler.saveConditionToMemory());
 		condHandler.getConditionFromMemory(careTaker.get(0));
 
+		// If this is true, we did a good job!
 		assertEquals("Tired", condHandler.getCondition());
 
 	}

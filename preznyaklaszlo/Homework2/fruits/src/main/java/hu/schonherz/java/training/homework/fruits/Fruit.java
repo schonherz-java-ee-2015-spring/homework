@@ -1,5 +1,6 @@
 package hu.schonherz.java.training.homework.fruits;
 
+//Fruit class is an abstract class which uses the Eatable interface
 public abstract class Fruit {
 
 	protected Eatable eatable;

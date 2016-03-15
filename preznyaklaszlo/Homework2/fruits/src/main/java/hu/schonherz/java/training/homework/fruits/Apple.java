@@ -10,6 +10,8 @@ public class Apple extends Fruit {
 		this.weight = weight;
 	}
 
+	// We override the name() method, and we're calling the matching name()
+	// method of the eatable interface
 	@Override
 	public String name() {
 		return eatable.name();
