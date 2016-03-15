@@ -5,6 +5,6 @@
     <artifactId>storeManager</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>addProduct</artifactId>
-  <name>Add Product</name>
+  <artifactId>orderProduct</artifactId>
+  <name>Order Product</name>
 </project>
