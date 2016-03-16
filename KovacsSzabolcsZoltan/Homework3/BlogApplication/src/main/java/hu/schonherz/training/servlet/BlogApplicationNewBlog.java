@@ -30,6 +30,7 @@ public class BlogApplicationNewBlog extends HttpServlet {
 	
 	private List<Blogs> blogBeans = BlogBeans.getBlogs();
 	public int id = (Integer) ((blogBeans.size() != 0) ? blogBeans.get(blogBeans.size()-1).ID : 0);
+	
 	public BlogApplicationNewBlog() {
 		super();
 	}
