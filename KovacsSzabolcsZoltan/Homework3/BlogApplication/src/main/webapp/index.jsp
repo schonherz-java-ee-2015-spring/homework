@@ -23,9 +23,9 @@
 			blogs = new ArrayList<Blogs>();
 		}
 		Blogs blog = null;
-		blog.ID = request.getParameter(ID);
-		blog.name = StringEscapeUtils.escapeHtml(request.getParameter(NAME));
-		blog.text = StringEscapeUtils.escapeHtml(request.getParameter(NEWTEXT));
+		blog.ID = "01";
+		blog.name = "Katsa";
+		blog.text = "asdasdasdsadasdasdasdasddasdasdasdadasdasdasdasdasdsadasdas";
 		blogs.add(blog);
 
 		blogBeans.setBlogs(blogs);
@@ -34,7 +34,7 @@
 
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Homepage</title>
 <body style="background-color: aqua;">
 	<h2>Hello World!</h2>
 	<div>
@@ -45,9 +45,11 @@
 				There is no blog yet!<br></br>
 			</c:when>
 			<c:otherwise>
-				<c:forEach items="${blogBeans.comments }" var="comment">
-					<div style="border: solid 1px">${comment}</div>
+				<ul>
+				<c:forEach items="${blogBeans.getBlogs() }" var="blog">
+					<li><div style="border: solid 1px">${blog.name}</div></li>
 				</c:forEach>
+				</ul>
 			</c:otherwise>
 		</c:choose>
 	</div>

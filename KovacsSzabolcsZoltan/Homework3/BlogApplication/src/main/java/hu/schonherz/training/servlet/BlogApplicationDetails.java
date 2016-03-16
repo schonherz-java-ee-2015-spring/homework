@@ -30,19 +30,14 @@ public class BlogApplicationDetails extends HttpServlet {
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
+		out.append("<h1>Don't have any blogs yet!</h1>");
 
 		String name = request.getParameter(NAME);
 		String id = request.getParameter(ID);
 
-		if (blogBeans.size() == 0) {
-			out.append("<h1>Don't have any blogs yet!</h1>");
-		} else {
-
 			int count = 0;
-
 			for (Blogs blogs : blogBeans) {
 				count++;
 				if (blogs.ID.equals(id)) {
@@ -52,15 +47,14 @@ public class BlogApplicationDetails extends HttpServlet {
 
 			String text = blogBeans.get(count).text;
 
-			out.append("<h1><b>" + name + "</b></h1>");
-			out.append("<div>" + text.replace("\n", "</ br>") + "</div>");
-			out.append(
-					"<footer><input type='submit' value='Go to my link location' onclick='index.jsp' </input></footer>");
-		}
+			out.append("<h1>" + name + "</h1>");
+			out.append("<div>" + text + "</div>");
+			out.append("<footer><form action='index.jsp' method='get'><input type='submit' value='Back to homepage' name='Submit' id='frm1_submit'/></form></footer>");
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		doGet(request, response);
 
