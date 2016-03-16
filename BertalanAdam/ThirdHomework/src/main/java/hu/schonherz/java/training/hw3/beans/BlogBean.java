@@ -3,13 +3,16 @@ package hu.schonherz.java.training.hw3.beans;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * An Object to store data about blogs.
+ * This object contains the id, name and the content of each blog.
+ * */
 public class BlogBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
 	public BlogBean() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	List<String> blogNames;
