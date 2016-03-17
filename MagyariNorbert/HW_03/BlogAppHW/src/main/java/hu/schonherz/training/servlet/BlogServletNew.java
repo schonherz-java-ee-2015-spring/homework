@@ -34,27 +34,21 @@ public class BlogServletNew extends HttpServlet {
 
 		String name = (request.getParameter(NAME) != null ? request.getParameter(NAME) : "Blog");
 		PrintWriter out = response.getWriter();
-		out.append("<h1>Hello " + (name != null ? name : "Blog") + "</h1>");
-
-//		if (lista != null) {
-//			for (int i = 0; i < lista.size(); i++) {
-//				out.append("<div style='border: solid 1px'>" + lista.get(i).getTitle() + " " + lista.get(i).getId()
-//						+ "</br> " + lista.get(i).getEntry() + "</div>");
-//				out.append("</br>");
-//			}
-//		} else {
-//			out.append("<div>There is no blog yet</div>");
-//		}
+		out.append("<title>NewBlog</title>");
+		out.append("<h1><center>Uj blog hozzaadasa:</center></h1>");
+		//out.append("<h1>Hello " + (name != null ? name : "Blog") + "</h1>");
 
 		out.append("<form action='BlogServletNew' method='POST'>");
 		out.append("<input name='" + NAME + "' type='hidden' value='" + name + "' ></input>");
-		out.append("<textarea name='" + TITLE + "'></textarea></br>");
-		out.append("<textarea name='" + NEWBLOG + "'></textarea>");
+		out.append("<h4>A blog cime:</h2>");
+		out.append("<textarea rows='1' cols='20' name='" + TITLE + "' ></textarea></br>");
+		out.append("<h4>A blog tartalma:</h2>");
+		out.append("<textarea rows='8' cols='100' name='" + NEWBLOG + "'></textarea></br>");
 		out.append("<input type='submit' value='Submit'/>");
 		out.append("</form>");
 		
 		out.append(
-				"<footer><form action='index.jsp' method='get'><input type='submit' value='Back to homepage' name='Submit' id='frm1_submit'/></form></footer>");
+				"<footer><form action='index.jsp' method='get'><input type='submit' value='Vissza a fooldalra' name='Submit' id='frm1_submit'/></form></footer>");
 
 	}
 
@@ -85,8 +79,5 @@ public class BlogServletNew extends HttpServlet {
 		return lista;
 	}
 
-	public void setLista(List<BlogBeans> lista) {
-		this.lista = lista;
-	}
 
 }

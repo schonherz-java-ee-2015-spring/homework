@@ -13,9 +13,6 @@ import hu.schonherz.training.beans.BlogBeans;
 
 public class BlogServletEntry extends HttpServlet {
 	
-	private static final String NEWBLOG = "newblog";
-	private static final String NAME = "name";
-	private static final String TITLE = "title";
 	private static List<BlogBeans> lista;
 	int thisId;
 	String thisName;
@@ -35,12 +32,15 @@ public class BlogServletEntry extends HttpServlet {
 		lista = BlogServletNew.getLista();
 		
 		if (lista != null) {
-			//for (int i = 0; i < lista.size(); i++) {
-				out.append("<div style='border: solid 1px'>" + lista.get(thisId).getTitle() + " " + lista.get(thisId).getId()+ "</br> "
-						+ lista.get(thisId).getEntry() + "</div>");
+				out.append("<title>Details</title>");
+				out.append("<h1><center>" + lista.get(thisId).getTitle() + "</center></h1></br>");
+				out.append("<div>" + lista.get(thisId).getEntry() + "</div>");
+//				out.append("<div style='border: solid 1px'>" + lista.get(thisId).getTitle() + " " + lista.get(thisId).getId()+ "</br> "
+//						+ lista.get(thisId).getEntry() + "</div>");
 				out.append("</br>");
-			//}
-		} else {	out.append("<div>There is no blog yet</div>");	}
+		} else {	out.append("<div><center>There is no blog yet</center></div>");	}
+		out.append(
+				"<footer><form action='index.jsp' method='get'><input type='submit' value='Vissza a fooldalra' name='Submit' id='frm1_submit'/></form></footer>");
 
 	}
 

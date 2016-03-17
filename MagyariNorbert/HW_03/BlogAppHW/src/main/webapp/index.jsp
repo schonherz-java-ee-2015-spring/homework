@@ -18,15 +18,15 @@ List<BlogBeans> blogok = BlogServletNew.getLista();	%>
 
 <html>
 <body>
-<h2>Blogolda</h2>
+<h2><center>Blogolda</center></h2>
 
 <div style="margin-bottom: 30px">
-		<h2>Blogs:</h2>
+		<h2>Blogok:</h2>
 
 
 		<%if (blogok == null) {
 			blogok = new ArrayList<BlogBeans>();
-			%><h3>There is no blog yet.</h3><%
+			%><h3>Meg nincs egy uj blog sem :(</h3><%
 		} else {
 			%><ul><%
 			for (BlogBeans blog : blogok) {
@@ -34,7 +34,7 @@ List<BlogBeans> blogok = BlogServletNew.getLista();	%>
 		</ul>
 		
 	
-	<a href="BlogServletNew">Visit BlogServletNew</a></br>
+	<a href="BlogServletNew">Keszitek egy uj blogot!</a></br>
 
 	</div>
 </body>
