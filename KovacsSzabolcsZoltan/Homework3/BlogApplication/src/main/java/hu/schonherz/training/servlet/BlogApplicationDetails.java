@@ -35,6 +35,8 @@ public class BlogApplicationDetails extends HttpServlet {
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 
+		out.append("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>Details</title><body style='background-color:activecaption;'>");
+		
 		String name = request.getParameter(NAME);
 		String id = request.getParameter(ID);
 //		out.append("<h3> ID =" + id + "</h3>");
@@ -62,8 +64,8 @@ public class BlogApplicationDetails extends HttpServlet {
 //			out.append("<h2>BASZÁÁÁÁS</h2>");
 		
 
-		out.append("<h1>" + name + "-" + id + "</h1>");
-		out.append("<div>" + blogBeans.get(count).text.replace("\n", "<br>") + "</div>");
+		out.append("<h1 align='center'>" + name + "</h1>");
+		out.append("<div style='background-color:yellow; border: solid 1px'>" + blogBeans.get(count).text.replace("\n", "<br>") + "</div> <br></br>");
 		out.append(
 				"<footer><form action='index.jsp' method='get'><input type='submit' value='Back to homepage' name='Submit' id='frm1_submit'/></form></footer>");
 //		out.append("<form action='BlogApplicationDetails' method='POST'>");

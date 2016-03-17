@@ -35,7 +35,11 @@ public class BlogApplicationNewBlog extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		out.append("<h1> Here you can make your own blog</h1>");
+		
+		out.append("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>NewBlog</title><body style='background-color:activecaption;'>");
+
+		
+		out.append("<h2> Here you can make your own blog</h2>");
 
 		out.append("<form action='BlogApplicationNewBlog' method='POST'>");
 //		out.append("<input name='" + ID + "' type='hidden' value='" + id + "'></input>");

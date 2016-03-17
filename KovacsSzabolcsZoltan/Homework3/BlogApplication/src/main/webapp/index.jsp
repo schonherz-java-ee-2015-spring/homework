@@ -26,22 +26,23 @@
 	// 	blogs.add(blogTest);
 	// 	blogBeans.setBlogs(blogs);
 	List<Blogs> blogs = blogBeans.getBlogs();
-	if (blogs == null) {
-		blogs = new ArrayList<Blogs>();
-	}
+// 	if (blogs == null) {
+// 		blogs = new ArrayList<Blogs>();
+// 	}
 	
 %>
 
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Homepage</title>
-<body style="background-color:fuchsia;">
-	<h2>Hello World!</h2>
+<body style="background-color:activecaption;">
+	<h1 align="center"><font style=" color:green; ; font: small-caps;">Adventure time!</font></h1>
 	<p>
 		Blogs:<br>
-		<c:if test="${blogs == null}">
-		<h3>You don't have blogs yet!</h3>
-		</c:if>
+		<%if (blogs == null) {%>
+		<h3>You don't have blogs yet!</h3><%
+		}%>
+
 		<%if (blogs == null) {
 			blogs = new ArrayList<Blogs>();
 		} else {
