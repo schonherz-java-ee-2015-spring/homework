@@ -23,13 +23,13 @@ List<BlogBeans> blogok = BlogServletNew.getLista();	%>
 <div style="margin-bottom: 30px">
 		<h2>Blogok:</h2>
 
-
+		<!-- if there are no blogs -->
 		<%if (blogok == null) {
 			blogok = new ArrayList<BlogBeans>();
 			%><h3>Meg nincs egy uj blog sem :(</h3><%
 		} else {
 			%><ul><%
-			for (BlogBeans blog : blogok) {
+			for (BlogBeans blog : blogok) { //creating links to the blogs and sending blogs title and id
 				%><li><a href="BlogServletEntry?name=<%=blog.getTitle()%>&id=<%=blog.getId()%>"><%=blog.getTitle()%></a></li><%}}%>
 		</ul>
 		

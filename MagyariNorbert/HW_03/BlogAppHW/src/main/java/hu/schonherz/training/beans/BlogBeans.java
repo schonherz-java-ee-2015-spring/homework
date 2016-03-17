@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class BlogBeans implements Serializable {
 
 	/**
-	 * 
+	 * this bean for the data store
 	 */
 	private static final long serialVersionUID = 1L;
 
