@@ -2,6 +2,7 @@ package hu.schonherz.training.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -34,33 +35,54 @@ public class BlogApplicationDetails extends HttpServlet {
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 
+		out.append("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>Details</title><body style='background-color:activecaption;'>");
+		
 		String name = request.getParameter(NAME);
 		String id = request.getParameter(ID);
+//		out.append("<h3> ID =" + id + "</h3>");
 
-		if (blogBeans.size() == 0) {
+		if (BlogBeans.getBlogs() == null) {
 			out.append("<h1>Don't have any blogs yet!</h1>");
+			blogBeans = new ArrayList<Blogs>();
 		} else {
 
 			int count = 0;
-
 			for (Blogs blogs : blogBeans) {
-				count++;
+//				out.append("<h3>*" + blogs + "*</h3>");
+
 				if (blogs.ID.equals(id)) {
 					break;
+				} else {
+					count++;
 				}
+
 			}
+//			for (Blogs blogs : blogBeans) {
+//				out.append("<div>**" + blogs + "**</div>");
+//			}
 
-			String text = blogBeans.get(count).text;
+//			out.append("<h2>BASZÁÁÁÁS</h2>");
+		
 
-			out.append("<h1><b>" + name + "</b></h1>");
-			out.append("<div>" + text.replace("\n", "</ br>") + "</div>");
-			out.append(
-					"<footer><input type='submit' value='Go to my link location' onclick='index.jsp' </input></footer>");
+		out.append("<h1 align='center'>" + name + "</h1>");
+		out.append("<div style='background-color:yellow; border: solid 1px'>" + blogBeans.get(count).text.replace("\n", "<br>") + "</div> <br></br>");
+		out.append(
+				"<footer><form action='index.jsp' method='get'><input type='submit' value='Back to homepage' name='Submit' id='frm1_submit'/></form></footer>");
+//		out.append("<form action='BlogApplicationDetails' method='POST'>");
+//		out.append("<input name='" + ID + "' type='hidden' value='" + id + "'></input>");
+//		out.append("<input name='" + NAME + "' type='hidden' value='" + name + "'></input>");
+//		out.append("<input type='submit'>" + "</input");
+//		out.append("</form>");
 		}
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+//		Blogs blogTest = new Blogs("1", "Katsa", "Teszt szöveg ehhez a retkes bloghoz!");
+//		blogBeans.add(blogTest);
+//		BlogBeans.setBlogs(blogBeans);
 
 		doGet(request, response);
 
