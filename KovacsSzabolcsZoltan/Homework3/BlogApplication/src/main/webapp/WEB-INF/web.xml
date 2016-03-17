@@ -7,11 +7,19 @@
   <servlet>
   	<servlet-name>BlogApplicationDetails</servlet-name>
   	<display-name>BlogApplicationDetails</display-name>
-  	<description></description>
   	<servlet-class>hu.schonherz.training.servlet.BlogApplicationDetails</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>BlogApplicationNewBlog</servlet-name>
+  	<display-name>BlogApplicationNewBlog</display-name>
+  	<servlet-class>hu.schonherz.training.servlet.BlogApplicationNewBlog</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>BlogApplicationDetails</servlet-name>
   	<url-pattern>/BlogApplicationDetails</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BlogApplicationNewBlog</servlet-name>
+  	<url-pattern>/BlogApplicationNewBlog</url-pattern>
   </servlet-mapping>
 </web-app>

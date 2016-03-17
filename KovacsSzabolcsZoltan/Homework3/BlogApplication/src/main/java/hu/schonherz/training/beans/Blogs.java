@@ -14,4 +14,13 @@ public class Blogs {
 		this.text = text;
 	}
 
+	public Blogs() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "Blogs [ID=" + ID + ", name=" + name + ", text=" + text + "]";
+	}
+
 }

@@ -1,3 +1,5 @@
+<%@page import="java.io.PrintWriter"%>
+<%@page import="org.apache.taglibs.standard.tag.common.core.ForEachSupport"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="hu.schonherz.training.beans.Blogs"%>
@@ -8,7 +10,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page isELIgnored="false"%>
 <jsp:useBean id="blogBeans"
-	class="hu.schonherz.training.beans.BlogBeans" scope="application"></jsp:useBean>
+	class="hu.schonherz.training.beans.BlogBeans" scope="application">
+	<%-- 	<jsp:setProperty name="blogBeans" property="blogs" value="<%= new Blogs("1", "Katsa", "Teszt szöveg ehhez a retkes bloghoz!") %>" /> --%>
+</jsp:useBean>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -17,47 +21,36 @@
 	final String NAME = "name";
 	final String ID = "id";
 
-	if (request.getParameter(NEWTEXT) != null) {
-		List<Blogs> blogs = blogBeans.getBlogs();
-		if (blogs == null) {
-			blogs = new ArrayList<Blogs>();
-		}
-		Blogs blog = null;
-		blog.ID = "01";
-		blog.name = "Katsa";
-		blog.text = "asdasdasdsadasdasdasdasddasdasdasdadasdasdasdasdasdsadasdas";
-		blogs.add(blog);
-
-		blogBeans.setBlogs(blogs);
+	// 	List<Blogs> blogs = blogBeans.getBlogs();
+	// 	Blogs blogTest = new Blogs("1", "Katsa", "Teszt szöveg ehhez a retkes bloghoz!");
+	// 	blogs.add(blogTest);
+	// 	blogBeans.setBlogs(blogs);
+	List<Blogs> blogs = blogBeans.getBlogs();
+	if (blogs == null) {
+		blogs = new ArrayList<Blogs>();
 	}
+	
 %>
 
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Homepage</title>
-<body style="background-color: aqua;">
+<body style="background-color:fuchsia;">
 	<h2>Hello World!</h2>
-	<div>
-		Blogs:<br></br>
+	<p>
+		Blogs:<br>
+		<c:if test="${blogs == null}">
+		<h3>You don't have blogs yet!</h3>
+		</c:if>
+		<%if (blogs == null) {
+			blogs = new ArrayList<Blogs>();
+		} else {
+			%><ul><%
+			for (Blogs blog : blogs) {
+				%><li><a href="BlogApplicationDetails?name=<%=blog.name%>&id=<%=blog.ID%>"><%=blog.name%></a></li><%}}%>
+		</ul>
 
-		<c:choose>
-			<c:when test="${blogBeans.getBlogs() == null}">
-				There is no blog yet!<br></br>
-			</c:when>
-			<c:otherwise>
-				<ul>
-				<c:forEach items="${blogBeans.getBlogs() }" var="blog">
-					<li><div style="border: solid 1px">${blog.name}</div></li>
-				</c:forEach>
-				</ul>
-			</c:otherwise>
-		</c:choose>
-	</div>
-
-
-
-
-	<a href="BlogApplicationNewBlog">BlogApplicationNewBlog<br></a>
-	<a href="BlogApplicationDetails">BlogApplicationDetails</a>
+	</p>
+	<footer><form action='BlogApplicationNewBlog' method='get'><input type='submit' value='Create a new blog' name='Submit' id='frm1_submit'/></form></footer>
 </body>
 </html>

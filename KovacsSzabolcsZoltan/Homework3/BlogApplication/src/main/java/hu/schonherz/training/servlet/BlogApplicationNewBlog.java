@@ -24,32 +24,27 @@ public class BlogApplicationNewBlog extends HttpServlet {
 	
 	private static final String NEWTEXT = "newtext";
 	private static final String NAME = "name";
-	private static final String ID = "id";
-	
-	private BlogBeans adattag;
-	
-	private List<Blogs> blogBeans = BlogBeans.getBlogs();
-	public int id = (Integer) ((blogBeans.size() != 0) ? blogBeans.get(blogBeans.size()-1).ID : 0);
-	
+//	private static final String ID = "id";
+
+	private String id = "0";
+
 	public BlogApplicationNewBlog() {
 		super();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		id++;
 		PrintWriter out = response.getWriter();
 		out.append("<h1> Here you can make your own blog</h1>");
 
 		out.append("<form action='BlogApplicationNewBlog' method='POST'>");
-		out.append("<input name='" + ID + "' type='hidden' value='" + id + "'></input>");
-		out.append("<textarea rows='1' cols='50' name='" + NAME + "'>" + "</textarea>");
-		out.append("<input type='submit'>" + "</input");
-		out.append("<textarea rows='20' cols='100' name='" + NEWTEXT + "'>" + "</textarea>");
-		out.append("<input type='submit'>" + "</input");
+//		out.append("<input name='" + ID + "' type='hidden' value='" + id + "'></input>");
+		out.append("<textarea rows='1' cols='50' name='" + NAME + "'>" + "</textarea><br>");
+		out.append("<textarea rows='20' cols='100' name='" + NEWTEXT + "'>" + "</textarea><br>");
+		out.append("<input type='submit'>" + "</input><br></br>");
 		out.append("</form>");
-		
+		out.append(
+				"<footer><form action='index.jsp' method='get'><input type='submit' value='Back to homepage' name='Submit' id='frm1_submit'/></form></footer>");
 	}
 		
 	@Override
@@ -57,22 +52,23 @@ public class BlogApplicationNewBlog extends HttpServlet {
 
 		List<Blogs> blogs;
 		
-		if (this.blogBeans.isEmpty()) {
+		if (BlogBeans.getBlogs() == null) {
 			blogs = new ArrayList<Blogs>();
 		} else {
 			blogs = BlogBeans.getBlogs();
 		}
 		
-		Blogs blog = null;
-		blog.ID = request.getParameter(ID);
+		Blogs blog = new Blogs();
+		id = Integer.toString(Integer.parseInt(id)+1);
+		blog.ID = id;
 		blog.name = StringEscapeUtils.escapeHtml(request.getParameter(NAME));
 		blog.text = StringEscapeUtils.escapeHtml(request.getParameter(NEWTEXT));
 		blogs.add(blog);
 		
-		adattag.setBlogs(blogs);
+		BlogBeans.setBlogs(blogs);	
 		
 		
-		doPost(request, response);
+		doGet(request, response);
 	}
 
 }
