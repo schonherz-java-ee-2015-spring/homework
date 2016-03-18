@@ -1,0 +1,54 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Archetype Created Web Application</display-name>
+
+	<servlet>
+		<servlet-name>BlogServlet</servlet-name>
+		<display-name>BlogServlet</display-name>
+		<description></description>
+		<servlet-class>hu.schonherz.java.training.hw3.servlet.BlogServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DetailsServlet</servlet-name>
+		<display-name>DetailsServlet</display-name>
+		<description></description>
+		<servlet-class>hu.schonherz.java.training.hw3.servlet.DetailsServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>NewBlogServlet</servlet-name>
+		<display-name>NewBlogServlet</display-name>
+		<description></description>
+		<servlet-class>hu.schonherz.java.training.hw3.servlet.NewBlogServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>IndexServlet</servlet-name>
+		<display-name>IndexServlet</display-name>
+		<description></description>
+		<servlet-class>hu.schonherz.java.training.hw3.servlet.IndexServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>BlogServlet</servlet-name>
+		<url-pattern>/BlogServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DetailsServlet</servlet-name>
+		<url-pattern>/DetailsServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>NewBlogServlet</servlet-name>
+		<url-pattern>/NewBlogServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>IndexServlet</servlet-name>
+		<url-pattern>/IndexServlet</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>IndexServlet</welcome-file>
+	</welcome-file-list>
+
+</web-app>
