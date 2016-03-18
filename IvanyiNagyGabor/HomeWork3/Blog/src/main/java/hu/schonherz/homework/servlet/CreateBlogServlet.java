@@ -27,7 +27,7 @@ public class CreateBlogServlet extends HttpServlet {
 	}
 
 	/**
-	 * Try to create blog and if it is succesful then make it
+	 * Try to create a new blog
 	 */
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -38,7 +38,6 @@ public class CreateBlogServlet extends HttpServlet {
 		new BlogServiceImpl().createBlog(new Blog(0L, title, content));
 
 		request.getRequestDispatcher("GetAllBlogServlet").forward(request, response);
-
 	}
 
 }
