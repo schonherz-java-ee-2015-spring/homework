@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class NewBlog extends HttpServlet {
 
+	// This is the page, where the new blogs are born
 	static int id = 0;
 	/**
 	 * 
@@ -18,12 +19,15 @@ public class NewBlog extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		// Writer to write to the page
 		PrintWriter out = response.getWriter();
-
+		// Setting the style
 		out.append(
 				"<style> body {background-color:rgb(204, 254, 255);} h1 {color:rgb(0, 0, 129);text-align:center;font-size:150%;} div {color:rgb(0, 0, 129); </style>");
 
 		out.append("<h1><i>Be creative!</i></h1>");
+		// A form to get the data from the user and posting it to the
+		// IndexServlet
 		out.append("<form action='IndexServlet' method='POST'>");
 		out.append("<div class='name'> Title: <br/><input id='in' type='text' name='title'></input>");
 		out.append("<input type='submit' value='Send'></input>");
