@@ -8,6 +8,7 @@
 	<name>Blog Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
+	
 	<build>
 	<finalName>Blog</finalName>
 		<plugins>
