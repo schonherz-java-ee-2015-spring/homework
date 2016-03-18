@@ -20,13 +20,16 @@ public class NewBlog extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 
-		out.append("<h1 style=\"color:blue\">Be creative!</h1>");
+		out.append(
+				"<style> body {background-color:rgb(204, 254, 255);} h1 {color:rgb(0, 0, 129);text-align:center;font-size:150%;} div {color:rgb(0, 0, 129); </style>");
+
+		out.append("<h1><i>Be creative!</i></h1>");
 		out.append("<form action='IndexServlet' method='POST'>");
 		out.append("<div class='name'> Title: <br/><input id='in' type='text' name='title'></input>");
 		out.append("<input type='submit' value='Send'></input>");
 		out.append("<br/>");
 		out.append("<div class='name'> Write your story here: <br/>");
-		out.append("<textarea name='writing' id='textpart'></textarea>");
+		out.append("<textarea name='writing' rows=\"15\" cols=\"50\" id='textpart'></textarea>");
 		out.append("</div>");
 		out.append("<input type='hidden' name='id' value='" + id++ + "'>");
 		out.append("</form>");

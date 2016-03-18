@@ -27,7 +27,10 @@ public class IndexServlet extends HttpServlet {
 		ServletContext context = request.getSession().getServletContext();
 		PrintWriter out = response.getWriter();
 
-		out.append("<h1 style=\"color:blue;font-size:150%;text-align:center;\">Welcome to my blog!</h1><br/>");
+		out.append(
+				"<style> body {background-color:rgb(204, 254, 255);} h1 {color:rgb(0, 0, 129);text-align:center;font-size:150%;}</style>");
+
+		out.append("<h1><i>Welcome to my blog!</i></h1><br/>");
 
 		if (context.getAttribute("titles") == null) {
 
@@ -35,11 +38,11 @@ public class IndexServlet extends HttpServlet {
 		}
 
 		bean = (BlogBean) context.getAttribute("titles");
-		out.append("<h1 style =\"color:blue;\">");
+
 		out.append("<form action='NewBlog' method='GET'>");
-		out.append("<input type='submit' align='left' value = \"Let's write something new\"></input>");
+		out.append(
+				"<input type='submit' style=\"background-color:rgb(234, 254, 255)\" align='left' value = \"Let's write something new\"></input>");
 		out.append("</form>");
-		out.append("</h1>");
 
 		out.append("<hr>");
 
@@ -55,6 +58,7 @@ public class IndexServlet extends HttpServlet {
 
 			}
 			out.append("</ul>");
+
 		}
 	}
 

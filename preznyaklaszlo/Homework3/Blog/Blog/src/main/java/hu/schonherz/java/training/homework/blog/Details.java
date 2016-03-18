@@ -22,11 +22,15 @@ public class Details extends HttpServlet {
 
 		ServletContext context = request.getSession().getServletContext();
 		PrintWriter out = response.getWriter();
+		out.append(
+				"<style> body {background-color:rgb(204, 254, 255);} h1 {color:rgb(0, 0, 129);text-align:center;font-size:150%;} pre {color:rgb(0, 0, 129)}</style>");
+
 		bean = (BlogBean) context.getAttribute("titles");
 		for (int i = 0; i < this.bean.getIds().size(); i++) {
 			if (this.bean.getIds().get(i).equals(Integer.parseInt(request.getParameter("id")))) {
-				out.append("<h2 style=\"color:green\">Blog title: " + this.bean.getTitles().get(i) + "</h2><br/>");
-				out.append("<h3 style=\"color:blue\">Story: " + this.bean.getWritings().get(i) + "</h3><br/>");
+				out.append("<h1>Title: " + this.bean.getTitles().get(i) + "</h1><br/>");
+				out.append("<hr><hr>");
+				out.append("<h1>Story: </h1><br/><pre>" + this.bean.getWritings().get(i) + "</pre><br/>");
 
 			}
 		}
