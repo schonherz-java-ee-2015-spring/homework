@@ -1,0 +1,57 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>teszt</servlet-name>
+  	<display-name>teszt</display-name>
+  	<description></description>
+  	<servlet-class>teszt</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Valami</servlet-name>
+  	<display-name>Valami</display-name>
+  	<description></description>
+  	<servlet-class>Valami</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Index</servlet-name>
+  	<display-name>Index</display-name>
+  	<description></description>
+  	<servlet-class>hu.schonherz.homework.headswitcher.blog.Index</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RealIndex</servlet-name>
+  	<display-name>RealIndex</display-name>
+  	<description></description>
+  	<servlet-class>hu.schonherz.homework.headswitcher.blog.RealIndex</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Details</servlet-name>
+  	<display-name>Details</display-name>
+  	<description></description>
+  	<servlet-class>hu.schonherz.homework.headswitcher.blog.Details</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>teszt</servlet-name>
+  	<url-pattern>/teszt</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Valami</servlet-name>
+  	<url-pattern>/Valami</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Index</servlet-name>
+  	<url-pattern>/Index</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RealIndex</servlet-name>
+  	<url-pattern>/RealIndex</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Details</servlet-name>
+  	<url-pattern>/Details</url-pattern>
+  </servlet-mapping>
+</web-app>
