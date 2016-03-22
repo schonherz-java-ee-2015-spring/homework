@@ -24,7 +24,7 @@ CREATE TABLE public."Product"
 (
   id integer NOT NULL DEFAULT nextval('"Product_id_seq"'::regclass),
   name character varying(50) NOT NULL,
-  price money NOT NULL,
+  price numeric NOT NULL,
   CONSTRAINT prod_pk PRIMARY KEY (id)
 );
 -----------------------------------------
@@ -48,3 +48,15 @@ CREATE TABLE public."Order"
       REFERENCES public."User" (id) MATCH SIMPLE
       ON UPDATE CASCADE ON DELETE CASCADE
 );
+-----------------------------------------
+CREATE OR REPLACE FUNCTION public."getProducts"()
+  RETURNS SETOF "Product" AS
+'SELECT id, name, price FROM public."Product" ORDER BY id;'
+  LANGUAGE sql VOLATILE
+  COST 100;
+-----------------------------------------
+CREATE OR REPLACE FUNCTION public."getUsers"()
+  RETURNS SETOF "User" AS
+'SELECT id, name FROM public."User" ORDER BY id;'
+  LANGUAGE sql VOLATILE
+  COST 100;
