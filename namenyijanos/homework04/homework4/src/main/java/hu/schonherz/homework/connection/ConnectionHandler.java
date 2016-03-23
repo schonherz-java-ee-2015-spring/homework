@@ -11,14 +11,17 @@ import javax.sql.DataSource;
 import org.postgresql.ds.PGSimpleDataSource;
 
 public class ConnectionHandler {
-
+	
 	public static Connection getConnection() throws SQLException {
 		return getPostgreSqlDataSource().getConnection();
 	}
 	
 	private static DataSource getPostgreSqlDataSource() {
+		//object for store the properties of the database
 		Properties props = new Properties();
+		//stream for read in the properties from the database.properties file
 		FileInputStream fis = null;
+		//the datasource object
 		PGSimpleDataSource psqlDS = null;
 		try {
 			fis = new FileInputStream("database.properties");
@@ -32,6 +35,5 @@ public class ConnectionHandler {
 		}
 		return psqlDS;
 	}
-	
-	
+
 }
