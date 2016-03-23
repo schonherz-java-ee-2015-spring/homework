@@ -6,7 +6,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-
 	<modules>
 		<module>order-core-client-api</module>
 		<module>order-core</module>
