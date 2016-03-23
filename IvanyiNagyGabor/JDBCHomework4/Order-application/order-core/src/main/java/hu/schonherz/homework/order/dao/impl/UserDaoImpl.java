@@ -9,7 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import hu.schonherz.homework.order.connection.impl.PostgreSqlConnectionHandler;
 import hu.schonherz.homework.order.dao.UserDao;
 import hu.schonherz.homework.order.dto.User;
 
@@ -21,27 +20,27 @@ public class UserDaoImpl implements UserDao {
 		UserDaoImpl.connection = connection;
 	}
 
+	/**
+	 * Return the all User from the User table
+	 */
 	@Override
-	public List<User> getAllUsers() {
-//		 String sql = "SELECT id, name FROM public.\"User\";";
-		// Callable statement
+	public List<User> getAllUser() {
 		String sql = "{call \"getAllUser\"()}";
 		List<User> users = new ArrayList<User>();
 		try (CallableStatement statement = connection.prepareCall(sql);
 				ResultSet resultSet = statement.executeQuery()) {
 			while (resultSet.next()) {
 				users.add(new User(resultSet.getInt("id"), resultSet.getString("name")));
-				System.out.println("Anyadat mostmar");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		for (User user : users) {
-			System.out.println(user);
-		}
 		return users;
 	}
 
+	/**
+	 * Return the all User from the User table where (user)id = id
+	 */
 	@Override
 	public User getUserById(Integer id) {
 		String sql = "SELECT id, name FROM public.\"User\" WHERE id = ?;";
@@ -59,6 +58,9 @@ public class UserDaoImpl implements UserDao {
 		return user;
 	}
 
+	/**
+	 * Insert a new User into the User table
+	 */
 	@Override
 	public void addUser(User user) {
 		String sql = "INSERT INTO public.\"User\" (name) VALUES (?);";
@@ -75,6 +77,9 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
+	/**
+	 * Update User in the User table where user(id) = id
+	 */
 	@Override
 	public void updateUser(User user) {
 		String sql = "UPDATE public.\"User\" SET name=? WHERE id=?;";
@@ -88,6 +93,9 @@ public class UserDaoImpl implements UserDao {
 
 	}
 
+	/**
+	 * Delete a User from the User table
+	 */
 	@Override
 	public void deleteUser(User user) {
 		String sql = "DELETE FROM public.\"User\" WHERE id=?;";

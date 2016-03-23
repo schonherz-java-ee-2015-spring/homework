@@ -6,7 +6,7 @@ import hu.schonherz.homework.order.dto.Product;
 
 public interface ProductDao {
 
-	public List<Product> getAllProducts();
+	public List<Product> getAllProduct();
 
 	public Product getProductById(Integer id);
 	

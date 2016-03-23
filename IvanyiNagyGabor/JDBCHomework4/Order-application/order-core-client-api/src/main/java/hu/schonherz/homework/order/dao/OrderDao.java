@@ -6,7 +6,7 @@ import hu.schonherz.homework.order.dto.Order;
 
 public interface OrderDao {
 
-	public List<Order> getAllOrders();
+	public List<Order> getAllOrder();
 
 	public List<Order> getOrdersByUserId(Integer id);
 	

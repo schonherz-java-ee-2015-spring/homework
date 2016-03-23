@@ -19,8 +19,11 @@ public class OrderDaoImpl implements OrderDao {
 		OrderDaoImpl.connection = connection;
 	}
 
+	/**
+	 * Return the all order from the Order table
+	 */
 	@Override
-	public List<Order> getAllOrders() {
+	public List<Order> getAllOrder() {
 		String sql = "SELECT user_id, product_id FROM public.\"Order\";";
 		List<Order> orders = new ArrayList<Order>();
 		try (Statement statement = connection.createStatement(); ResultSet resultSet = statement.executeQuery(sql);) {
@@ -30,10 +33,12 @@ public class OrderDaoImpl implements OrderDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println(orders);
 		return orders;
 	}
 
+	/**
+	 * Return the all Order from the Order table where user_id = id
+	 */
 	@Override
 	public List<Order> getOrdersByUserId(Integer id) {
 		String sql = "SELECT user_id, product_id FROM public.\"Order\" WHERE user_id = ?;";
@@ -51,6 +56,9 @@ public class OrderDaoImpl implements OrderDao {
 		return orders;
 	}
 
+	/**
+	 * Return the all Order from the Order table where product_id = id
+	 */
 	@Override
 	public List<Order> getOrdersByProductId(Integer id) {
 		String sql = "SELECT user_id, product_id FROM public.\"Order\" WHERE product_id = ?;";
@@ -68,6 +76,9 @@ public class OrderDaoImpl implements OrderDao {
 		return orders;
 	}
 
+	/**
+	 * Insert a new Order into the Order table
+	 */
 	@Override
 	public void addOrder(Order order) {
 		String sql = "INSERT INTO public.\"Order\" (user_id, product_id) VALUES (?, ?);";
@@ -80,6 +91,9 @@ public class OrderDaoImpl implements OrderDao {
 		}
 	}
 
+	/**
+	 * Update an old Order to a new Order in the Order table
+	 */
 	@Override
 	public void updateOrder(Order oldOrder, Order newOrder) {
 		String sql = "UPDATE public.\"Order\" SET user_id=?, product_id=? WHERE user_id=? and product_id=?;";
@@ -94,6 +108,9 @@ public class OrderDaoImpl implements OrderDao {
 		}
 	}
 
+	/**
+	 * Delete an Order from the Order table
+	 */
 	@Override
 	public void deleteOrder(Order order) {
 		String sql = "DELETE FROM public.\"Order\" WHERE user_id=? and product_id=?;";

@@ -2,6 +2,7 @@ package hu.schonherz.homework.order.dto;
 
 import java.io.Serializable;
 
+
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = -3007176557337425169L;
@@ -21,26 +22,47 @@ public class Product implements Serializable {
 		this.price = price;
 	}
 
+	/**
+	 * @return the id
+	 */
 	public Integer getId() {
 		return id;
 	}
 
+	/**
+	 * @param id
+	 *            the id to set
+	 */
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
+	/**
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * @param name
+	 *            the name to set
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * @return the price
+	 */
 	public Integer getPrice() {
 		return price;
 	}
 
+	/**
+	 * @param price
+	 *            the price to set
+	 */
 	public void setPrice(Integer price) {
 		this.price = price;
 	}

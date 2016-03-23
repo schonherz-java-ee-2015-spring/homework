@@ -7,7 +7,7 @@ import hu.schonherz.homework.order.dto.User;
 
 public interface UserDao {
 	
-	public List<User> getAllUsers();
+	public List<User> getAllUser();
 
 	public User getUserById(Integer id);
 	

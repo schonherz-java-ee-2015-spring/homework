@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import hu.schonherz.homework.order.connection.impl.PostgreSqlConnectionHandler;
+import hu.schonherz.homework.order.connection.ConnectionHandler;
 
 public class MetaData {
 
@@ -20,15 +20,21 @@ public class MetaData {
 	private static Connection connection = null;
 	private static DatabaseMetaData metaData = null;
 
+	/**
+	 * Try to connect the dataBase and ask the MetaData
+	 */
 	static {
 		try {
-			connection = PostgreSqlConnectionHandler.getInstance().getConnection();
+			connection = ConnectionHandler.getConnection();
 			metaData = connection.getMetaData();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Print some general information and the table names and theirs column names
+	 */
 	public static void printMetaData() throws SQLException {
 		System.out.println("Database Product Name: " + metaData.getDatabaseProductName());
 		System.out.println("Database Product Version: " + metaData.getDatabaseProductVersion());
@@ -39,11 +45,13 @@ public class MetaData {
 				.forEach((k, v) -> System.out.println("Table name: " + k.toUpperCase() + "\n" + "Columns: " + v));
 	}
 
+	/**
+	 * Return the table names
+	 */
 	private static List<String> getTableTitles() throws SQLException {
 
 		ResultSet resultSet = metaData.getTables(null, null, null, TABLE);
 		List<String> tableTitles = new ArrayList<String>();
-		// receive the Type of the object in a String array.
 		while (resultSet.next()) {
 			tableTitles.add(resultSet.getString(TABLE_NAME));
 
@@ -51,10 +59,11 @@ public class MetaData {
 		return tableTitles;
 	}
 
+	/**
+	 * Return the tables names and theis column names
+	 */
 	private static Map<String, List<String>> getTables(List<String> tableTitles) throws SQLException {
 		Map<String, List<String>> tables = new HashMap<String, List<String>>();
-		
-		// Print the columns properties of the actual table
 		for (String actualTable : tableTitles) {
 			List<String> columnNames = new ArrayList<String>();
 			ResultSet resultSet = metaData.getColumns(null, null, actualTable, null);

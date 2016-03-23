@@ -1,4 +1,4 @@
-package hu.schonherz.homework.order.connection.impl;
+package hu.schonherz.homework.order.connection;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,31 +8,31 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import javax.sql.DataSource;
+
 import org.postgresql.ds.PGSimpleDataSource;
 
-import hu.schonherz.homework.order.connection.ConnectionHandler;
-
-public class PostgreSqlConnectionHandler implements ConnectionHandler {
+public class ConnectionHandler {
 
 	private static final String SUBDIRECTORY = "src" + File.separator + "main" + File.separator + "resources";
 	private static final String FILENAME = "database.properties";
 	private static final String ABSOLUTEFILEPATH = SUBDIRECTORY + File.separator + FILENAME;
+	private static final DataSource dataSource = getPostgreSqlDataSource();
 
-	private static final ConnectionHandler connectionHandler = new PostgreSqlConnectionHandler();
-
-	private PostgreSqlConnectionHandler() {
+	private ConnectionHandler() {
 	}
 
-	public static ConnectionHandler getInstance() {
-		return connectionHandler;
+	/**
+	 * Return the connection
+	 */
+	public static Connection getConnection() throws SQLException {
+		return dataSource.getConnection();
 	}
 
-	@Override
-	public Connection getConnection() throws SQLException {
-		return getPostgreSqlDataSource().getConnection();
-	}
-
-	private DataSource getPostgreSqlDataSource() {
+	/**
+	 * Init dataSource only one and uses it every time when call the
+	 * getConnenction() method
+	 */
+	private static DataSource getPostgreSqlDataSource() {
 		Properties props = new Properties();
 		PGSimpleDataSource dataSource = null;
 		try (FileInputStream fileInputStream = new FileInputStream(new File(ABSOLUTEFILEPATH))) {

@@ -8,10 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import hu.schonherz.homework.order.dao.ProductDao;
 import hu.schonherz.homework.order.dto.Product;
-import hu.schonherz.homework.order.dto.User;
 
 public class ProductDaoImpl implements ProductDao {
 
@@ -21,8 +19,11 @@ public class ProductDaoImpl implements ProductDao {
 		ProductDaoImpl.connection = connection;
 	}
 
+	/**
+	 * Return the all product from the Product table
+	 */
 	@Override
-	public List<Product> getAllProducts() {
+	public List<Product> getAllProduct() {
 		// String sql = "SELECT id, name, price FROM public.\"Product\";";
 		String sql = "{call \"getAllProduct\"()}";
 		List<Product> products = new ArrayList<Product>();
@@ -38,6 +39,9 @@ public class ProductDaoImpl implements ProductDao {
 		return products;
 	}
 
+	/**
+	 * Return the all Product from the Product table where (product)id = id
+	 */
 	@Override
 	public Product getProductById(Integer id) {
 		String sql = "SELECT id, name, price FROM public.\"Product\" WHERE id = ?;";
@@ -56,6 +60,9 @@ public class ProductDaoImpl implements ProductDao {
 		return product;
 	}
 
+	/**
+	 * Insert a new Product into the Product table
+	 */
 	@Override
 	public void addProduct(Product product) {
 		String sql = "INSERT INTO public.\"Product\" (name, price) VALUES (?, ?);";
@@ -73,6 +80,9 @@ public class ProductDaoImpl implements ProductDao {
 		}
 	}
 
+	/**
+	 * Update product in the Product table where product(id) = id
+	 */
 	@Override
 	public void updateProduct(Product product) {
 		String sql = "UPDATE public.\"Product\" SET name=?, price = ? WHERE id=?;";
@@ -86,6 +96,9 @@ public class ProductDaoImpl implements ProductDao {
 		}
 	}
 
+	/**
+	 * Delete a Product from the Product table
+	 */
 	@Override
 	public void deleteProduct(Product product) {
 		String sql = "DELETE FROM public.\"Product\" WHERE id=?;";
@@ -97,15 +110,19 @@ public class ProductDaoImpl implements ProductDao {
 		}
 	}
 
+	/**
+	 * Insert Products with batch size into the Product table
+	 */
 	@Override
 	public void addProductsWithBatchSize(Integer batchSize, Product... products) {
 		int count = 0;
-		String sql = "INSERT INTO public.\"Product\" (name, price) VALUES (?, ?);";
+		String sql = "INSERT INTO public.\"Product\" (id, name, price) VALUES (?, ?, ?);";
 		try (PreparedStatement statement = connection.prepareStatement(sql)) {
 			connection.setAutoCommit(false);
 			for (Product product : products) {
-				statement.setString(1, product.getName());
-				statement.setInt(2, product.getPrice());
+				statement.setInt(1, product.getId());
+				statement.setString(2, product.getName());
+				statement.setInt(3, product.getPrice());
 				statement.addBatch();
 				if (++count % batchSize == 0) {
 					statement.executeBatch();
@@ -120,6 +137,9 @@ public class ProductDaoImpl implements ProductDao {
 
 	}
 
+	/**
+	 * Delete Products with batch size from the Product table
+	 */
 	@Override
 	public void deleteProductsWithBatchSize(Integer batchSize, Product... products) {
 		int count = 0;
