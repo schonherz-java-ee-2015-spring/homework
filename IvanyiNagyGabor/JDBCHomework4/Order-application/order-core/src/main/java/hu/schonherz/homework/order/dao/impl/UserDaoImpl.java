@@ -1,5 +1,6 @@
 package hu.schonherz.homework.order.dao.impl;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import hu.schonherz.homework.order.connection.impl.PostgreSqlConnectionHandler;
 import hu.schonherz.homework.order.dao.UserDao;
 import hu.schonherz.homework.order.dto.User;
 
@@ -21,14 +23,21 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<User> getAllUsers() {
-		String sql = "SELECT id, name FROM public.\"User\";";
+//		 String sql = "SELECT id, name FROM public.\"User\";";
+		// Callable statement
+		String sql = "{call \"getAllUser\"()}";
 		List<User> users = new ArrayList<User>();
-		try (Statement statement = connection.createStatement(); ResultSet resultSet = statement.executeQuery(sql);) {
+		try (CallableStatement statement = connection.prepareCall(sql);
+				ResultSet resultSet = statement.executeQuery()) {
 			while (resultSet.next()) {
 				users.add(new User(resultSet.getInt("id"), resultSet.getString("name")));
+				System.out.println("Anyadat mostmar");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		for (User user : users) {
+			System.out.println(user);
 		}
 		return users;
 	}

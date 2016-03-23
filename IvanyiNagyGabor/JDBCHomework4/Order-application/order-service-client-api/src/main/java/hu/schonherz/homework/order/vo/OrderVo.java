@@ -1,18 +1,15 @@
-package hu.schonherz.homework.order.dto;
+package hu.schonherz.homework.order.vo;
 
-public class Order {
+import java.io.Serializable;
+
+public class OrderVo implements Serializable {
+	private static final long serialVersionUID = -376170873247979945L;
 
 	private Integer userId;
 	private Integer productId;
 
-	public Order() {
+	public OrderVo() {
 		super();
-	}
-
-	public Order(Integer userId, Integer productId) {
-		super();
-		this.userId = userId;
-		this.productId = productId;
 	}
 
 	public Integer getUserId() {
@@ -33,9 +30,11 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [userId=" + userId + ", productId=" + productId + "]";
+		return "OrderVo [userId=" + userId + ", productId=" + productId + "]";
 	}
 
+	
+	
 	
 
 }

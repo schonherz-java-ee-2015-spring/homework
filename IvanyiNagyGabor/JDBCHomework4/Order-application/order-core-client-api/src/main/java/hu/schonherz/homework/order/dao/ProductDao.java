@@ -11,8 +11,12 @@ public interface ProductDao {
 	public Product getProductById(Integer id);
 	
 	public void addProduct(Product product);
+	
+	public void addProductsWithBatchSize(Integer batchSize, Product...products);
 
 	public void updateProduct(Product product);
 
 	public void deleteProduct(Product product);
+	
+	public void deleteProductsWithBatchSize(Integer batchSize, Product...products);
 }

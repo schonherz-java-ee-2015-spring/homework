@@ -14,12 +14,11 @@ import hu.schonherz.homework.order.dto.Order;
 public class OrderDaoImpl implements OrderDao {
 
 	private static Connection connection = null;
-	
+
 	public OrderDaoImpl(Connection connection) {
 		OrderDaoImpl.connection = connection;
 	}
-	
-	
+
 	@Override
 	public List<Order> getAllOrders() {
 		String sql = "SELECT user_id, product_id FROM public.\"Order\";";
@@ -31,6 +30,7 @@ public class OrderDaoImpl implements OrderDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		System.out.println(orders);
 		return orders;
 	}
 
@@ -72,8 +72,8 @@ public class OrderDaoImpl implements OrderDao {
 	public void addOrder(Order order) {
 		String sql = "INSERT INTO public.\"Order\" (user_id, product_id) VALUES (?, ?);";
 		try (PreparedStatement statement = connection.prepareStatement(sql);) {
-			statement.setInt(1, order.getUser_id());
-			statement.setInt(2, order.getProduct_id());
+			statement.setInt(1, order.getUserId());
+			statement.setInt(2, order.getProductId());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -84,10 +84,10 @@ public class OrderDaoImpl implements OrderDao {
 	public void updateOrder(Order oldOrder, Order newOrder) {
 		String sql = "UPDATE public.\"Order\" SET user_id=?, product_id=? WHERE user_id=? and product_id=?;";
 		try (PreparedStatement statement = connection.prepareStatement(sql);) {
-			statement.setInt(1, newOrder.getUser_id());
-			statement.setInt(2, newOrder.getProduct_id());
-			statement.setInt(3, oldOrder.getUser_id());
-			statement.setInt(4, oldOrder.getProduct_id());
+			statement.setInt(1, newOrder.getUserId());
+			statement.setInt(2, newOrder.getProductId());
+			statement.setInt(3, oldOrder.getUserId());
+			statement.setInt(4, oldOrder.getProductId());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -98,8 +98,8 @@ public class OrderDaoImpl implements OrderDao {
 	public void deleteOrder(Order order) {
 		String sql = "DELETE FROM public.\"Order\" WHERE user_id=? and product_id=?;";
 		try (PreparedStatement statement = connection.prepareStatement(sql);) {
-			statement.setInt(1, order.getUser_id());
-			statement.setInt(2, order.getProduct_id());
+			statement.setInt(1, order.getUserId());
+			statement.setInt(2, order.getProductId());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

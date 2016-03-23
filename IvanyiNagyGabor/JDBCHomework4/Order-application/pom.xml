@@ -10,6 +10,9 @@
 	<modules>
 		<module>order-core-client-api</module>
 		<module>order-core</module>
+		<module>order-service-client-api</module>
+		<module>order-service</module>
+		<module>order-display</module>
 	</modules>
 
 
@@ -30,4 +33,13 @@
 		</pluginManagement>
 
 	</build>
+
+
+	<dependencies>
+	<dependency>
+	<groupId>org.slf4j</groupId>
+	<artifactId>slf4j-log4j12</artifactId>
+	<version>1.7.19</version>
+</dependency>
+	</dependencies>
 </project>

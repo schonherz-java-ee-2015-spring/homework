@@ -48,3 +48,26 @@ CREATE TABLE public."Order"
       REFERENCES public."User" (id) MATCH SIMPLE
       ON UPDATE RESTRICT ON DELETE RESTRICT
 );
+
+
+CREATE OR REPLACE FUNCTION public."getAllUser"()
+  RETURNS SETOF "User" AS
+'SELECT * FROM public."User";'
+  LANGUAGE sql VOLATILE
+  COST 100
+  ROWS 1000;
+ALTER FUNCTION public."getAllUser"()
+  OWNER TO postgres;
+
+
+CREATE OR REPLACE FUNCTION public."getAllProduct"()
+  RETURNS SETOF "Product" AS
+'SELECT * FROM public."Product";'
+  LANGUAGE sql VOLATILE
+  COST 100
+  ROWS 1000;
+ALTER FUNCTION public."getAllProduct"()
+  OWNER TO postgres;
+  
+  
+  
