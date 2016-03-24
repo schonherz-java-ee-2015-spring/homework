@@ -7,6 +7,8 @@ import hu.schonherz.homework.records.User;
 public interface UserDao {
 	
 	public List<User> getAllUsers();
+	
+	public List<User> getUsersCS();
 
 	public User getUser(String name);
 	

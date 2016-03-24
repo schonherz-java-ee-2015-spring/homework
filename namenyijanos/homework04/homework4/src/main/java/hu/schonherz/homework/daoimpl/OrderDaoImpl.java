@@ -45,6 +45,23 @@ public class OrderDaoImpl implements OrderDao {
 		}
 		return orders;
 	}
+	
+	public List<Order> getAllOrdersOfUser(int userId) {
+		String sql = "SELECT * FROM public.\"Order\" WHERE user_id = ?;";
+		List<Order> orders = new ArrayList<>();
+		try (PreparedStatement stmt = con.prepareStatement(sql)) {
+			stmt.setInt(1, userId);
+			try (ResultSet rs = stmt.executeQuery()) {
+				while(rs.next()) {
+					orders.add(new Order(rs.getInt("user_id"), rs.getInt("product_id")));
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return orders;
+		
+	}
 
 	public void addOrder(Order order) {
 		//SQL statement in a String; will be executed as a prepared statement

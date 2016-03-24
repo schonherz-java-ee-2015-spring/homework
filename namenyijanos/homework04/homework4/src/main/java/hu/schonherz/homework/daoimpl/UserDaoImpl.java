@@ -1,5 +1,6 @@
 package hu.schonherz.homework.daoimpl;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,10 +27,27 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	public List<User> getAllUsers() {
+
 		String sql = "SELECT id, name FROM public.\"User\"";
 		List<User> users = new ArrayList<>();
 		try (Statement stmt = con.createStatement()) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
+				while (rs.next()) {
+					users.add(new User(rs.getInt("id"), rs.getString("name")));
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return users;
+	}
+	
+	public List<User> getUsersCS() {
+
+		String sql = "{call \"getUsers\"()}";
+		List<User> users = new ArrayList<>();
+		try (Connection con = ConnectionHandler.getConnection(); CallableStatement stmt = con.prepareCall(sql)) {
+			try (ResultSet rs = stmt.executeQuery();) {
 				while (rs.next()) {
 					users.add(new User(rs.getInt("id"), rs.getString("name")));
 				}
