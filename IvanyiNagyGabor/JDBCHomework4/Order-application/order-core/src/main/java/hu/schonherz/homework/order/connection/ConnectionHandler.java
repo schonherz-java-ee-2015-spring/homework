@@ -13,9 +13,8 @@ import org.postgresql.ds.PGSimpleDataSource;
 
 public class ConnectionHandler {
 
-	private static final String SUBDIRECTORY = "src" + File.separator + "main" + File.separator + "resources";
 	private static final String FILENAME = "database.properties";
-	private static final String ABSOLUTEFILEPATH = SUBDIRECTORY + File.separator + FILENAME;
+	private static final String FILEPATH = ".." + File.separator + FILENAME;
 	private static final DataSource dataSource = getPostgreSqlDataSource();
 
 	private ConnectionHandler() {
@@ -35,7 +34,7 @@ public class ConnectionHandler {
 	private static DataSource getPostgreSqlDataSource() {
 		Properties props = new Properties();
 		PGSimpleDataSource dataSource = null;
-		try (FileInputStream fileInputStream = new FileInputStream(new File(ABSOLUTEFILEPATH))) {
+		try (FileInputStream fileInputStream = new FileInputStream(new File(FILEPATH))) {
 			props.load(fileInputStream);
 			dataSource = new PGSimpleDataSource();
 			dataSource.setUrl(props.getProperty("POSTGRESQL_DB_URL"));
