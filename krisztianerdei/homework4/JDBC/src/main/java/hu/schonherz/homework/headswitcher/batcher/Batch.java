@@ -9,7 +9,8 @@ import hu.schonherz.homework.headswitcher.connection.BurnedInHandler;
 import hu.schonherz.homework.headswitcher.product.ProductWuId;
 
 public class Batch {
-
+			//Batch class to instert Products and Delete products 
+			// I made new class for the Product without ID, this way the database sequence can handle ids
 	public static void BatchInsertProducts(List<ProductWuId> products , int batchSize ){
 		
 		String sql = "INSERT INTO public.\"Product\"(name, price) VALUES (?, ?);";
@@ -19,7 +20,7 @@ public class Batch {
 				PreparedStatement statement = connection.prepareStatement(sql)) {
 			connection.setAutoCommit(false);
 			for (ProductWuId product : products) {
-				
+				//Setting parameters , executing batch , and finally commit 
 				statement.setString(1, product.getName());
 				statement.setInt(2, product.getPrice());
 				statement.addBatch();
@@ -49,6 +50,7 @@ public static void BatchDeleteProducts(List<Integer> ids , int batchSize ){
 				PreparedStatement statement = connection.prepareStatement(sql)) {
 			connection.setAutoCommit(false);
 			for (Integer integer : ids) {	
+				//Setting parameter , executing batch , and finally commit
 				statement.setInt(1, integer);
 				statement.addBatch();
 				if (++count % batchSize == 0) {

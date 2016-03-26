@@ -3,6 +3,9 @@ package hu.schonherz.homework.headswitcher.order;
 import java.util.List;
 
 public interface OrderDao {
+	
+	// Dao interface
+	
 	public List<Order> getAllProduct();
 
 	public Order getOrderByUser_Id(int userId);

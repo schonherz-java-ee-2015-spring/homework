@@ -12,7 +12,7 @@ import hu.schonherz.homework.headswitcher.connection.BurnedInHandler;
 public class Metadata {
 
 	static Connection connection = null;
-	static DatabaseMetaData metadata = null;
+	static DatabaseMetaData metadata = null;  // get connection for the database
 	static {
 		try {
 			connection = BurnedInHandler.getConnection();
@@ -27,6 +27,8 @@ public class Metadata {
 		}
 	}
 
+	// get metadata trough connection.getMetadata, and returning with the tables
+	
 	public static ArrayList<String> getTablesMetadata() throws SQLException {
 		String table[] = { "TABLE" };
 		ResultSet rs = null;
@@ -39,6 +41,8 @@ public class Metadata {
 		return tables;
 	}
 
+	// We get the column metadata trough the getColumns method, and printing the result on the console
+	
 	public static void getColumnsMetadata(List<String> tables) throws SQLException {
 		ResultSet rs = null;
 		for (String actualTable : tables) {

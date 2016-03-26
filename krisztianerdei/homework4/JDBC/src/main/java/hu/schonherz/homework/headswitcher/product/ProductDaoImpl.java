@@ -24,6 +24,7 @@ public class ProductDaoImpl implements ProductDao {
 		}
 	}
 
+	// writing impl. for every method using Statements, and Prepared statements
 	@Override
 	public List<Product> getAllProduct() {
 		String sql = "SELECT id, name , price FROM public.\"Product\";";
@@ -47,60 +48,56 @@ public class ProductDaoImpl implements ProductDao {
 	public Product getProductById(int id) {
 		String sql = "SELECT id, name , price  FROM public.\"Product\"  where id = ?;";
 		Product product = null;
-		
-		try (PreparedStatement stmt = con.prepareStatement(sql)){
+
+		try (PreparedStatement stmt = con.prepareStatement(sql)) {
 			stmt.setInt(1, id);
 			try {
 				ResultSet rs = stmt.executeQuery();
 				while (rs.next()) {
-					product = new Product(rs.getInt("id"), rs.getString("name") , rs.getInt("price"));
+					product = new Product(rs.getInt("id"), rs.getString("name"), rs.getInt("price"));
 				}
 
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		
-		}
-		catch (SQLException e ) {
+
+		} catch (SQLException e) {
 			e.printStackTrace();
-			
+
 		}
-		
-		
+
 		return product;
 	}
 
 	@Override
 	public Product getProductByName(String name) {
-		
+
 		String sql = "SELECT id, name , price  FROM public.\"Product\"  where name = ?;";
 		Product product = null;
-		
-		try (PreparedStatement stmt = con.prepareStatement(sql)){
+
+		try (PreparedStatement stmt = con.prepareStatement(sql)) {
 			stmt.setString(1, name);
 			try {
 				ResultSet rs = stmt.executeQuery();
 				while (rs.next()) {
-					product = new Product(rs.getInt("id"), rs.getString("name") , rs.getInt("price"));
+					product = new Product(rs.getInt("id"), rs.getString("name"), rs.getInt("price"));
 				}
 
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		
-		}
-		catch (SQLException e ) {
+
+		} catch (SQLException e) {
 			e.printStackTrace();
-			
+
 		}
-		
-		
+
 		return product;
 	}
 
 	@Override
 	public void addProduct(String name, int price) {
-		
+
 		String sql = "INSERT INTO public.\"Product\"(name, price) VALUES (?, ?);";
 		try (PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 			stmt.setString(1, name);
@@ -111,7 +108,6 @@ public class ProductDaoImpl implements ProductDao {
 			e.printStackTrace();
 			System.out.println("Insert failed");
 		}
-
 
 	}
 
@@ -145,7 +141,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	@Override
 	public void updateProductName(int id, String newName) {
-		
+
 		String sql = "UPDATE public.\"Product\" SET name=? WHERE id=?;";
 		try (PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 			stmt.setString(1, newName);
@@ -160,17 +156,18 @@ public class ProductDaoImpl implements ProductDao {
 
 	@Override
 	public void updateProductPrice(int id, int newPrice) {
-		
-//		String sql = "UPDATE public.\"Product\" SET price=? WHERE id=?;";
-//		try (PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-//			stmt.setInt(1, newPrice);
-//			stmt.setInt(2, id);
-//			stmt.executeUpdate();
-//			System.out.println("Update succeeded");
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//			System.out.println("Update failed");
-//		}
+
+		// String sql = "UPDATE public.\"Product\" SET price=? WHERE id=?;";
+		// try (PreparedStatement stmt = con.prepareStatement(sql,
+		// Statement.RETURN_GENERATED_KEYS)) {
+		// stmt.setInt(1, newPrice);
+		// stmt.setInt(2, id);
+		// stmt.executeUpdate();
+		// System.out.println("Update succeeded");
+		// } catch (SQLException e) {
+		// e.printStackTrace();
+		// System.out.println("Update failed");
+		// }
 	}
 
 	@Override
@@ -187,10 +184,11 @@ public class ProductDaoImpl implements ProductDao {
 			e.printStackTrace();
 		}
 		System.out.println("--- CallableStatement Result ---\n");
-		
+
 		for (Product products : product) {
-			System.out.println("ID: " + products.getId() + " Name: " + products.getName() + " Price: " + products.getPrice());
-		}		
+			System.out.println(
+					"ID: " + products.getId() + " Name: " + products.getName() + " Price: " + products.getPrice());
+		}
 	}
 
 }
