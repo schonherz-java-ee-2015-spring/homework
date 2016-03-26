@@ -3,6 +3,8 @@ package hu.schonherz.homework.main;
 import java.sql.SQLException;
 import java.util.List;
 
+import hu.schonherz.homework.batch.BatchDelete;
+import hu.schonherz.homework.batch.BatchInsert;
 import hu.schonherz.homework.dao.OrderDao;
 import hu.schonherz.homework.dao.ProductDao;
 import hu.schonherz.homework.dao.UserDao;
@@ -41,13 +43,32 @@ public class Main {
 		System.out.println("Get all orders with statement");
 		System.out.println("-------------");
 		statementForOrders();
+		System.out.println();
+		
+		System.out.println("Batch insert products");
+		System.out.println("-------------");
+		BatchInsert.insertData();
+		System.out.println();
+		
+		System.out.println("Get all products after batch insert");
+		System.out.println("-------------");
+		callableStatementForProducts();
+		System.out.println();
+		
+		System.out.println("Batch delete products");
+		System.out.println("-------------");
+		BatchDelete.deleteData();
+		System.out.println();
+		
+		System.out.println("Get all products after batch delete");
+		System.out.println("-------------");
+		callableStatementForProducts();
+		System.out.println();
 	}
 
 	public static void metadata() {
 		try {
 			GetMetadata.printGeneralMetadata();
-			// Print all the tables of the database scheme, with their names and
-			// structure
 			GetMetadata.getColumnsMetadata(GetMetadata.getTablesMetadata());
 		} catch (SQLException e) {
 			System.err.println("There was an error retrieving the metadata properties: " + e.getMessage());
@@ -59,7 +80,7 @@ public class Main {
 		List<Order> orders;
 		orders = order.getAllOrdersOfUser(1);
 		for (Order or : orders) {
-			System.out.println("User-id: " + or.getUserId() + "\t Product -id: " + or.getProductId() + ".");
+			System.out.println("User-id: " + or.getUserId() + "\t Product-id: " + or.getProductId() + ".");
 		}
 	}
 	
