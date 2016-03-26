@@ -9,10 +9,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page isELIgnored="false"%>
-<jsp:useBean id="blogBeans"
-	class="hu.schonherz.training.beans.BlogBeans" scope="application">
-	<%-- 	<jsp:setProperty name="blogBeans" property="blogs" value="<%= new Blogs("1", "Katsa", "Teszt szöveg ehhez a retkes bloghoz!") %>" /> --%>
-</jsp:useBean>
+<jsp:useBean id="blogBeans"	class="hu.schonherz.training.beans.BlogBeans" scope="application"></jsp:useBean>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -20,16 +17,8 @@
 	final String NEWTEXT = "newtext";
 	final String NAME = "name";
 	final String ID = "id";
-
-	// 	List<Blogs> blogs = blogBeans.getBlogs();
-	// 	Blogs blogTest = new Blogs("1", "Katsa", "Teszt szöveg ehhez a retkes bloghoz!");
-	// 	blogs.add(blogTest);
-	// 	blogBeans.setBlogs(blogs);
 	List<Blogs> blogs = blogBeans.getBlogs();
-// 	if (blogs == null) {
-// 		blogs = new ArrayList<Blogs>();
-// 	}
-	
+
 %>
 
 <html>
@@ -38,11 +27,11 @@
 <body style="background-color:activecaption;">
 	<h1 align="center"><font style=" color:green; ; font: small-caps;">Adventure time!</font></h1>
 	<p>
-		Blogs:<br>
+		<h3>Blogs:</h3>
 		<%if (blogs == null) {%>
 		<h3>You don't have blogs yet!</h3><%
 		}%>
-
+<!-- 	Writing the list of the blogs name -->
 		<%if (blogs == null) {
 			blogs = new ArrayList<Blogs>();
 		} else {

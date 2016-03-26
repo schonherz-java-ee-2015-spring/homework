@@ -15,7 +15,6 @@ public class Blogs {
 	}
 
 	public Blogs() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
