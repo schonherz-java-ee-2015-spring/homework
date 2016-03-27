@@ -4,6 +4,11 @@ import java.util.List;
 
 import hu.schonherz.training.hw.jdbc.entity.Product;
 
+/**
+ * 
+ * @author Ölveti József
+ *
+ */
 public interface ProductDAO {
 
 	public void addProduct(Product product);

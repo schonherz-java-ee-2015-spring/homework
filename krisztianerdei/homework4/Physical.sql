@@ -71,3 +71,20 @@ CREATE SEQUENCE public."User_id_seq"
 ALTER TABLE public."User_id_seq"
   OWNER TO postgres;
 
+CREATE OR REPLACE FUNCTION public."getAllProduct"()
+  RETURNS SETOF "Product" AS
+'SELECT * FROM public."Product"'
+  LANGUAGE sql VOLATILE
+  COST 100
+  ROWS 1000;
+ALTER FUNCTION public."getAllProduct"()
+  OWNER TO postgres;
+
+CREATE OR REPLACE FUNCTION public."getAllUser"()
+  RETURNS SETOF "User" AS
+'Select * FROM "User"'
+  LANGUAGE sql VOLATILE
+  COST 100
+  ROWS 1000;
+ALTER FUNCTION public."getAllUser"()
+  OWNER TO postgres;

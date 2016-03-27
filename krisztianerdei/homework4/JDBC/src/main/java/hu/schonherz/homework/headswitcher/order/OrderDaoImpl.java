@@ -15,13 +15,15 @@ public class OrderDaoImpl implements OrderDao {
 	private Connection con;
 
 	public OrderDaoImpl() {
-
+		// getting connection for the db
 		try {
 			con = BurnedInHandler.getConnection();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
+
+	// writing impl. for every method using Statements, and Prepared statements
 
 	@Override
 	public List<Order> getAllProduct() {
@@ -94,8 +96,7 @@ public class OrderDaoImpl implements OrderDao {
 
 	@Override
 	public void addOrder(int userid, int productid) {
-		
-		
+
 		String sql = "INSERT INTO public.\"Order\"( user_id, product_id) VALUES (?, ?);";
 		try (PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 			stmt.setInt(1, userid);
@@ -107,17 +108,16 @@ public class OrderDaoImpl implements OrderDao {
 			System.out.println("Insert failed");
 		}
 
-
 	}
 
 	@Override
 	public void deleteOrderByUser_Id(int userid) {
-		
+
 		String sql = "DELETE FROM public.\"Order\" WHERE user_id=?;";
 		try (PreparedStatement stmt = con.prepareStatement(sql)) {
 			stmt.setInt(1, userid);
 			stmt.execute();
-			System.out.println("Order with id: " + userid+ " deleted");
+			System.out.println("Order with id: " + userid + " deleted");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -127,12 +127,12 @@ public class OrderDaoImpl implements OrderDao {
 
 	@Override
 	public void deleteOrderByProduct_Id(int productid) {
-		
+
 		String sql = "DELETE FROM public.\"Order\" WHERE product_id=?;";
 		try (PreparedStatement stmt = con.prepareStatement(sql)) {
 			stmt.setInt(1, productid);
 			stmt.execute();
-			System.out.println("Order with id: " + productid+ " deleted");
+			System.out.println("Order with id: " + productid + " deleted");
 
 		} catch (SQLException e) {
 			e.printStackTrace();

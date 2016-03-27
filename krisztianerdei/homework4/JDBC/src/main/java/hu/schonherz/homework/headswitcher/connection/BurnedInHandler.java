@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class BurnedInHandler {
 
-	public static Connection getConnection() throws SQLException {
+	public static Connection getConnection() throws SQLException { // connection for the database
 		return DriverManager.getConnection("jdbc:postgresql://localhost:5432/homework",
 		"postgres", "umpalumpa"); 
 	}

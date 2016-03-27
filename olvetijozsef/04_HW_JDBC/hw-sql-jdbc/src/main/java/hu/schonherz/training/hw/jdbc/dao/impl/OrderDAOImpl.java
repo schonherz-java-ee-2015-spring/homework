@@ -13,6 +13,11 @@ import hu.schonherz.training.hw.jdbc.dao.OrderDAO;
 import hu.schonherz.training.hw.jdbc.entity.Order;
 import hu.schonherz.training.hw.jdbc.entity.User;
 
+/**
+ * 
+ * @author Ölveti József
+ *
+ */
 public class OrderDAOImpl implements OrderDAO {
 	private Connection con;
 

@@ -1,5 +1,10 @@
 package hu.schonherz.training.hw.jdbc.entity;
 
+/**
+ * 
+ * @author Ölveti József
+ *
+ */
 public class Order {
 	private int id;
 	private int userId;

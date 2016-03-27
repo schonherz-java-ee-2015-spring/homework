@@ -1,10 +1,5 @@
-package hu.schonherz.training.hw.jdbc.entity;
+package hu.schonherz.homework.records;
 
-/**
- * 
- * @author Ölveti József
- *
- */
 public class User {
 	private int id;
 	private String name;
@@ -33,7 +28,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return id + " - " + name;
+		return getName() + " " +  getId();
 	}
 
 }

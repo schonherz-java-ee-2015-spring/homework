@@ -6,6 +6,11 @@ import hu.schonherz.training.hw.jdbc.dao.ProductDAO;
 import hu.schonherz.training.hw.jdbc.dao.impl.ProductDAOImpl;
 import hu.schonherz.training.hw.jdbc.entity.Product;
 
+/**
+ * 
+ * @author Ölveti József
+ *
+ */
 public class ProductDAOExample {
 	public static void main(String[] args) {
 		ProductDAO pdao = new ProductDAOImpl();

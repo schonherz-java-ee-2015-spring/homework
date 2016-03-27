@@ -3,7 +3,7 @@ package hu.schonherz.homework.headswitcher.order;
 import java.io.Serializable;
 
 public class Order implements Serializable {
-
+	// order class with the setters , getters , etc...
 	private static final long serialVersionUID = -8970767595261701996L;
 	int user_id;
 	int product_id;
