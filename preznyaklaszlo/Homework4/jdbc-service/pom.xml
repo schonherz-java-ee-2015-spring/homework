@@ -5,13 +5,22 @@
     <artifactId>jdbc-example</artifactId>
     <version>1.0.0</version>
   </parent>
-  <artifactId>jdbc-connection</artifactId>
+  <artifactId>jdbc-service</artifactId>
   <dependencies>
   	<dependency>
-  		<groupId>org.postgresql</groupId>
-  		<artifactId>postgresql</artifactId>
-  		<version>9.4.1208.jre7</version>
+  		<groupId>jdbc-training</groupId>
+  		<artifactId>jdbc-core</artifactId>
+  		<version>1.0.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>jdbc-training</groupId>
+  		<artifactId>jdbc-core-client-api</artifactId>
+  		<version>1.0.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>jdbc-training</groupId>
+  		<artifactId>jdbc-connection</artifactId>
+  		<version>1.0.0</version>
   	</dependency>
   </dependencies>
-
 </project>

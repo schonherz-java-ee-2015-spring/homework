@@ -37,7 +37,7 @@ public class OrderDaoImpl implements OrderDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return orders;
 	}
 
 	@Override

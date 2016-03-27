@@ -1,5 +1,6 @@
 package hu.schonherz.java.training.jdbc.metadata;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
@@ -35,6 +36,7 @@ public class MetaData {
 		System.out.println("Logged User: " + metadata.getUserName());
 		System.out.println("JDBC Driver: " + metadata.getDriverName());
 		System.out.println("Driver Version: " + metadata.getDriverVersion());
+		System.out.println(new File("database.properties").getAbsolutePath());
 
 	}
 

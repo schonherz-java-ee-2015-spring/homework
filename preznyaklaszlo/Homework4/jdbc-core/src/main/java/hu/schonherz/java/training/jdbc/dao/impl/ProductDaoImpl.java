@@ -1,5 +1,6 @@
 package hu.schonherz.java.training.jdbc.dao.impl;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,9 +44,9 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public List<Product> getAllProducts() {
 		List<Product> products = new ArrayList<>();
-		String sql = "SELECT * FROM public.\"Product\"";
-		try (Statement stmt = con.createStatement()) {
-			try (ResultSet rs = stmt.executeQuery(sql)) {
+		String sql = "{call \"getProducts\"()}";
+		try (CallableStatement cstmt = con.prepareCall(sql)) {
+			try (ResultSet rs = cstmt.executeQuery()) {
 				while (rs.next()) {
 					products.add(new Product(rs.getInt("id"), rs.getInt("price"), rs.getString("name")));
 				}
@@ -89,9 +90,9 @@ public class ProductDaoImpl implements ProductDao {
 
 	@Override
 	public void deleteProduct(Product product) {
-		String sql = "DELETE FROM public.\"Product\" WHERE id = ? ;";
+		String sql = "DELETE FROM public.\"Product\" WHERE name = ? ;";
 		try (PreparedStatement stmt = con.prepareStatement(sql)) {
-			stmt.setInt(1, product.getId());
+			stmt.setString(1, product.getName());
 			stmt.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();

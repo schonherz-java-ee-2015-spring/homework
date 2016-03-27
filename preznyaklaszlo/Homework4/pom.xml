@@ -9,6 +9,7 @@
 		<module>jdbc-core-client-api</module>
 		<module>jdbc-connection</module>
 		<module>jdbc-core</module>
+		<module>jdbc-service</module>
 	</modules>
 	<dependencies>
 		<dependency>
