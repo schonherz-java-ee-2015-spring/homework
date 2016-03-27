@@ -11,9 +11,14 @@ import hu.schonherz.training.hw.jdbc.dao.ProductDAO;
 import hu.schonherz.training.hw.jdbc.dao.impl.ProductDAOImpl;
 import hu.schonherz.training.hw.jdbc.entity.Product;
 
+/**
+ * 
+ * @author Ölveti József
+ *
+ */
 public class BatchJDBCApp {
 
-	private static void batchInsertProduct() {
+	private static void batchInsertProducts() {
 		String sql = "INSERT INTO public.\"Product\" (name, price) VALUES (?, ?)";
 		List<Product> products = new ArrayList<>();
 		products.add(new Product(0, "Product1", 10));
@@ -30,24 +35,24 @@ public class BatchJDBCApp {
 				statement.setString(1, product.getName());
 				statement.setDouble(2, product.getPrice());
 				statement.addBatch();
-				System.out.println("Product: " + product.getName() + " added to batch.");
+				System.out.println("Product: " + product.getName() + " felvéve.");
 				if (++count % batchSize == 0) {
-					System.out.println("Count size: " + count);
-					System.out.println("Count size reaches the batch size...");
+					System.out.println("Termék szám: " + count);
+					System.out.println("Maximális, egyidejű termék elérve.");
 					int[] executedBatchSize = statement.executeBatch();
-					System.out.println("Batch executed... Batch Size: " + executedBatchSize.length);
+					System.out.println("Feltöltés futtatva. Feltöltött termék: " + executedBatchSize.length);
 				}
 			}
 			int[] remainingRows = statement.executeBatch();
-			System.out.println("Batch executed for remaining rows... Batch Size: " + remainingRows.length);
+			System.out.println("Feltöltés futtatva. Feltöltött termék: " + remainingRows.length);
 			connection.commit();
-			System.out.println("Batch commited...");
+			System.out.println("Feltöltés mostantól végleges.");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-	private static void batchDeleteProduct() {
+	private static void batchDeleteAllProducts() {
 		ProductDAO daoImp = new ProductDAOImpl();
 		List<Product> products = daoImp.getAllProducts();
 		String sql = "DELETE FROM public.\"Product\" WHERE id = ?;";
@@ -64,22 +69,22 @@ public class BatchJDBCApp {
 				if (++count % batchSize == 0) {
 					System.out.println("Egy időben törölhető elemek száma elérve...");
 					int[] executedBatchSize = statement.executeBatch();
-					System.out.println("Törlés megtörtént... Törölt elem szám: " + executedBatchSize.length);
+					System.out.println("Törlés megtörtént. Törölt elem szám: " + executedBatchSize.length);
 					System.out.println("Maradó elemek: " + (products.size() - count));
 				}
 			}
 			int[] remainingRows = statement.executeBatch();
-			System.out.println("Törlés megtörtént... Törölt elem: " + remainingRows.length);
+			System.out.println("Törlés megtörtént. Törölt elem: " + remainingRows.length);
 			connection.commit();
-			System.out.println("Törlés végleges...");
+			System.out.println("Törlés végleges.");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
 	public static void main(String[] argv) {
-		batchInsertProduct();
+		batchInsertProducts();
 		System.out.println();
-		batchDeleteProduct();
+		batchDeleteAllProducts();
 	}
 }

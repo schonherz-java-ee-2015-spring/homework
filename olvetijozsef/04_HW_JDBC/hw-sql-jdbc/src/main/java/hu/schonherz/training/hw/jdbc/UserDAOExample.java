@@ -6,6 +6,11 @@ import hu.schonherz.training.hw.jdbc.dao.UserDAO;
 import hu.schonherz.training.hw.jdbc.dao.impl.UserDAOImpl;
 import hu.schonherz.training.hw.jdbc.entity.User;
 
+/**
+ * 
+ * @author Ölveti József
+ *
+ */
 public class UserDAOExample {
 	public static void main(String[] args) {
 		UserDAO udao = new UserDAOImpl();

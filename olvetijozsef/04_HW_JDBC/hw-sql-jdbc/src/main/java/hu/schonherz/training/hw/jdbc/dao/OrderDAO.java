@@ -5,6 +5,11 @@ import java.util.List;
 import hu.schonherz.training.hw.jdbc.entity.Order;
 import hu.schonherz.training.hw.jdbc.entity.User;
 
+/**
+ * 
+ * @author Ölveti József
+ *
+ */
 public interface OrderDAO {
 
 	public void addOrder(Order order);

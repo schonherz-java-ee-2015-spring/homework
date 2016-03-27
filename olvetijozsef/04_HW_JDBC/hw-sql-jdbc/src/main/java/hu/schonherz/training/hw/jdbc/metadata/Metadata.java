@@ -8,6 +8,11 @@ import java.util.ArrayList;
 
 import hu.schonherz.training.hw.jdbc.ConnectionManager;
 
+/**
+ * 
+ * @author Ölveti József
+ *
+ */
 public class Metadata {
 
 	static Connection connection = null;
@@ -50,6 +55,5 @@ public class Metadata {
 			}
 			System.out.println("\n");
 		}
-
 	}
 }
