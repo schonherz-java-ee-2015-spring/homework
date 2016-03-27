@@ -19,6 +19,7 @@ CREATE SEQUENCE public."Product_id_seq"
   id integer NOT NULL DEFAULT nextval('"User_id_seq"'::regclass),
   name character varying(50) NOT NULL,
   CONSTRAINT "User_pkey" PRIMARY KEY (id),
+  CONSTRAINT "User_name_key" UNIQUE (name),
   CONSTRAINT "User_id_check" CHECK (id > 0),
   CONSTRAINT "User_name_check" CHECK (length(btrim(name::text)) >= 2)
 );
