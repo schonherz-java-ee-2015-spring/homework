@@ -22,6 +22,8 @@ public class UserDaoImpl implements UserDao {
 			e.printStackTrace();
 		}
 	}
+	
+	//writing impl. for every method using Statements, and Prepared statements
 
 	@Override
 	public List<User> getAllUser() {

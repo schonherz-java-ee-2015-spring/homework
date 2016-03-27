@@ -1,4 +1,4 @@
-package hu.schonherz.homework.connection;
+package hu.schonherz.homework.jdbc;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,14 +17,9 @@ public class ConnectionHandler {
 	}
 
 	private static DataSource getPostgreSqlDataSource() {
-		// object for store the properties of the database
 		Properties props = new Properties();
-		// stream for read in the properties from the database.properties file
 		FileInputStream fis = null;
-		// the datasource object
 		PGSimpleDataSource psqlDS = null;
-		// load the properties of database connection from file within try-catch
-		// block
 		try {
 			fis = new FileInputStream("database.properties");
 			props.load(fis);
