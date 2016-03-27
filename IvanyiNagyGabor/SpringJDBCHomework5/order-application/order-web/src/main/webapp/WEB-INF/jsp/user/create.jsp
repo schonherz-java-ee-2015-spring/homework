@@ -9,31 +9,23 @@
 <head>
 <style>
 body {
-    background-color: #000066;
+	background-color: #000066;
 }
 </style>
-<spring:url value="/resources/css/CSSForm.css" var="cssForm" />
+<spring:url value="/resources/css/CSSForm.css" var="formCss" />
+<spring:url value="/resources/js/validate.js" var="validateJs" />
 
-<link href="${cssForm}" rel="stylesheet" />
-<script>
-	function validateForm() {
-		var x = document.forms["form"]["name"].value;
-		if (x == null || x.trim().length < 2) {
-			alert("User name must be at least two characters");
-			return false;
-		} else {
-			alert("Succes...");
-			return true;
-		}
-	}
-</script>
+<link href="${formCss}" rel="stylesheet" />
+<script src="${validateJs}"></script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
 
 
-	<form class="form-container" name = "form" action="create" method="POST" onsubmit="return validateForm()">
+	<form class="form-container" name="form" action="create" method="POST"
+		onsubmit="return validateFormForUser()">
 		<div class="form-title">
 			<h2>Create user</h2>
 		</div>

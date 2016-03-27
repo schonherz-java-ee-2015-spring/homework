@@ -9,6 +9,7 @@ import hu.schonherz.homework.order.dto.UserDto;
 
 public class UserRowMapper implements RowMapper<UserDto> {
 
+	
 	public UserDto mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 		UserDto userDto = new UserDto();
 		userDto.setId(resultSet.getLong("id"));

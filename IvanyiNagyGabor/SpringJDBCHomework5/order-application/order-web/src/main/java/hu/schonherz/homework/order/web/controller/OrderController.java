@@ -1,6 +1,9 @@
 package hu.schonherz.homework.order.web.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import hu.schonherz.homework.order.model.OrderByNames;
 import hu.schonherz.homework.order.service.OrderService;
 import hu.schonherz.homework.order.service.ProductService;
 import hu.schonherz.homework.order.service.UserService;
@@ -27,13 +31,26 @@ public class OrderController {
 	private ProductService productService;
 	@Autowired
 	private OrderService orderService;
-	
-	
+
 	@RequestMapping(path = "/orderDetails", method = RequestMethod.GET)
 	public String listUsers(Model model) {
-		List<OrderVo> list;
+
 		try {
-			list = orderService.getAllOrder();
+			List<OrderByNames> list = new ArrayList<OrderByNames>();
+			List<UserVo> userVo = userService.getAllUser();
+			List<ProductVo> productVo = productService.getAllProduct();
+			String userName;
+			String productName;
+
+			for (OrderVo orderVo : orderService.getAllOrder()) {
+				userName = userVo.stream().filter(user -> user.getId().equals(orderVo.getUserId())).findFirst().get()
+						.getName();
+
+				productName = productVo.stream().filter(product -> product.getId().equals(orderVo.getProductId()))
+						.findFirst().get().getName();
+				
+				list.add(new OrderByNames(userName, productName));
+			}
 			model.addAttribute("list", list);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -61,7 +78,7 @@ public class OrderController {
 		try {
 			orderService.addOrder(orderVo);
 		} catch (Exception e) {
-			
+
 		}
 		return "redirect:/";
 	}

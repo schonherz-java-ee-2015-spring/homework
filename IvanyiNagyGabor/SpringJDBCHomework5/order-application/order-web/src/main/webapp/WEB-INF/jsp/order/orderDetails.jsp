@@ -33,8 +33,8 @@ body {
 
 			<c:forEach items="${list}" var="value">
 				<tr>
-					<td>${value.userId}</td>
-					<td>${value.productId}</td>
+					<td>${value.userName}</td>
+					<td>${value.productName}</td>
 				<tr>
 			</c:forEach>
 
