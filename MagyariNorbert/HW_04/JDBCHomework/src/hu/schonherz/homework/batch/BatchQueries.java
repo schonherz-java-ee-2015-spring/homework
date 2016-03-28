@@ -44,7 +44,7 @@ public class BatchQueries {
 				statement.setString(1, product.getName());
 				statement.setInt(2, product.getPrice());
 				statement.addBatch();
-				System.out.println("Student: " + product.getName() + " added to batch.");
+				System.out.println("Product: " + product.getName() + " added to batch.");
 				if (++count % batchSize == 0) {
 					System.out.println("Count size: " + count);
 					System.out.println("Count size reaches the batch size...");
@@ -80,7 +80,7 @@ public class BatchQueries {
 			for (Product product : products) {
 				statement.setString(1, product.getName());
 				statement.addBatch();
-				System.out.println("Student: " + product.getName() + " added to batch.");
+				System.out.println("Product: " + product.getName() + " added to batch.");
 				if (++count % batchSize == 0) {
 					System.out.println("Count size: " + count);
 					System.out.println("Count size reaches the batch size...");
