@@ -16,12 +16,7 @@
 	<import resource="classpath:spring-core.xml" />
 	<import resource="classpath:spring-service.xml" />
 
-	<bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-		<constructor-arg ref="dataSource"></constructor-arg>
-	</bean>
-
 	<!-- resolve view name -->
-	<!-- eg: hello -> /WEB-INF/jsp/hello.jsp -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />

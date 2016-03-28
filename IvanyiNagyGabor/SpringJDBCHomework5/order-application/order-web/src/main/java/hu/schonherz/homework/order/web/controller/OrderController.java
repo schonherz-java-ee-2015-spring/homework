@@ -2,8 +2,6 @@ package hu.schonherz.homework.order.web.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,14 +32,15 @@ public class OrderController {
 
 	@RequestMapping(path = "/orderDetails", method = RequestMethod.GET)
 	public String listUsers(Model model) {
-
 		try {
-			List<OrderByNames> list = new ArrayList<OrderByNames>();
+			List<OrderByNames> orderList = new ArrayList<OrderByNames>();
 			List<UserVo> userVo = userService.getAllUser();
 			List<ProductVo> productVo = productService.getAllProduct();
 			String userName;
 			String productName;
-
+			
+			// set userName and productName pairs in the OrderByNames object
+			// add this object to the list
 			for (OrderVo orderVo : orderService.getAllOrder()) {
 				userName = userVo.stream().filter(user -> user.getId().equals(orderVo.getUserId())).findFirst().get()
 						.getName();
@@ -49,16 +48,16 @@ public class OrderController {
 				productName = productVo.stream().filter(product -> product.getId().equals(orderVo.getProductId()))
 						.findFirst().get().getName();
 				
-				list.add(new OrderByNames(userName, productName));
+				orderList.add(new OrderByNames(userName, productName));
 			}
-			model.addAttribute("list", list);
+			model.addAttribute("orderList", orderList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return "order/orderDetails";
 	}
 
-	@RequestMapping(path = "/addOrder", method = RequestMethod.GET)
+	@RequestMapping(path = "/createOrder", method = RequestMethod.GET)
 	public ModelAndView newBlog(Model model) {
 
 		try {
@@ -69,16 +68,15 @@ public class OrderController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return new ModelAndView("/order/addOrder", "command", new OrderVo());
+		return new ModelAndView("/order/createOrder", "command", new OrderVo());
 	}
 
-	@RequestMapping(path = "/addOrder", method = RequestMethod.POST)
+	@RequestMapping(path = "/createOrder", method = RequestMethod.POST)
 	public String newBlog(@ModelAttribute OrderVo orderVo, Model model) {
-		System.out.println(orderVo);
 		try {
 			orderService.addOrder(orderVo);
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 		return "redirect:/";
 	}

@@ -16,34 +16,32 @@ import hu.schonherz.homework.order.vo.ProductVo;
 @Controller
 @RequestMapping("/product")
 public class ProductController {
-	
+
 	@Autowired
 	private ProductService productService;
 
 	@RequestMapping(path = "/productDetails", method = RequestMethod.GET)
 	public String listUsers(Model model) {
-		List<ProductVo> list;
 		try {
-			list = productService.getAllProduct();
-			model.addAttribute("list", list);
+			List<ProductVo> productList = productService.getAllProduct();
+			model.addAttribute("productList", productList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return "product/productDetails";
 	}
-	
-	
-	
-	@RequestMapping(path = "/create", method = RequestMethod.GET)
+
+	@RequestMapping(path = "/createProduct", method = RequestMethod.GET)
 	public ModelAndView newBlog(Model model) {
-		return new ModelAndView("/product/create", "command", new ProductVo());
+		return new ModelAndView("/product/createProduct", "command", new ProductVo());
 	}
 
-	@RequestMapping(path = "/create", method = RequestMethod.POST)
+	@RequestMapping(path = "/createProduct", method = RequestMethod.POST)
 	public String newBlog(@ModelAttribute ProductVo productVo, Model model) {
 		try {
 			productService.addProduct(productVo);
 		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return "redirect:/";
 	}

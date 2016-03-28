@@ -12,17 +12,15 @@ body {
     background-color: #003333;
 }
 </style>
-<spring:url value="/resources/css/CSSTable.css" var="cssTable" />
-
-<link href="${cssTable}" rel="stylesheet" />
-
+<spring:url value="/resources/css/CSSTable.css" var="tableCss" />
+<link href="${tableCss}" rel="stylesheet" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
 
+<title>Order details</title>
 </head>
 
-<body>
 
+<body>
 	<div class="CSSTable">
 		<table>
 
@@ -31,16 +29,15 @@ body {
 				<td>ProductId</td>
 			</tr>
 
-			<c:forEach items="${list}" var="value">
+			<c:forEach items="${orderList}" var="order">
 				<tr>
-					<td>${value.userName}</td>
-					<td>${value.productName}</td>
+					<td>${order.userName}</td>
+					<td>${order.productName}</td>
 				<tr>
 			</c:forEach>
 
 		</table>
 	</div>
-
 </body>
 
 </html>

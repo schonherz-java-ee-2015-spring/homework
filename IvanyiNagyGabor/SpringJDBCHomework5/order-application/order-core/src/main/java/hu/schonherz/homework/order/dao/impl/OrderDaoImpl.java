@@ -19,27 +19,33 @@ public class OrderDaoImpl extends JdbcDaoSupport implements OrderDao {
 		setJdbcTemplate(jdbcTemplate);
 	}
 
+	// Insert order into the Order table
 	public void save(OrderDto dto) throws Exception {
 		String sql = "INSERT INTO public.\"Order\"(user_id, product_id) VALUES (?, ?);";
 		getJdbcTemplate().update(sql, dto.getUserId(), dto.getProductId());
 	}
 
-	public void update(OrderDto oldDto, OrderDto newDto) throws Exception {
+	// Update oldOrder to newOrder
+	public void update(OrderDto oldOrderDto, OrderDto newOrderDto) throws Exception {
 		String sql = "UPDATE public.\"Order\" SET user_id=?, product_id=? WHERE user_id=? and product_id=?;";
-		getJdbcTemplate().update(sql, newDto.getUserId(), newDto.getProductId(), oldDto.getUserId(), oldDto.getProductId());
+		getJdbcTemplate().update(sql, newOrderDto.getUserId(), newOrderDto.getProductId(), oldOrderDto.getUserId(),
+				oldOrderDto.getProductId());
 	}
 
-	public void delete(OrderDto dto) throws Exception {
+	// Delete order
+	public void delete(OrderDto orderDto) throws Exception {
 		String sql = "DELETE FROM public.\"Order\" WHERE user_id=? and product_id=?;";
-		getJdbcTemplate().update(sql, dto.getUserId(), dto.getProductId());
+		getJdbcTemplate().update(sql, orderDto.getUserId(), orderDto.getProductId());
 	}
 
+	// find Orders by userId
 	public List<OrderDto> find(Long userId) throws Exception {
 		String sql = "SELECT user_id, product_id FROM public.\"Order\" WHERE user_id = ?;";
 		List<OrderDto> orderDtos = getJdbcTemplate().query(sql, new OrderRowMapper(), userId);
 		return orderDtos;
 	}
 
+	// Return all order
 	public List<OrderDto> findAll() throws Exception {
 		String sql = "SELECT user_id, product_id FROM public.\"Order\";";
 		List<OrderDto> orderDtos = getJdbcTemplate().query(sql, new OrderRowMapper());

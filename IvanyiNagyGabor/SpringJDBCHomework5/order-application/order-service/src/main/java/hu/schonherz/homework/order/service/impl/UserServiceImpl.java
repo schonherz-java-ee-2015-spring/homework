@@ -20,11 +20,13 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
 
+	// Return all user
 	@Override
 	public List<UserVo> getAllUser() throws Exception {
 		return UserMapper.toVo(userDao.findAll());
 	}
 
+	// Create a new user
 	@Override
 	public void addUser(UserVo userVo) throws Exception {
 		userDao.save(UserMapper.toDto(userVo));	

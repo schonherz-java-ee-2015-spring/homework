@@ -12,20 +12,17 @@ body {
 	background-color: #000066;
 }
 </style>
-<spring:url value="/resources/css/CSSForm.css" var="cssForm" />
+<spring:url value="/resources/css/CSSForm.css" var="formCss" />
 <spring:url value="/resources/js/validate.js" var="validateJs" />
-
-<link href="${cssForm}" rel="stylesheet" />
+<link href="${formCss}" rel="stylesheet" />
 <script src="${validateJs}"></script>
-
-
-
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+
+<title>Create product</title>
 </head>
 <body>
-	<form class="form-container" name="form" action="create" method="POST"
-		onsubmit="return validateFormForProduct()">
+	<form class="form-container" name="form" action="createProduct"
+		method="POST" onsubmit="return validateFormForProduct()">
 		<div class="form-title">
 			<h2>Create product</h2>
 		</div>

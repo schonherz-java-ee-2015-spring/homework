@@ -19,11 +19,13 @@ public class OrderServiceImpl implements OrderService {
 	@Autowired
 	private OrderDao orderDao;
 
+	// Create a new order
 	@Override
 	public void addOrder(OrderVo orderVo) throws Exception {
 		orderDao.save(OrderMapper.toDto(orderVo));
 	}
 
+	// Return all order
 	@Override
 	public List<OrderVo> getAllOrder() throws Exception {
 		return OrderMapper.toVo(orderDao.findAll());

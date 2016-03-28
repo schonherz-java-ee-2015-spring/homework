@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 import hu.schonherz.homework.order.service.UserService;
 import hu.schonherz.homework.order.vo.UserVo;
 
-//
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -23,28 +22,26 @@ public class UserController {
 
 	@RequestMapping(path = "/userDetails", method = RequestMethod.GET)
 	public String listUsers(Model model) {
-		List<UserVo> list;
 		try {
-			list = userService.getAllUser();
-			model.addAttribute("list", list);
+			List<UserVo> userList = userService.getAllUser();
+			model.addAttribute("userList", userList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return "user/userDetails";
 	}
 
-	@RequestMapping(path = "/create", method = RequestMethod.GET)
+	@RequestMapping(path = "/createUser", method = RequestMethod.GET)
 	public ModelAndView newBlog(Model model) {
-		return new ModelAndView("/user/create", "command", new UserVo());
+		return new ModelAndView("/user/createUser", "command", new UserVo());
 	}
 
-	@RequestMapping(path = "/create", method = RequestMethod.POST)
+	@RequestMapping(path = "/createUser", method = RequestMethod.POST)
 	public String newBlog(@ModelAttribute UserVo userVo, Model model) {
 		try {
 			userService.addUser(userVo);
 		} catch (Exception e) {
-			
-			return "redirect:/user/create/?msg=error";
+			e.printStackTrace();
 		}
 		return "redirect:/";
 	}

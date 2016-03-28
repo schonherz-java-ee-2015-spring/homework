@@ -17,7 +17,7 @@
 		<property name="driverClassName" value="org.postgresql.Driver" />
 		<property name="url" value="jdbc:postgresql://localhost:5432/Order" />
 		<property name="username" value="postgres" />
-		<property name="password" value="klose12" />
+		<property name="password" value="YOUR_PASSWORD" />
 	</bean>
 
 	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/order"

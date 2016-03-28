@@ -20,11 +20,13 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductDao productDao;
 	
+	// Return all product
 	@Override
 	public List<ProductVo> getAllProduct() throws Exception {
 		return ProductMapper.toVo(productDao.findAll());
 	}
 
+	// Create a new product
 	@Override
 	public void addProduct(ProductVo productVo) throws Exception {
 		productDao.save(ProductMapper.toDto(productVo));

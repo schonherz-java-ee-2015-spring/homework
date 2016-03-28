@@ -11,7 +11,5 @@
 
 
 	<context:component-scan base-package="hu.schonherz.homework.order.service" />
-	
-	
 
 </beans>

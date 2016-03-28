@@ -6,17 +6,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<spring:url value="/resources/css/CSSTable.css" var="cssTable" />
-
-<link href="${cssTable}" rel="stylesheet" />
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
 <style>
 body {
-    background-color: #003333;
+	background-color: #003333;
 }
 </style>
+<spring:url value="/resources/css/CSSTable.css" var="tableCss" />
+<link href="${tableCss}" rel="stylesheet" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<title>User details</title>
 </head>
+
 <body>
 
 	<div class="CSSTable">
@@ -26,9 +27,9 @@ body {
 				<td>User</td>
 			</tr>
 
-			<c:forEach items="${list}" var="value">
+			<c:forEach items="${userList}" var="user">
 				<tr>
-					<td>${value.name}</td>
+					<td>${user.name}</td>
 				<tr>
 			</c:forEach>
 

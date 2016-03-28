@@ -14,18 +14,16 @@ body {
 </style>
 <spring:url value="/resources/css/CSSForm.css" var="formCss" />
 <spring:url value="/resources/js/validate.js" var="validateJs" />
-
 <link href="${formCss}" rel="stylesheet" />
 <script src="${validateJs}"></script>
-
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+
+<title>Create user</title>
 </head>
+
 <body>
-
-
-	<form class="form-container" name="form" action="create" method="POST"
-		onsubmit="return validateFormForUser()">
+	<form class="form-container" name="form" action="createUser"
+		method="POST" onsubmit="return validateFormForUser()">
 		<div class="form-title">
 			<h2>Create user</h2>
 		</div>

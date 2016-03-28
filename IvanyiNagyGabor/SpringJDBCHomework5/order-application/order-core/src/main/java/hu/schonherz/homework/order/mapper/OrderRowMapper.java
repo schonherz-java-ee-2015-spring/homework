@@ -8,7 +8,9 @@ import org.springframework.jdbc.core.RowMapper;
 import hu.schonherz.homework.order.dto.OrderDto;
 
 public class OrderRowMapper implements RowMapper<OrderDto> {
-
+	
+	
+	// Set and return the orderDto from the resultSet
 	public OrderDto mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 		OrderDto orderDto = new OrderDto();
 		orderDto.setUserId(resultSet.getLong("user_id"));
