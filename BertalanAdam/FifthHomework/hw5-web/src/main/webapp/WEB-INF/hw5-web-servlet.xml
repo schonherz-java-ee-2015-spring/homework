@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jdbc
+		http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd 
+		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- 
+		What context:component-scan does is that it tells the spring to search for
+		annotations like @Repository, @Controller, @Service and @Component in all classes under the given package,
+		and register them as a bean just like we would write them here like this: 
+		<bean class="..." />
+	-->
+	<context:component-scan base-package="hu.schonerz.java.training.hw5.web" />
+	
+	<bean class="hu.schonerz.java.training.hw5.service.impl.UserServiceImpl" />
+	<bean class="hu.schonerz.java.training.hw5.service.impl.ProductServiceImpl" />
+	<bean class="hu.schonerz.java.training.hw5.service.impl.OrderServiceImpl" />
+	
+	<!-- The jsp's under WEB-INF/jsp are the internal resource views. The InternalResourceViewResolver resolvse these views by adding
+	a prefix to them and a suffix. So wherever "index" is used, it means /WEB-INF/jsp/index.jsp -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	 
+	<!-- Tells spring that there are resources under /resources/ -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	
+	<mvc:annotation-driven/>
+	
+	<import resource="classpath:hw5-core-configuration.xml"/>
+	
+</beans>
