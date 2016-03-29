@@ -7,13 +7,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Create user</title>
+<title>Create product</title>
 </head>
 <body>
 <form:form action="create" method="POST">
 	<div>Name:</div>
 	<div><form:input path="name"/></div>
-	<div><input type="submit" value="Submit new user"></div>
+	<div>Price</div>
+	<div><form:input path="price"/></div>
+	<div><input type="submit" value="Submit new product"></div>
 </form:form>
 </body>
 </html>

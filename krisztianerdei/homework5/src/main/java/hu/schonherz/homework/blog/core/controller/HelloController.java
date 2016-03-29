@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 // this is a controller
 @Controller
-// if a request enter on "/" url then this controller will handle it
 @RequestMapping("/")
 public class HelloController{
 

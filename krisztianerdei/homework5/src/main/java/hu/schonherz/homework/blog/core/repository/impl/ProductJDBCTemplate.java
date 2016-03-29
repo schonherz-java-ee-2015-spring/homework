@@ -26,7 +26,7 @@ public class ProductJDBCTemplate implements ProductDao {
 		String sql = "SELECT id, name , price FROM public.\"Product\";";
 		List<Product> products = jdbcTemplate.query(sql, new ProductMapper());
 		return products;
-		
+
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class ProductJDBCTemplate implements ProductDao {
 	@Override
 	public void addProduct(String name, int price) {
 		String sql = "INSERT INTO public.\"Product\"(name, price) VALUES (?, ?);";
-		  jdbcTemplate.update(sql, name,price);
+		jdbcTemplate.update(sql, name, price);
 	}
 
 	@Override
