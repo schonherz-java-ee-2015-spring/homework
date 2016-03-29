@@ -1,0 +1,72 @@
+@import "http://fonts.googleapis.com/css?family=Arvo";
+/* Above line is used for online google font */
+h1 {
+	color: white;
+	text-align: center
+}
+
+h2 {
+	color: white;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin-bottom: -10px
+}
+
+div#main {
+	width: 868px;
+	height: 654px;
+	margin: 20px auto;
+	font-family: 'Arvo', serif
+}
+
+div#first {
+	width: 350px;
+	height: 615px;
+	padding: 0 45px 20px;
+	border: 1px dotted #ccc;
+	float: left
+}
+
+input {
+	width: 340px;
+	height: 35px;
+	border: 1px solid gray;
+	padding-left: 10px;
+	margin-top: 8px;
+	border-radius: 5px
+}
+
+select {
+	background-image: url(../images/arrow.png);
+	background-repeat: no-repeat;
+	background-position: 300px;
+	width: 353px;
+	padding: 12px;
+	margin-top: 8px;
+	font-family: Cursive;
+	line-height: 1;
+	border-radius: 5px;
+	background-color: #A2AB58;
+	color: #ff0;
+	font-size: 20px;
+	-webkit-appearance: none;
+	box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.6);
+	outline: none
+}
+
+select:hover {
+	color: #00ff7f
+}
+
+.submit {
+	width: 353px;
+	height: 45px;
+	color: #fff;
+	margin-top: 170px;
+	background-color: #1067a2;
+	font-size: 20px;
+	font-weight: 700
+}
