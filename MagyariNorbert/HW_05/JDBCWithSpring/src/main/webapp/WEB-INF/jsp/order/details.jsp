@@ -10,7 +10,7 @@
 </head>
 <body>
 <div>
-<c:forEach items="${orders}" var="order">
+<c:forEach items="${order}" var="order">
 	<ul>
 
 			<li>${order.product_id}</li>
