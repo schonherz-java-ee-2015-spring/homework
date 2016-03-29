@@ -8,17 +8,15 @@
 
 <html>
 <head>
-	<title>Home</title>
-	<link rel="stylesheet" href="resources/style.css" type="text/css"/>
+	<title>WebShop - Home</title>
 </head>
 <body>
 
-<h1>Welcome!</h1>
+<h1>Hello!</h1>
 <ul>
-<%--TODO <%=request.getContextPath()%> --%>
-	<li><a href="${pageContext.request.contextPath}/user">Show users</a></li>
-    <li><a href="${pageContext.request.contextPath}/newuser">Add user</a></li>
-    <li><a href="${pageContext.request.contextPath}/product">Show products</a></li>
+	<li><a href="${ pageContext.request.contextPath}/user">List users</a></li>
+    <li><a href="${ pageContext.request.contextPath}/newuser">Add user</a></li>
+    <li><a href="${pageContext.request.contextPath}/product">List products</a></li>
     <li><a href="${pageContext.request.contextPath}/newproduct">Add product</a></li>
     <li><a href="${pageContext.request.contextPath}/neworder">Add order</a></li>
 </ul>
@@ -33,11 +31,13 @@
 		</c:when>
 		
 		<c:when test="${not empty products}">
+			<table>
 			<c:forEach items="${products}" var="product">
 				<div>
-				<p>	${product.name} <br /> ${product.price} </p>	
+				 <tr><td>	${product.name}	</td> <td>$${product.price}</td></tr>	
 				</div>
 			</c:forEach>
+			</table>
 		</c:when>
 		
 		<c:when test="${not empty user}">
@@ -50,6 +50,7 @@
 		<c:when test="${not empty product}">
 			<form:form action="newproduct" method="POST" modelAttribute="product">
 				<form:input path="name"/>
+				<form:input path="price" />
 				<input type="submit" value="Add product"></input>	
 			</form:form>
 		</c:when>
@@ -57,7 +58,7 @@
 		<c:when test="${not empty order}">
 			<form:form action="neworder" method="POST" modelAttribute="order">
 	
-				<form:select path="user_id">
+				<form:select path="userId">
 					<c:forEach items="${users_}" var="user_">
 						<form:option value="${user_.id}">
 							${user_.name}
@@ -65,7 +66,7 @@
 					</c:forEach>
 				</form:select>
 				
-				<form:select path="product_id">
+				<form:select path="productId">
 					<c:forEach items="${products_}" var="product_">
 						<form:option value="${product_.id}">
 						${product_.name}
@@ -79,7 +80,7 @@
 		</c:when>
 		
 		<c:otherwise>
- <!-- 			<h2>There is no user!</h2> -->
+
 		</c:otherwise>
 	</c:choose>
 </body>
