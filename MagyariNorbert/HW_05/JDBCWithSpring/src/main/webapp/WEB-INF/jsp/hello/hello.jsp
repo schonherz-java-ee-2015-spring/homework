@@ -1,21 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page isELIgnored="false" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>HomeWork</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link rel="stylesheet" type="text/css" href="/style.css" ></link>
+<link href="resources/style.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
 <div id="container">
   <div id="top">
     <h1>JDBC with Spring</h1>
+    <div class="search">
+      <form method="post" action="#">
+        <p>
+          <input type="text" name="search" value="demo only" class="search" />
+          <input type="submit" value="Search" class="searchSubmit" />
+        </p>
+      </form>
+    </div>
+  </div>
   <div id="navcontainer">
     <ul id="navlist">
       <li><a href="/JDBCWithSpring/user">Users</a></li>
@@ -24,7 +31,7 @@
     </ul>
   </div>
   <div id="leftnav">
-    <h2>More fun - Not working</h2>
+    <h2>More Links</h2>
     <ul id="leftnavmenu">
       <li><a href="#">SNAPP HAPPY</a></li>
       <li><a href="#">OPEN DESIGNS</a></li>
@@ -35,7 +42,7 @@
       <li><a href="#"> LAYOUTGALA</a></li>
       <li><a href="#"> BLUEROBOT</a></li>
     </ul>
-    <h2>Archives - Not working</h2>
+    <h2>Archives</h2>
     <ul>
       <li><a href="#">January</a></li>
       <li><a href="#">February</a></li>
@@ -43,7 +50,7 @@
       <li><a href="#">April</a></li>
       <li><a href="#">May</a></li>
     </ul>
-    <p class="quote">Using CSS template is a journey, not a destination.</p>
+    <p class="quote">Happiness is a journey, not a destination.</p>
   </div>
   <div id="content">
     <h2>Welcome to <span style="font-weight:bold; color:#b29b35;">Clean Blue</span> Template</h2>
@@ -56,7 +63,7 @@
     <p class="post"> <a href="#" class="readmore">Read more</a> <a href="#" class="comments">Comments (3)</a> <span class="date">March 28, 2007</span> </p>
   </div>
   <div id="footer">
-    <p><a href="#">homepage</a> | <a href="#">contact</a> | &copy; 2007 Anyone | Design by <a href="http://www.mitchinson.net"> www.mitchinson.net</a> | Licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a></p>
+    <p><a href="/JDBCWithSpring/">homepage</a> | <a href="#">contact</a> | &copy; 2007 Anyone | Design by <a href="http://www.mitchinson.net"> www.mitchinson.net</a> | Licensed under a <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a></p>
   </div>
 </div>
 </body>
