@@ -1,6 +1,6 @@
 -- insert default data into table User
-INSERT INTO "User"(name, pwd) VALUES ('John', 'pwd1');
-INSERT INTO "User"(name, pwd) VALUES ('Mary', 'pwd2');
+INSERT INTO "User"(name, pwd) VALUES ('John');
+INSERT INTO "User"(name, pwd) VALUES ('Mary');
 
 -- insert default data into table Product
 INSERT INTO "Product"(name, price) VALUES ('Pizza', 4);

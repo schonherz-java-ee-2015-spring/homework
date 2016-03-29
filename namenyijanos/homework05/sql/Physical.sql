@@ -19,7 +19,6 @@ CREATE TABLE "User"
 (
   id integer NOT NULL DEFAULT nextval('"User_id_seq"'::regclass),
   name character varying(50) NOT NULL,
-  pwd character varying(12) NOT NULL,
   CONSTRAINT user_primary_key PRIMARY KEY (id)
 );
 
