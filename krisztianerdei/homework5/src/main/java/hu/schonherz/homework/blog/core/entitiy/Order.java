@@ -14,6 +14,14 @@ public class Order implements Serializable {
 		this.product_id = product_id;
 	}
 
+	
+
+	public Order() {
+		super();
+	}
+
+
+
 	public int getUser_id() {
 		return user_id;
 	}

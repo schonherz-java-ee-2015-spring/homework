@@ -19,12 +19,6 @@ public class User implements Serializable {
 		Name = name;
 	}
 
-
-	public User() {
-		super();
-	}
-
-
 	public int getId() {
 		return id;
 	}
@@ -35,6 +29,10 @@ public class User implements Serializable {
 
 	public String getName() {
 		return Name;
+	}
+
+	public User() {
+		super();
 	}
 
 	public void setName(String name) {

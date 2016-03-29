@@ -22,8 +22,11 @@ public class Product implements Serializable {
 		this.price = price;
 	}
 
+	
 	public Product() {
+		super();
 	}
+
 
 	public int getId() {
 		return id;
