@@ -1,11 +1,11 @@
-package hu.schonherz.java.training.jdbc.mapper;
+package hu.schonherz.java.training.jdbc.core.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import hu.schonherz.java.training.jdbc.records.Order;
+import hu.schonherz.java.training.jdbc.core.records.Order;
 
 public class OrderMapper implements RowMapper<Order> {
 

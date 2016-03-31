@@ -1,21 +1,15 @@
-package hu.schonherz.java.training.jdbc.records;
+package hu.schonherz.java.training.jdbc.service.vo;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class UserVo implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -2458124632214395986L;
+	private static final long serialVersionUID = 1863336688606572126L;
 	private Integer id;
 	private String name;
-
-	public User(Integer id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
 
 	public Integer getId() {
 		return id;
@@ -32,4 +26,5 @@ public class User implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 }

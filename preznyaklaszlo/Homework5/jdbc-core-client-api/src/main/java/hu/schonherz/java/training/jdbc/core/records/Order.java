@@ -1,4 +1,4 @@
-package hu.schonherz.java.training.jdbc.records;
+package hu.schonherz.java.training.jdbc.core.records;
 
 import java.io.Serializable;
 

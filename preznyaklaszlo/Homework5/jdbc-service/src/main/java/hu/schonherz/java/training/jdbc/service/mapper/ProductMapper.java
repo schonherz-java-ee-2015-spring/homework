@@ -1,4 +1,4 @@
-package hu.schonherz.java.training.jdbc.mapper;
+package hu.schonherz.java.training.jdbc.service.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 
-import hu.schonherz.java.training.jdbc.records.Product;
-import hu.schonherz.java.training.jdbc.vo.ProductVo;
+import hu.schonherz.java.training.jdbc.core.records.Product;
+import hu.schonherz.java.training.jdbc.service.vo.ProductVo;
 
 public class ProductMapper {
 

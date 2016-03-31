@@ -5,10 +5,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import hu.schonherz.java.training.jdbc.dao.OrderDao;
-import hu.schonherz.java.training.jdbc.mapper.OrderMapper;
+import hu.schonherz.java.training.jdbc.core.dao.OrderDao;
 import hu.schonherz.java.training.jdbc.service.OrderService;
-import hu.schonherz.java.training.jdbc.vo.OrderVo;
+import hu.schonherz.java.training.jdbc.service.mapper.OrderMapper;
+import hu.schonherz.java.training.jdbc.service.vo.OrderVo;
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED)

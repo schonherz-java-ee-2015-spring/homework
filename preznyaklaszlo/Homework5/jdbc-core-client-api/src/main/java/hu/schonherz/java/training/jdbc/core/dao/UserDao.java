@@ -1,8 +1,8 @@
-package hu.schonherz.java.training.jdbc.dao;
+package hu.schonherz.java.training.jdbc.core.dao;
 
 import java.util.List;
 
-import hu.schonherz.java.training.jdbc.records.User;
+import hu.schonherz.java.training.jdbc.core.records.User;
 
 public interface UserDao {
 

@@ -1,11 +1,11 @@
-package hu.schonherz.java.training.jdbc.mapper;
+package hu.schonherz.java.training.jdbc.core.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import hu.schonherz.java.training.jdbc.records.Product;
+import hu.schonherz.java.training.jdbc.core.records.Product;
 
 public class ProductMapper implements RowMapper<Product> {
 

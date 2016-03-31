@@ -1,4 +1,4 @@
-package hu.schonherz.java.training.jdbc.dao.impl;
+package hu.schonherz.java.training.jdbc.core.dao.impl;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import hu.schonherz.java.training.jdbc.dao.ProductDao;
-import hu.schonherz.java.training.jdbc.mapper.ProductMapper;
-import hu.schonherz.java.training.jdbc.records.Product;
+import hu.schonherz.java.training.jdbc.core.dao.ProductDao;
+import hu.schonherz.java.training.jdbc.core.mapper.ProductMapper;
+import hu.schonherz.java.training.jdbc.core.records.Product;
 
 @Repository
 public class ProductDaoImpl implements ProductDao {

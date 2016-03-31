@@ -1,4 +1,4 @@
-package hu.schonherz.java.training.jdbc.dao.impl;
+package hu.schonherz.java.training.jdbc.core.dao.impl;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import hu.schonherz.java.training.jdbc.dao.UserDao;
-import hu.schonherz.java.training.jdbc.mapper.UserMapper;
-import hu.schonherz.java.training.jdbc.records.User;
+import hu.schonherz.java.training.jdbc.core.dao.UserDao;
+import hu.schonherz.java.training.jdbc.core.mapper.UserMapper;
+import hu.schonherz.java.training.jdbc.core.records.User;
 
 @Repository
 public class UserDaoImpl implements UserDao {

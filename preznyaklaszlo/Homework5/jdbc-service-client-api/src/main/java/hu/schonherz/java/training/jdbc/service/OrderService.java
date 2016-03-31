@@ -1,6 +1,6 @@
 package hu.schonherz.java.training.jdbc.service;
 
-import hu.schonherz.java.training.jdbc.vo.OrderVo;
+import hu.schonherz.java.training.jdbc.service.vo.OrderVo;
 
 public interface OrderService {
 

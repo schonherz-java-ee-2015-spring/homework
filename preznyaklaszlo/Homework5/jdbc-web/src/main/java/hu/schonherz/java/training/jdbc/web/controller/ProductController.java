@@ -1,4 +1,4 @@
-package hu.schonherz.java.training.jdbc.controller;
+package hu.schonherz.java.training.jdbc.web.controller;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import hu.schonherz.java.training.jdbc.service.ProductService;
-import hu.schonherz.java.training.jdbc.vo.ProductVo;
+import hu.schonherz.java.training.jdbc.service.vo.ProductVo;
 
 @Controller
 @RequestMapping("/product")

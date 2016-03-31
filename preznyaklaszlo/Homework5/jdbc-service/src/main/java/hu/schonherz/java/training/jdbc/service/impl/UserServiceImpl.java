@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import hu.schonherz.java.training.jdbc.dao.UserDao;
-import hu.schonherz.java.training.jdbc.mapper.UserMapper;
+import hu.schonherz.java.training.jdbc.core.dao.UserDao;
 import hu.schonherz.java.training.jdbc.service.UserService;
-import hu.schonherz.java.training.jdbc.vo.UserVo;
+import hu.schonherz.java.training.jdbc.service.mapper.UserMapper;
+import hu.schonherz.java.training.jdbc.service.vo.UserVo;
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED)

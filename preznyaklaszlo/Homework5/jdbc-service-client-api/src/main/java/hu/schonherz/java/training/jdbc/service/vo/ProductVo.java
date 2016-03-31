@@ -1,4 +1,4 @@
-package hu.schonherz.java.training.jdbc.vo;
+package hu.schonherz.java.training.jdbc.service.vo;
 
 import java.io.Serializable;
 
