@@ -1,4 +1,3 @@
-
 package hu.schonhertz.training.blog.web.servlet;
 
 import java.io.IOException;
@@ -28,13 +27,9 @@ import hu.schonhertz.training.blog.vo.UserVo;
 @WebServlet(name = "/changeRole", urlPatterns = "/changeRole")
 @MultipartConfig
 public class ChangeRoleServlet extends HttpServlet {
-	 static final Logger logger =
-	 LogManager.getLogger(ChangeRoleServlet.class.getName());
+	static final Logger logger = LogManager.getLogger(ChangeRoleServlet.class.getName());
 
 	private static final long serialVersionUID = 1795959081410371020L;
-	private List<RoleVo> allRoleList;
-	private List<UserVo> userList;
-	
 
 	@Autowired
 	RoleService roleService;
@@ -52,33 +47,32 @@ public class ChangeRoleServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		
 		String userName = request.getParameter("userName");
-		System.out.println(userName);
-		System.out.println("User role: " + (request.getParameter("isUserRole") != null));
-		System.out.println("Blogger role: " + (request.getParameter("isBloggerRole") != null));
-		
-		
+		List<UserVo> userList = null;
+		try {
+			UserVo admin = userService.findUserByName("admin");
+			userList = userService.getAllUserBySorted();
+			userList.remove(admin);
+			List<RoleVo> allRoleList = admin.getRoles().stream().sorted((r1, r2) -> r1.getId().compareTo(r2.getId()))
+					.collect(Collectors.toList());
+			
+			
+			Map<RoleVo, Boolean> isRoles = new LinkedHashMap<RoleVo, Boolean>();
+			isRoles.put(allRoleList.get(0), request.getParameter("isUserRole") != null);
+			isRoles.put(allRoleList.get(1), request.getParameter("isBloggerRole") != null);
+			isRoles.put(allRoleList.get(2), request.getParameter("isAdminRole") != null);
 
-		Map<RoleVo, Boolean> isRoles = new LinkedHashMap<RoleVo, Boolean>();
-		isRoles.put(allRoleList.get(0), request.getParameter("isUserRole") != null);
-		isRoles.put(allRoleList.get(1), request.getParameter("isBloggerRole") != null);
-		isRoles.put(allRoleList.get(2), request.getParameter("isAdminRole") != null);
+			List<RoleVo> roles = isRoles.entrySet().stream().filter(map -> map.getValue()).map(map -> map.getKey())
+					.collect(Collectors.toList());
+			UserVo userVo = userList.stream().filter(user -> user.getUserName().equals(userName)).findFirst().get();
 
-		List<RoleVo> roles = isRoles.entrySet().stream().filter(map -> map.getValue()).map(map -> map.getKey()).collect(Collectors.toList());
-		UserVo userVo = userList.stream().filter(user -> user.getUserName().equals(userName)).findFirst().get();
-		
-		userVo.setRoles(roles);
-		System.out.println("Role users: " + userVo.getRoles());
-		
-
-		
-		// List<UserVo> userList = null;
-		 try {
-			 roleService.removeAllRoleByUserId(userVo.getId());
-			 userService.changeRolesToUser(userVo);
-		 } catch (Exception e) {
-		 logger.error(e.getMessage(), e);
-		 }
+			userVo.setRoles(roles);
+			roleService.removeAllRoleByUserId(userVo.getId());
+			userService.addRolesToUser(userVo);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+		}
 
 		request.setAttribute("userList", userList);
 		request.setAttribute("msg", "Success");
@@ -89,15 +83,13 @@ public class ChangeRoleServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// List<UserVo> userList = null;
+		List<UserVo> userList = null;
 		try {
-			
 			UserVo admin = userService.findUserByName("admin");
 			userList = userService.getAllUserBySorted();
 			userList.remove(admin);
-			allRoleList = admin.getRoles();
 		} catch (Exception e) {
-			 logger.error(e.getMessage(), e);
+			logger.error(e.getMessage(), e);
 		}
 
 		request.setAttribute("userList", userList);

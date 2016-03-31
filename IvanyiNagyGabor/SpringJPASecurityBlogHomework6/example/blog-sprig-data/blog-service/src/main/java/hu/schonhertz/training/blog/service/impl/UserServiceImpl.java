@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import hu.schonhertz.training.blog.entity.Role;
 import hu.schonhertz.training.blog.entity.User;
 import hu.schonhertz.training.blog.repository.RoleRepository;
-import hu.schonhertz.training.blog.repository.RoleRepositoryCustom;
 import hu.schonhertz.training.blog.repository.UserRepository;
 import hu.schonhertz.training.blog.service.UserService;
 import hu.schonhertz.training.blog.service.mapper.RoleMapper;
@@ -83,7 +82,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void changeRolesToUser(UserVo userVo) throws Exception {
+	public void addRolesToUser(UserVo userVo) throws Exception {
 		User user = UserMapper.toDto(userVo);
 		List<Role> roles = RoleMapper.toDto(userVo.getRoles());
 				

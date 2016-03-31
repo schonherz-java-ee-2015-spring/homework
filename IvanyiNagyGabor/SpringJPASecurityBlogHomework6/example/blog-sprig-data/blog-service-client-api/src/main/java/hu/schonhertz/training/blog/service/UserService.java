@@ -10,7 +10,7 @@ public interface UserService {
 
 	public void registrationUser(UserVo userVO) throws Exception;
 	
-	public void changeRolesToUser(UserVo userVo) throws Exception;
+	public void addRolesToUser(UserVo userVo) throws Exception;
 	
 	public UserVo setUpRoles(UserVo vo) throws Exception;
 	

@@ -14,7 +14,7 @@ import hu.schonhertz.training.blog.entity.Role;
 
 @Repository
 @Transactional(propagation = Propagation.SUPPORTS)
-public interface RoleRepository extends JpaRepository<Role, Long>, RoleRepositoryCustom {
+public interface RoleRepository extends JpaRepository<Role, Long> {
 
 	@Query("select roles from User u join u.roles roles where u.id=?1")
 	List<Role> findRolesByUserId(Long userId);
@@ -29,5 +29,7 @@ public interface RoleRepository extends JpaRepository<Role, Long>, RoleRepositor
 
 	Role findRoleByName(@Param("roleName") String name) throws Exception;
 
+	@Query("select id, name from Role")
+	List<Role> findAll();
 	
 }
