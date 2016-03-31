@@ -17,6 +17,10 @@ public class UserVo implements Serializable {
 		this.name = name;
 	}
 
+	public UserVo() {
+		super();
+	}
+
 	public Integer getId() {
 		return id;
 	}
