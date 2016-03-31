@@ -1,7 +1,13 @@
 package hu.schonherz.java.training.jdbc.records;
 
-public class Order {
+import java.io.Serializable;
 
+public class Order implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7870985913160333422L;
 	private Integer userId;
 	private Integer productId;
 

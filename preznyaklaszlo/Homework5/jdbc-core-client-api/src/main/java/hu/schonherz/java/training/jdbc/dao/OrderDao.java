@@ -8,8 +8,12 @@ public interface OrderDao {
 
 	public List<Order> getAllOrders();
 
-	public void addOrder(Order order);
+	public boolean addOrder(Order order);
 
-	public void deleteOrder(Order order);
+	public boolean addOrder(int userId, int productId);
+
+	public boolean deleteOrder(Order order);
+
+	public boolean deleteOrder(int userId, int productId);
 
 }

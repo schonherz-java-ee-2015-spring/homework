@@ -1,7 +1,13 @@
 package hu.schonherz.java.training.jdbc.records;
 
-public class User {
+import java.io.Serializable;
 
+public class User implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2458124632214395986L;
 	private Integer id;
 	private String name;
 
