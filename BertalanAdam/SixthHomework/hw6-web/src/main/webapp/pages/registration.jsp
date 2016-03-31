@@ -36,7 +36,13 @@
 		</c:if>
 
 		<form name="loginForm" action="<c:url value="/RegistrationServlet" />"
-				method="POST">
+				method="POST" enctype="multipart/form-data">
+				
+		<div class="form-group">
+				<label for="file">Image</label>
+				<input id="file" name="file" type="file" class="file" multiple
+					data-show-upload="false" data-show-caption="true">
+		</div>
 
 		 <div class="form-group">
 				<label for="username">User</label>

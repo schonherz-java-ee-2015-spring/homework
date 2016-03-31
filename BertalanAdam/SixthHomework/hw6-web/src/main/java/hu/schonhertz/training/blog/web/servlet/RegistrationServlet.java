@@ -1,14 +1,19 @@
 package hu.schonhertz.training.blog.web.servlet;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,6 +26,7 @@ import hu.schonhertz.training.blog.vo.UserVo;
  * This servlet handles the message box.
  */
 @WebServlet(name = "/RegistrationServlet", urlPatterns = "/RegistrationServlet")
+@MultipartConfig
 public class RegistrationServlet extends HttpServlet {
 
 	@Autowired
@@ -60,7 +66,15 @@ public class RegistrationServlet extends HttpServlet {
 
 				BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 				String encPassword = bCryptPasswordEncoder.encode(password);
-
+				
+				Part filePart = request.getPart("file");
+				InputStream in = filePart.getInputStream();
+				ByteArrayOutputStream out = new ByteArrayOutputStream();
+				IOUtils.copy(in, out);
+				IOUtils.closeQuietly(in);
+				IOUtils.closeQuietly(out);
+				
+				userVO.setImage(out.toByteArray());
 				userVO.setPassword(encPassword);
 				userVO.setUserName(username);
 
