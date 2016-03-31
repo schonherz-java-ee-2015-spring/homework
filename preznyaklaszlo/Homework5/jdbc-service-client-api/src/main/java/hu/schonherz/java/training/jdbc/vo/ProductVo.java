@@ -12,16 +12,16 @@ public class ProductVo implements Serializable {
 	private Integer price;
 	private String name;
 
-	public ProductVo(Integer id, Integer price, String name) {
-		super();
-		this.id = id;
-		this.price = price;
-		this.name = name;
-	}
-
-	public Integer getId() {
-		return id;
-	}
+	// public ProductVo(Integer id, Integer price, String name) {
+	// super();
+	// this.id = id;
+	// this.price = price;
+	// this.name = name;
+	// }
+	//
+	// public Integer getId() {
+	// return id;
+	// }
 
 	public void setId(Integer id) {
 		this.id = id;

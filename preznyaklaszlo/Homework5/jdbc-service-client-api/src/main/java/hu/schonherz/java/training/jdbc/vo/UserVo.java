@@ -11,16 +11,6 @@ public class UserVo implements Serializable {
 	private Integer id;
 	private String name;
 
-	public UserVo(Integer id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
-
-	public UserVo() {
-		super();
-	}
-
 	public Integer getId() {
 		return id;
 	}

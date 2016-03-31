@@ -28,14 +28,14 @@ public class OrderVo implements Serializable {
 		this.productId = productId;
 	}
 
-	public OrderVo(Integer userId, Integer productId) {
-		super();
-		this.userId = userId;
-		this.productId = productId;
-	}
-
-	public OrderVo() {
-		// TODO Auto-generated constructor stub
-	}
+	// public OrderVo(Integer userId, Integer productId) {
+	// super();
+	// this.userId = userId;
+	// this.productId = productId;
+	// }
+	//
+	// public OrderVo() {
+	// // TODO Auto-generated constructor stub
+	// }
 
 }

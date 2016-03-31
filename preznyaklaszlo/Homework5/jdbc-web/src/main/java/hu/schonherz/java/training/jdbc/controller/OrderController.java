@@ -44,7 +44,8 @@ public class OrderController {
 	@RequestMapping(path = "/addOrder", method = RequestMethod.POST)
 	public String addNewOrder(@ModelAttribute("order") OrderVo orderVo, Model model) {
 
-		orderService.addOrder(new OrderVo(orderVo.getUserId(), orderVo.getProductId()));
+		orderService.addOrder(orderVo);
+		
 
 		return "redirect:/";
 	}
