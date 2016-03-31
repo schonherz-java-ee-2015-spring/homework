@@ -80,7 +80,7 @@
 						<li><a href="<c:url value="/logout"/>">Logout</a></li>
 					</c:if>
 					<li><a href="<c:url value="/pages/secured/createBlog.jsp"/>">Create</a></li>
-
+					<li><a href="<c:url value="/changeRole"/>">Change Role</a></li>
 				</ul>
 				<c:if test="${ pageContext.request.userPrincipal != null  }">
 					<p

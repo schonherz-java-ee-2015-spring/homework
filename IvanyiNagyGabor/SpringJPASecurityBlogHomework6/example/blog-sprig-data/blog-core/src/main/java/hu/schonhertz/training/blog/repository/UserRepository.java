@@ -1,5 +1,7 @@
 package hu.schonhertz.training.blog.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
@@ -12,5 +14,6 @@ import hu.schonhertz.training.blog.entity.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 	User findUserByUserName(String name) throws Exception;
+	List<User> findAllByOrderByUserNameAsc() throws Exception;
 
 }

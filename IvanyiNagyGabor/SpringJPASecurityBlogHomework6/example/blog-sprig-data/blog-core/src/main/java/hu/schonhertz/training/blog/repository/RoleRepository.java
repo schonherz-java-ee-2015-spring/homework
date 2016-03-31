@@ -22,6 +22,12 @@ public interface RoleRepository extends JpaRepository<Role, Long>, RoleRepositor
 	@Modifying
 	@Query(value = "insert into user_role_sw (ROLE_ID, USER_ID) VALUES (?1, ?2)", nativeQuery = true)
 	void addRoleToUser(Long roleId, Long userId) throws Exception;
+	
+	@Modifying
+	@Query(value = "delete from user_role_sw where USER_ID = ?1", nativeQuery = true) 
+	void removeAllRoleByUserId(Long userId) throws Exception;
 
 	Role findRoleByName(@Param("roleName") String name) throws Exception;
+
+	
 }
