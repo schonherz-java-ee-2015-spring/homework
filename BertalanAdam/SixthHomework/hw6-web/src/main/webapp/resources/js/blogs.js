@@ -21,33 +21,45 @@ function getBlogs() {
 		},
 		success : function(data) {
 			$('#blogs').html('');
-			$(data).each(
-					function(index, value) {
-						jQuery.ajax({
-							async : false,
-							url : "/hw6-web/resources/template/blog.html",
-							success : function(template) {
-								template = template.replace('#title',
-										value.title);
-								template = template
-										.replace('#text', value.text);
-								template = template.replace('#createDate',
-										value.createDate);
-								template = template.replace('#creater',
-										value.creator.userName);
-								var find = '#id';
-								var re = new RegExp(find, 'g');
-								template = template.replace(re, value.id);
-								$('#blogs').append(template);
-							}
+			if( data.length == 0 ){
+				fixPage();
+			} else {
+				$(data).each(
+						function(index, value) {
+							jQuery.ajax({
+								async : false,
+								url : "/hw6-web/resources/template/blog.html",
+								success : function(template) {
+									template = template.replace('#title',
+											value.title);
+									template = template
+											.replace('#text', value.text);
+									template = template.replace('#createDate',
+											value.createDate);
+									template = template.replace('#creater',
+											value.creator.userName);
+									var find = '#id';
+									var re = new RegExp(find, 'g');
+									template = template.replace(re, value.id);
+									$('#blogs').append(template);
+								}
+							});
 						});
-					});
+			}
 		},
-
 	});
+}
 
+function fixPage(){
 	
-
+	var size= $('#blogSize').val();
+	var pagesize= $("#pageSize").val();
+	var max = Math.ceil(size/pagesize)-1;
+	
+	$('#currentPage').val( new Number(max) );
+	
+	checkPage();
+	getBlogs();
 }
 
 function searchBlogs() {
