@@ -14,16 +14,22 @@ import hu.schonhertz.training.blog.repository.UserRepository;
 import hu.schonhertz.training.blog.service.UserService;
 import hu.schonhertz.training.blog.service.mapper.RoleMapper;
 import hu.schonhertz.training.blog.service.mapper.UserMapper;
+import hu.schonhertz.training.blog.vo.RoleVo;
 import hu.schonhertz.training.blog.vo.UserVo;
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
 public class UserServiceImpl implements UserService {
+	
 	@Autowired
 	UserRepository userRepository;
 
 	@Autowired
 	RoleRepository roleRepository;
+	
+	// nemkell
+//	@Autowired
+//	RoleRepositoryCustom roleRepositoryCustom;
 
 	public UserServiceImpl() {
 	}
@@ -34,19 +40,29 @@ public class UserServiceImpl implements UserService {
 		return vo;
 
 	}
-
+	
+	
+	// ADMIN PART
 	@Override
-	public UserVo setUpRoles(UserVo vo) throws Exception {
-		List<Role> roles;
+	public UserVo setUpRoles(UserVo vo, List<RoleVo> roles) throws Exception {
+		List<Role> rolez;
 		try {
-			roles = roleRepository.findRolesByUserId(vo.getId());
-			vo.setRoles(RoleMapper.toVo(roles));
+			if( roles == null ){
+				rolez = roleRepository.findRolesByUserId(vo.getId());
+				vo.setRoles(RoleMapper.toVo(rolez));
+			} else {
+				// végül beállítjuk a role-kat
+				vo.setRoles(roles);
+				// elmentjük
+				userRepository.saveAndFlush(UserMapper.toDto(vo));				
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return vo;
 
 	}
+	// ADMIN PART
 
 	@Override
 	public void registrationUser(UserVo userVo) throws Exception {
@@ -55,4 +71,13 @@ public class UserServiceImpl implements UserService {
 		roleRepository.addRoleToUser(userRole.getId(), user.getId());
 	}
 
+//nemkell
+	@Override
+	public List<UserVo> getAllUsers() throws Exception {
+		List<User> users = null;
+		
+		users = userRepository.findAll();
+		
+		return UserMapper.toVo(users);
+	}
 }

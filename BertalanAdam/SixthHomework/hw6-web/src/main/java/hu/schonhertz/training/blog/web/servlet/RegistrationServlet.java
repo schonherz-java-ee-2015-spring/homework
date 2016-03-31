@@ -26,6 +26,7 @@ import hu.schonhertz.training.blog.vo.UserVo;
  * This servlet handles the message box.
  */
 @WebServlet(name = "/RegistrationServlet", urlPatterns = "/RegistrationServlet")
+// REGPICS PART
 @MultipartConfig
 public class RegistrationServlet extends HttpServlet {
 
@@ -67,6 +68,7 @@ public class RegistrationServlet extends HttpServlet {
 				BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 				String encPassword = bCryptPasswordEncoder.encode(password);
 				
+				// REGPICS PART
 				Part filePart = request.getPart("file");
 				InputStream in = filePart.getInputStream();
 				ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -75,6 +77,7 @@ public class RegistrationServlet extends HttpServlet {
 				IOUtils.closeQuietly(out);
 				
 				userVO.setImage(out.toByteArray());
+				// REGPICS PART
 				userVO.setPassword(encPassword);
 				userVO.setUserName(username);
 

@@ -80,7 +80,13 @@
 						<li><a href="<c:url value="/logout"/>">Logout</a></li>
 					</c:if>
 					<li><a href="<c:url value="/pages/secured/createBlog.jsp"/>">Create</a></li>
+					
+					<!-- ADMIN PART -->
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+					
+						<li><a href="<c:url value="/pages/admin/admin.jsp"/>">Admin</a></li>
 
+					</sec:authorize>
 				</ul>
 				<c:if test="${ pageContext.request.userPrincipal != null  }">
 					<p

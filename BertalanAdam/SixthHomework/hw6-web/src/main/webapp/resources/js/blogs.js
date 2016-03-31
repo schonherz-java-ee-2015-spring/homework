@@ -21,35 +21,38 @@ function getBlogs() {
 		},
 		success : function(data) {
 			$('#blogs').html('');
+			// PAGEFIX PART
 			if( data.length == 0 ){
 				fixPage();
 			} else {
-				$(data).each(
-						function(index, value) {
-							jQuery.ajax({
-								async : false,
-								url : "/hw6-web/resources/template/blog.html",
-								success : function(template) {
-									template = template.replace('#title',
-											value.title);
-									template = template
-											.replace('#text', value.text);
-									template = template.replace('#createDate',
-											value.createDate);
-									template = template.replace('#creater',
-											value.creator.userName);
-									var find = '#id';
-									var re = new RegExp(find, 'g');
-									template = template.replace(re, value.id);
-									$('#blogs').append(template);
-								}
-							});
+				// PAGEFIX PART
+			$(data).each(
+					function(index, value) {
+						jQuery.ajax({
+							async : false,
+							url : "/hw6-web/resources/template/blog.html",
+							success : function(template) {
+								template = template.replace('#title',
+										value.title);
+								template = template
+										.replace('#text', value.text);
+								template = template.replace('#createDate',
+										value.createDate);
+								template = template.replace('#creater',
+										value.creator.userName);
+								var find = '#id';
+								var re = new RegExp(find, 'g');
+								template = template.replace(re, value.id);
+								$('#blogs').append(template);
+							}
 						});
+					});
 			}
 		},
 	});
 }
 
+// PAGEFIX PART
 function fixPage(){
 	
 	var size= $('#blogSize').val();
@@ -123,28 +126,31 @@ function addBlog() {
 
 function page(p) {
 	var cp= $('#currentPage').val();
+	
 	$('#currentPage').val(new Number(cp) + p);
-	 checkPage();
-	getBlogs();
 
+	checkPage();
+	getBlogs();
 }
 
 function checkPage(){
 	var cp= $('#currentPage').val();
 	
-	if(cp ==0){
+	if(cp == 0){
 		$('#next').hide();
 	}else{
 		$('#next').show();	
 	}
+	
 	var size= $('#blogSize').val();
 	var pagesize= $("#pageSize").val();
 	
 	var max = Math.ceil(size/pagesize)-1;
 	
-	if(cp ==max){
+	if(cp == max ){
 		$('#previous').hide();
 	}else{
 		$('#previous').show();	
 	}
+
 }

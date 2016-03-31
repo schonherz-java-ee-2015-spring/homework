@@ -14,11 +14,7 @@
 	<jsp:body>
 
 </head>
-<body onload="document.loginForm.username.focus();">
-
-
-
-		
+<body onload="document.loginForm.username.focus();">		
 
 		<c:if test="${not empty error}">
 			<div class="error">${error}</div>
@@ -34,7 +30,7 @@
 			</script>
 
 		</c:if>
-
+<!-- REGPICS PART -->
 		<form name="loginForm" action="<c:url value="/RegistrationServlet" />"
 				method="POST" enctype="multipart/form-data">
 				
@@ -43,6 +39,7 @@
 				<input id="file" name="file" type="file" class="file" multiple
 					data-show-upload="false" data-show-caption="true">
 		</div>
+<!-- REGPICS PART -->
 
 		 <div class="form-group">
 				<label for="username">User</label>

@@ -6,12 +6,17 @@
 	<security:http disable-url-rewriting="false">
 		<security:csrf disabled="true" />
 		<security:headers disabled="true" />
+		<!-- ADMIN PART -->
 		<security:intercept-url pattern="/comment/*"
-			access="hasRole('USER')" method="POST" />
+			access="hasAnyRole('USER','ADMIN')" method="POST" />
 		<security:intercept-url pattern="/blog/*"
-			access="hasRole('USER')" method="POST" />
+			access="hasAnyRole('USER','ADMIN')" method="POST" />
 		<security:intercept-url pattern="/pages/secured/*"
-			access="hasRole('BLOGGER')" />		
+			access="hasAnyRole('BLOGGER','ADMIN')" />
+		
+		<security:intercept-url pattern="/pages/admin/*"
+			access="hasRole('ADMIN')" />
+		
 		<security:form-login login-page="/pages/login.jsp"
 			login-processing-url="/login" default-target-url="/index.jsp"
 			authentication-failure-url="/pages/login.jsp?error=true"

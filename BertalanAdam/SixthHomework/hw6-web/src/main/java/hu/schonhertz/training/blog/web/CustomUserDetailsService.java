@@ -34,7 +34,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 			if (user == null) {
 				throw new UsernameNotFoundException(username);
 			}
-			user = userService.setUpRoles(user);
+			// ADMIN PART
+//			user = userService.setUpRoles(user);
 
 			List<GrantedAuthority> authorities = buildUserAuthority(user.getRoles());
 
