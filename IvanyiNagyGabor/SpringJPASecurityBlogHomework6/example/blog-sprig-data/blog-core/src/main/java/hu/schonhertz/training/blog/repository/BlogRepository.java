@@ -14,4 +14,6 @@ import hu.schonhertz.training.blog.entity.Blog;
 public interface BlogRepository extends JpaRepository<Blog, Long> {
 
 	Page<Blog> findByTitleContainingIgnoreCase(String title, Pageable pageable);
+	
+
 }

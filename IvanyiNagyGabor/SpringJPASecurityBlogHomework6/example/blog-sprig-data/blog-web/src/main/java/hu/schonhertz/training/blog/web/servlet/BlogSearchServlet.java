@@ -40,6 +40,7 @@ public class BlogSearchServlet extends HttpServlet {
 		System.out.println("postconstruct has run.");
 		SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
 	}
+	
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {

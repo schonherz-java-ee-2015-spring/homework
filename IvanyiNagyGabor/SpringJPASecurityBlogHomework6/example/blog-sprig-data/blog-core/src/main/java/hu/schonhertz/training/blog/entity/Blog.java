@@ -28,6 +28,11 @@ public class Blog extends BaseEntity {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "blog_id")
 	private Set<Comment> comments;
+	
+	@ManyToOne
+	private Category category;
+
+	
 
 	private String title;
 
@@ -108,5 +113,21 @@ public class Blog extends BaseEntity {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
+
+	/**
+	 * @return the category
+	 */
+	public Category getCategory() {
+		return category;
+	}
+
+	/**
+	 * @param category the category to set
+	 */
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+
 
 }

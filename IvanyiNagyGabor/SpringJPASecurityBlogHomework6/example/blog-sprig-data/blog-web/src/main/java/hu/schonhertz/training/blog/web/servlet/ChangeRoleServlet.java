@@ -30,6 +30,7 @@ public class ChangeRoleServlet extends HttpServlet {
 	static final Logger logger = LogManager.getLogger(ChangeRoleServlet.class.getName());
 
 	private static final long serialVersionUID = 1795959081410371020L;
+	private static List<RoleVo> allRoleList;
 
 	@Autowired
 	RoleService roleService;
@@ -54,9 +55,6 @@ public class ChangeRoleServlet extends HttpServlet {
 			UserVo admin = userService.findUserByName("admin");
 			userList = userService.getAllUserBySorted();
 			userList.remove(admin);
-			List<RoleVo> allRoleList = admin.getRoles().stream().sorted((r1, r2) -> r1.getId().compareTo(r2.getId()))
-					.collect(Collectors.toList());
-			
 			
 			Map<RoleVo, Boolean> isRoles = new LinkedHashMap<RoleVo, Boolean>();
 			isRoles.put(allRoleList.get(0), request.getParameter("isUserRole") != null);
@@ -87,7 +85,9 @@ public class ChangeRoleServlet extends HttpServlet {
 		try {
 			UserVo admin = userService.findUserByName("admin");
 			userList = userService.getAllUserBySorted();
-			userList.remove(admin);
+			allRoleList = admin.getRoles().stream().sorted((r1, r2) -> r1.getId().compareTo(r2.getId())).collect(Collectors.toList());
+			userList.remove(userList.indexOf(admin));
+			
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		}
