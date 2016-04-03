@@ -11,30 +11,26 @@
 <title>Create Order</title>
 </head>
 <body>
-	<div id="main">
-		<div id="first">
-			<h1>Create order form</h1>
-			<form:form action="addOrder" method="POST" modelAttribute="order">
-	
-				<form:select path="userId">
+	<div>
+		<div>
+			<h1>Create Order Form</h1>
+			<form id="myform" name="form" action="addOrder" method="POST"
+				onsubmit="validateForm()">
+
+				<h2>User:</h2>
+				<select name="userId">
 					<c:forEach items="${userVos}" var="user">
-						<form:option value="${user.id}">
-							${user.name}
-						</form:option>
+						<option value="${user.id}">${user.name}</option>
 					</c:forEach>
-				</form:select>
-				
-				<form:select path="productId">
+				</select>
+
+				<h2>Product:</h2>
+				<select name="productId">
 					<c:forEach items="${productVos}" var="product">
-						<form:option value="${product.id}">
-						${product.name}
-						</form:option>
+						<option value="${product.id}">${product.name}</option>
 					</c:forEach>
-				</form:select>
-				
-				<input type="submit" value="Add order"></input>	
-				
-			</form:form>
+				</select> <input class="submit" type="submit" value="Submit">
+			</form>
 
 		</div>
 	</div>

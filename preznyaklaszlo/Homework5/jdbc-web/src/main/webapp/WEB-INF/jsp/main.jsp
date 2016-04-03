@@ -22,7 +22,7 @@
 					<a href="/jdbc-web/product/createProduct">Create product</a>
 				</h2></li>
 			<li><h2>
-					<a href="/order-web/product/productDetails">Show products</a>
+					<a href="/jdbc-web/product/productDetails">Show products</a>
 				</h2></li>
 			<li><h2>
 					<a href="/jdbc-web/order/addOrder">Create order</a>

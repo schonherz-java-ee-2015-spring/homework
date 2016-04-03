@@ -19,7 +19,7 @@
 				<td>Price ($)</td>
 			</tr>
 
-				<c:forEach items="${productVos}" var="product">
+			<c:forEach items="${productVos}" var="product">
 				<tr>
 					<td>${product.name}</td>
 					<td>${product.price}</td>
