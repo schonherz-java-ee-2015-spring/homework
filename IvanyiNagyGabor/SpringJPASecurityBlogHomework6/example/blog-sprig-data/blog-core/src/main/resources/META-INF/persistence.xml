@@ -12,7 +12,6 @@
 		<class>hu.schonhertz.training.blog.entity.Comment</class>
 		<class>hu.schonhertz.training.blog.entity.Role</class>
 		<class>hu.schonhertz.training.blog.entity.User</class>
-		<class>hu.schonhertz.training.blog.entity.Category</class>
 		
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 
