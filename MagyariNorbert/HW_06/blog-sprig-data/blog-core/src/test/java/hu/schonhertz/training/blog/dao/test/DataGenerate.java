@@ -124,7 +124,11 @@ public class DataGenerate {
 				blog.setCreateDate(new Date());
 				blog.setTitle("Blog " + i);
 				blog.setCreator(user);
-
+				if(r % 2 == 0){
+					blog.setCategory("auto");
+				}
+				else
+					blog.setCategory("motor");
 				URL url = new URL("https://baconipsum.com/api/?type=all-meat&paras=10&start-with-lorem=1&format=html");
 				InputStream in = url.openStream();
 				StringWriter writer = new StringWriter();
