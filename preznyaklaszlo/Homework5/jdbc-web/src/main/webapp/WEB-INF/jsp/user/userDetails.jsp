@@ -7,17 +7,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<spring:url value="/resources/css/CSStable.css" var="tableCss"  />
+<link href="${tableCss}" rel="stylesheet" />
 <title>User Details</title>
 </head>
 <body>
-	<div>
+	<div class="CSStable">
 		<table>
 
 			<tr>
-				<td>User</td>
+				<td>Users:</td>
 			</tr>
-
-			<c:forEach items="${userVos}" var="user">
+				<c:forEach items="${userVos}" var="user">
 				<tr>
 					<td>${user.name}</td>
 				<tr>

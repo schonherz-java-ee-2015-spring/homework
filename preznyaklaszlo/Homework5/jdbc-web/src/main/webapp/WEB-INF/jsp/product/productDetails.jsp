@@ -8,10 +8,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Product Details</title>
+<spring:url value="resources/css/CSStable.css" var="tableCss" />
+<link href="${tableCss}" rel="stylesheet" />
+<%-- <link href="<c:url value="/resources/css/table.css"/>" rel="stylesheet"> --%>
 </head>
 <body>
 
-	<div>
+	<div class="CSStable">
 		<table>
 
 			<tr>
@@ -19,7 +22,7 @@
 				<td>Price ($)</td>
 			</tr>
 
-				<c:forEach items="${productVos}" var="product">
+			<c:forEach items="${productVos}" var="product">
 				<tr>
 					<td>${product.name}</td>
 					<td>${product.price}</td>

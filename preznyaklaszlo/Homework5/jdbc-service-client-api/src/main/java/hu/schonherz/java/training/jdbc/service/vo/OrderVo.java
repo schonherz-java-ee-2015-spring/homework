@@ -33,9 +33,9 @@ public class OrderVo implements Serializable {
 	// this.userId = userId;
 	// this.productId = productId;
 	// }
-	//
-	// public OrderVo() {
-	// // TODO Auto-generated constructor stub
-	// }
+
+	public OrderVo() {
+		super();
+	}
 
 }

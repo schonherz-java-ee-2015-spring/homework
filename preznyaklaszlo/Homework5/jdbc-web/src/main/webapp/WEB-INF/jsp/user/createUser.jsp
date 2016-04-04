@@ -10,6 +10,7 @@
 <%-- <spring:url value="/resources/js/validate.js" var="validateJs" /> --%>
 <spring:url value="/resources/js/validate.js" var="validateJs" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="styles.css" type="text/css"/>
 <title>Create User</title>
 </head>
 <body>

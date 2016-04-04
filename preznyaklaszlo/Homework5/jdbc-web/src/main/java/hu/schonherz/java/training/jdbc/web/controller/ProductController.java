@@ -24,6 +24,7 @@ public class ProductController {
 	public String listAllProduct(Model model) {
 		List<ProductVo> productVos = productService.getAllProducts();
 		model.addAttribute("productVos", productVos);
+		System.out.println("ProductController");
 		return "product/productDetails";
 	}
 

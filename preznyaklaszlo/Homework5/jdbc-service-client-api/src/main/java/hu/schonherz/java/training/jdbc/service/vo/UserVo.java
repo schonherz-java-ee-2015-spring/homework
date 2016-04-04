@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class UserVo implements Serializable {
 
+	public UserVo() {
+		super();
+	}
+
 	/**
 	 * 
 	 */
