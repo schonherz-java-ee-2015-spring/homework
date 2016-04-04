@@ -79,3 +79,29 @@ WITH (
 );
 ALTER TABLE public."Order"
   OWNER TO postgres;
+  
+  
+  -- Function: public."getProducts"()
+
+-- DROP FUNCTION public."getProducts"();
+
+CREATE OR REPLACE FUNCTION public."getProducts"()
+  RETURNS "Product" AS
+'select * from public."Product"'
+  LANGUAGE sql VOLATILE
+  COST 100;
+ALTER FUNCTION public."getProducts"()
+  OWNER TO postgres;
+
+  
+  -- Function: public."getUsers"()
+
+-- DROP FUNCTION public."getUsers"();
+
+CREATE OR REPLACE FUNCTION public."getUsers"()
+  RETURNS "User" AS
+'select * from public."User"'
+  LANGUAGE sql VOLATILE
+  COST 100;
+ALTER FUNCTION public."getUsers"()
+  OWNER TO postgres;

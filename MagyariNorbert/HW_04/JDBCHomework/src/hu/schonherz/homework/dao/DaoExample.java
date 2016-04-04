@@ -17,7 +17,7 @@ import hu.schonherz.homework.records.User;
 public class DaoExample {
 	public static void main(String[] args) {
 
-		User user = new User(15, "LOLOL");
+		User user = new User(15, "Panda Vid");
 		List<Product> product = selectUserOrdersByName(user);
 		for (Product order : product) {
 			System.out.println(order.toString());
@@ -47,7 +47,8 @@ public class DaoExample {
 				+ "(SELECT product_id FROM public.\"Order\" WHERE user_id = "
 				+ "(SELECT id FROM public.\"User\" WHERE name LIKE ?));";
 		List<Product> products = new ArrayList<>();
-		try (Connection con = ConnectionHandler.getConnection(); PreparedStatement stmt = con.prepareStatement(sql)) {
+		try (Connection con = ConnectionHandler.getConnection(); 
+				PreparedStatement stmt = con.prepareStatement(sql)) {
 			stmt.setString(1, user.getName());
 			try (ResultSet rs = stmt.executeQuery();) {
 				while (rs.next()) {
@@ -64,7 +65,8 @@ public class DaoExample {
 
 		String sql = "{call \"getUsers\"()}";
 		List<User> users = new ArrayList<>();
-		try (Connection con = ConnectionHandler.getConnection();CallableStatement stmt = con.prepareCall(sql)) {
+		try (Connection con = ConnectionHandler.getConnection();
+				CallableStatement stmt = con.prepareCall(sql)) {
 			try (ResultSet rs = stmt.executeQuery();) {
 				while (rs.next()) {
 					users.add(new User(rs.getInt("id"), rs.getString("name")));
@@ -80,7 +82,8 @@ public class DaoExample {
 
 		String sql = "{call \"getProducts\"()}";
 		List<Product> products = new ArrayList<>();
-		try (Connection con = ConnectionHandler.getConnection();CallableStatement stmt = con.prepareCall(sql)) {
+		try (Connection con = ConnectionHandler.getConnection();
+				CallableStatement stmt = con.prepareCall(sql)) {
 			try (ResultSet rs = stmt.executeQuery();) {
 				while (rs.next()) {
 					products.add(new Product(rs.getInt("id"),rs.getInt("price"), rs.getString("name")));
@@ -96,7 +99,8 @@ public class DaoExample {
 
 		String sql = "SELECT user_id, product_id FROM public.\"Order\"";
 		List<Order> orders = new ArrayList<>();
-		try (Connection con = ConnectionHandler.getConnection(); Statement stmt = con.createStatement()) {
+		try (Connection con = ConnectionHandler.getConnection(); 
+				Statement stmt = con.createStatement()) {
 			try (ResultSet rs = stmt.executeQuery(sql);) {
 				while (rs.next()) {
 					orders.add(new Order(rs.getInt("user_id"),rs.getInt("product_id")));
