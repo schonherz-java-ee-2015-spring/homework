@@ -44,6 +44,11 @@
 		</div>
 		
 		 <div class="form-group">
+				<label for="title">Category</label>
+				<input type="text" class="form-control" name="category" id="category">
+		</div>
+		
+		 <div class="form-group">
 				<label for="username">Text</label>
 				
 				<label for="title">Title</label>

@@ -3,6 +3,7 @@ package hu.schonhertz.training.blog.web.servlet;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletException;
@@ -61,6 +62,8 @@ public class CreateBlogServlet extends HttpServlet {
 		blogVo.setCreator(curerntUser);
 		blogVo.setTitle(request.getParameter("title"));
 		blogVo.setText(request.getParameter("text"));
+		blogVo.setCategory(request.getParameter("category"));
+		blogVo.setCreateDate(new Date());
 
 		Part filePart = request.getPart("file");
 
