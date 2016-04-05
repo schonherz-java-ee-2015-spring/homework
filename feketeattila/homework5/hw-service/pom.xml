@@ -24,5 +24,15 @@
 			<artifactId>dozer</artifactId>
 			<version>5.5.1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>4.2.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>hu.schonherz.homework.core</groupId>
+			<artifactId>hw-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>

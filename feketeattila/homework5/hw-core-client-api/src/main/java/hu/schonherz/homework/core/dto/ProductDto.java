@@ -1,9 +1,18 @@
 package hu.schonherz.homework.core.dto;
 
-public class ProductDto {
+import java.io.Serializable;
+
+public class ProductDto implements Serializable {
+
+	private static final long serialVersionUID = -5356275796413467754L;
+
 	private Long id;
 	private String name;
 	private Long price;
+
+	public ProductDto() {
+		super();
+	}
 
 	public ProductDto(Long id, String name, Long price) {
 		super();

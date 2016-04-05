@@ -1,9 +1,18 @@
 package hu.schonherz.homework.core.dto;
 
-public class OrderDto {
+import java.io.Serializable;
+
+public class OrderDto implements Serializable {
+
+	private static final long serialVersionUID = -4584049086733486312L;
+	
 	private Long productId;
 	private Long userId;
 
+	public OrderDto() {
+		super();
+	}
+	
 	public OrderDto(Long productId, Long userId) {
 		super();
 		this.productId = productId;

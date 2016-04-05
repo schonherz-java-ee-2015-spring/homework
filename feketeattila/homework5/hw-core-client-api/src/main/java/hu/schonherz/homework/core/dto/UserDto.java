@@ -1,8 +1,17 @@
 package hu.schonherz.homework.core.dto;
 
-public class UserDto {
+import java.io.Serializable;
+
+public class UserDto implements Serializable {
+
+	private static final long serialVersionUID = 9136591626246639495L;
+
 	private Long id;
 	private String name;
+	
+	public UserDto() {
+		super();
+	}
 
 	public UserDto(Long id, String name) {
 		super();
@@ -40,7 +49,9 @@ public class UserDto {
 		this.name = name;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
