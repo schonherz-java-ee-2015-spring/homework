@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<spring:url value="/resources/css/CSStable.css" var="tableCss"  />
+<spring:url value="/resources/theme/css/CSStable.css" var="tableCss"  />
 <link href="${tableCss}" rel="stylesheet" />
 <title>User Details</title>
 </head>

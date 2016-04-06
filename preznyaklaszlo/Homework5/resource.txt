@@ -1,4 +1,4 @@
 <Resource auth="Container" driverClassName="org.postgresql.Driver"
 		maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/postgres"
-		password="lacialegnagyobb" type="javax.sql.DataSource" url="jdbc:postgresql://localhost:5432/postgres"
+		password="psw" type="javax.sql.DataSource" url="jdbc:postgresql://localhost:5432/postgres"
 		username="postgres"/>
