@@ -6,6 +6,7 @@ import java.io.InputStream;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +26,7 @@ import hu.schonhertz.training.blog.vo.UserVo;
  * This servlet handles the message box.
  */
 @WebServlet(name = "/RegistrationServlet", urlPatterns = "/RegistrationServlet")
+@MultipartConfig
 public class RegistrationServlet extends HttpServlet {
 
 	@Autowired

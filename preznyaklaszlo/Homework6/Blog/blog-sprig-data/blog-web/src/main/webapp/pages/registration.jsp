@@ -36,7 +36,7 @@
 		</c:if>
 
 		<form name="loginForm" action="<c:url value="/RegistrationServlet" />"
-				method="POST">
+				method="POST" enctype="multipart/form-data">
 
 		 <div class="form-group">
 				<label for="username">User</label>
