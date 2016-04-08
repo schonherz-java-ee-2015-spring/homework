@@ -11,7 +11,7 @@
 		<security:intercept-url pattern="/blog/*"
 			access="hasRole('BLOGGER')" method="POST" />
 		<security:intercept-url pattern="/pages/secured/*"
-			access="hasRole('USER')" />
+			access="hasRole('ROLE_ADMIN')" />
 		<security:form-login login-page="/pages/login.jsp"
 			login-processing-url="/login" default-target-url="/index.jsp"
 			authentication-failure-url="/pages/login.jsp?error=true"
