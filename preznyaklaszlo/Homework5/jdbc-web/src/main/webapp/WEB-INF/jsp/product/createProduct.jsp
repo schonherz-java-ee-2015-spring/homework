@@ -10,7 +10,8 @@
 <spring:url value="/resources/js/validate.js" var="validateJs" />
 <script src="${validateJs}"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
+<spring:url value="/resources/theme/css/CSScreate.css" var="createCss" />
+<link href="${createCss}" rel="stylesheet" />
 <title>Create Product</title>
 </head>
 <body>

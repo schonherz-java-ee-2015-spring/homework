@@ -7,6 +7,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<spring:url value="/resources/theme/css/CSSlist.css" var="listCss" />
+<link href="${listCss}" rel="stylesheet" />
 <title>Welcome!</title>
 </head>
 <body>

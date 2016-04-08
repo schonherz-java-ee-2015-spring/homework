@@ -8,11 +8,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<spring:url value="/resources/theme/css/CSSlist.css" var="listCss" />
+<link href="${listCss}" rel="stylesheet" />
 <title>Create Order</title>
 </head>
 <body>
 	<div>
-		<div>
+		<div >
 			<h1>Create Order Form</h1>
 			<form id="myform" name="form" action="addOrder" method="POST"
 				onsubmit="validateForm()">

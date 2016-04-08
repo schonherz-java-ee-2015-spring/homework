@@ -8,10 +8,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Product Details</title>
+<spring:url value="/resources/theme/css/CSStable.css" var="tableCss" />
+<link href="${tableCss}" rel="stylesheet" />
 </head>
 <body>
 
-	<div>
+	<div class="CSStable">
 		<table>
 
 			<tr>
